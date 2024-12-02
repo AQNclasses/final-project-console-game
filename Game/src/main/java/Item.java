@@ -53,9 +53,18 @@ public class Item {
         return message;
     }
 
-    public void use() {
-        used = true;
-    }
+    public void use(GameState state) {
+        if (use != null) {
+            System.out.println(use); // Print the use text from YAML
+        }
+    
+        // Dynamically handle behavior for specific items
+        if (name.equals("sand")) {
+            state.inventory.remove(this); // Remove sand from inventory after use
+        }
+    
+        used = true; // Mark the item as used
+        }
 
     @Override
     public String toString() {

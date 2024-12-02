@@ -1,46 +1,85 @@
-excalibur:
-  type: [Weapon]
-  description: "Ye sword of olde"
+scorpion:
+  type: [Animal]
+  description: "A venomous scorpion, its tail arched and ready to strike."
   use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
-  max-damage: 10
-poison frog:
-  type: [Weapon, Animal]
-  description: "A bright purple frog, oozing a thick liquid"
-  use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
-  min-damage: 2
-  max-damage: 4
-broom:
+      text: "The scorpion arches its tail as you get closer. You shouldn't touch it."
+      action: "inspect"
+  touch:
+      text: "You reach out to touch the scorpion, and it stings you! You feel a burning pain as the venom takes hold..."
+      action: "end_game"
+
+sand:
   type: [Item]
-  description: "It's for sweeping."
+  description: "A million golden pieces of sand, with thousands more slipping through your fingers."
   use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
-bucket:
+      text: "You throw the sand. It gets in your eyes... useful..."
+      
+lighter:
   type: [Item]
-  description: "It's empty."
+  description: "A small metal lighter, low on fuel but still functional."
   use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
-mop:
+      text: "The lighter flickers to life, its flame small but steady."
+      action: "ignite"
+
+coconut tree:
   type: [Item]
-  description: "It's for mopping."
+  description: "A tall tree bearing coconuts that sway gently in the breeze."
   use:
-      text: "The floor looks slightly more damp."
+      text: "You try to shake the tree, but nothing falls."
       action: "null"
-poster:
+
+spring:
   type: [Item]
-  description: "A classic."
+  description: "A bubbling natural spring with cool, clear water."
   use:
-      text: "What are you going to do with a poster?"
+      text: "You take a sip from the spring and feel refreshed."
+      action: "heal"
+
+statue:
+  type: [Item]
+  description: "A weathered stone statue with an unreadable inscription."
+  use:
+      text: "The statue's eyes glow faintly as the brazier is lit, and a deep voice resonates: 'Who dares come before me?'"
+      action: "speak"
+
+unlit brazier:
+  type: [Stationary]
+  description: "A large metal brazier, filled with ash but unlit."
+  use:
+      text: "The lighter flickers, but the brazier remains unlit. 'This won't work,' you mutter to yourself."
       action: "null"
-book:
+
+hidden symbols:
   type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
+  description: "Mysterious symbols carved into the cavern walls, glowing faintly."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+      text: "You trace the symbols with your fingers, and they briefly shine brighter."
+      action: "inspect"
+
+unlit torch:
+  type: [Item]
+  description: "A wooden torch, unlit but ready to be used."
+  use:
+      text: "You light the torch with the lighter. The flames burst forth, illuminating your surroundings."
+      action: "light"
+
+minecart:
+  type: [Item]
+  description: "An old, rusty minecart. It looks like it hasn't been used in years."
+  use:
+      text: "You push the minecart, and it screeches along the tracks."
+      action: "push"
+
+ancient scroll:
+  type: [Item]
+  description: "A fragile parchment with ancient text."
+  use:
+      text: "You attempt to decipher the text."
+      action: "read"
+
+treasure chest:
+  type: [Item]
+  description: "A locked chest, potentially filled with treasures."
+  use:
+      text: "You try to open the chest, but it remains locked."
+      action: "null"

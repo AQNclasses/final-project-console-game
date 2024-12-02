@@ -14,16 +14,12 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
-        if (room.contents.contains(items.get("poison frog")) &&
-            room.contents.contains(items.get("book")) ){
+        if (inventory.contains(items.get("scorpion"))) {
             finished = true;
             String finaltext =  """
-                                The frog hops slowly over to the book and hops on top. Suddenly the book and the
-                                frog begin to glow. The room starts spinning and you shut your eyes out of fear.
-                                When you open them, you're back in the original basement room! When you open the
-                                door, you find yourself back in the modern-day library. As you leave and the door
-                                swings shut, you think you hear a faint \"ribbet\"....
-                                """;
+            You attempt to pick up the scorpion. It arches its tail and stings you!
+            You feel a burning pain as the venom takes hold...
+            """;
             return finaltext;
         }
         return "";
@@ -35,8 +31,7 @@ public class GameState {
         LoadYAML yl = new LoadYAML();
         rooms = yl.rooms;
         items = yl.items;
-        room = rooms.get("Starting Room");
+        room = rooms.get("Unending Desert");
         visited.put(room, true);
-        inventory.add(items.get("book"));
     }
 }

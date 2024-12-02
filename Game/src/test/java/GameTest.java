@@ -8,8 +8,10 @@ public class GameTest {
     @Test
     public void testYAML() {
         LoadYAML yl = new LoadYAML();
-        Room room1 = yl.rooms.get("room1");
-        assertEquals(room1.name, "Starting Room");
+
+    Room room1 = yl.rooms.get("Unending Desert");
+
+    assertEquals(room1.name, "Unending Desert");
     }
 
 }

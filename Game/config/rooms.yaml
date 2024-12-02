@@ -1,8 +1,23 @@
-"Starting Room":
-  contents: [poison frog]
+"Unending Desert":
+  contents: [scorpion, sand, lighter]
   doors:
-      green: "Closet"
-"Closet":
-  contents: [broom, mop, bucket, poster]
+      blue: "Oasis"
+      red: "Red Rock Cavern"
+
+"Oasis":
+  contents: [coconut tree, spring, statue, unlit brazier]
   doors:
-      green: "Starting Room"
+      blue: "Unending Desert"
+      green: "Paradise"
+
+"Red Rock Cavern":
+  contents: [hidden symbols, unlit torch, minecart]
+  doors:
+      red: "Unending Desert"
+      black: "Hidden Study"
+
+"Hidden Study":
+  contents: [ancient scroll, treasure chest]
+  doors:
+      black: "Red Rock Cavern"
+

@@ -73,43 +73,55 @@ public class Game {
                     }
                     break;
                 case 3:
-                    printSlow("Which item?");
-                    itemp = myObj.nextLine();
-                    try {
-                        Item item = state.items.get(itemp);
+                printSlow("Which item?");
+                itemp = myObj.nextLine();
+                try {
+                    Item item = state.items.get(itemp);
+                    if (item == null) {
+                        printSlow("Unknown item."); 
+                        break;
+                    }
+
+                    if (item instanceof Stationary) {
+                        printSlow("The " + item.name + " is stationary and cannot be picked up.");
+                        break;
+                    }
+                    if (state.room.contents.contains(item)) {
                         state.room.contents.remove(item);
                         state.rooms.put(state.room.name, state.room);
                         state.inventory.add(item);
                         printSlow("You pick up the " + item.name + ". " + item.desc + ".");
-                    } catch (Exception e) {
-                        printSlow("Unknown item.");
+                    } else {
+                        printSlow("That item is not in the room.");
                     }
-                    break;
+                } catch (Exception e) {
+                    printSlow("Unknown item.");
+                }
+                break;
                 case 4:
                     printSlow("Your inventory:");
                     printSlow(state.inventory.toString());
                     break;
-                case 5:
+                    case 5:
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
                         if (state.inventory.contains(item)) {
-                            item.use();
-                            printSlow(item.use);
-                            if (item.action.equals("drop")) {
-                                state.inventory.remove(item);
-                                state.room.contents.add(item);
-                                state.rooms.put(state.room.name, state.room);
+                            item.use(state); // Dynamically handle behavior via YAML and `use()`
+                            if (state.inventory.contains(item) && item.name.equals("sand")) {
+                                state.inventory.remove(item); // Ensure sand is removed after use
                             }
-                        }
-                        else {
-                            printSlow("Unknown item.");
+                        } else {
+                            printSlow("That item is not in your inventory.");
                         }
                     } catch (Exception e) {
                         printSlow("Unknown item.");
                     }
                     break;
+                
+
+
                 default:
                     printSlow("Unidentified input, try again?");
             }
