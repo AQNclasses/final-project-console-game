@@ -7,6 +7,7 @@ public class GameState {
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
     String name;
     boolean finished;
+    int exitState;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
@@ -17,6 +18,7 @@ public class GameState {
         if (room.contents.contains(items.get("poison frog")) &&
             room.contents.contains(items.get("book")) ){
             finished = true;
+            exitState = 1;
             String finaltext =  """
                                 The frog hops slowly over to the book and hops on top. Suddenly the book and the
                                 frog begin to glow. The room starts spinning and you shut your eyes out of fear.
@@ -32,6 +34,7 @@ public class GameState {
     public GameState(String name) {
         this.name = name;
         finished = false;
+        exitState = -1;
         LoadYAML yl = new LoadYAML();
         rooms = yl.rooms;
         items = yl.items;

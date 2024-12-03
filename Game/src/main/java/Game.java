@@ -33,6 +33,7 @@ public class Game {
         GameState state = new GameState(name);
 
         // beginning flavor text
+        /*
         printSlow("Welcome, "+name+".");
         System.out.println("");
         printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
@@ -40,6 +41,7 @@ public class Game {
         printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
         System.out.println("");
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
+        */
         
         while (!state.finished) {
             System.out.println("");
@@ -49,6 +51,7 @@ public class Game {
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+            System.out.println("[6]: Quit the game.");
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -63,12 +66,14 @@ public class Game {
                 case 2:
                     printSlow("Which door?");
                     String door = myObj.nextLine();
+                    Room temp = state.room;
                     try {
                         String rtemp = state.room.doors.get(door);
                         state.room = state.rooms.get(rtemp);
                         printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
                     } catch (Exception e) {
                         printSlow("Unknown door.");
+                        state.room = temp;
                     }
                     break;
                 case 3:
@@ -109,6 +114,9 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
+                case 6:
+                    state.finished = true;
+                    break;
                 default:
                     printSlow("Unidentified input, try again?");
             }
@@ -116,6 +124,13 @@ public class Game {
             String update = state.update();
             printSlow(update);
         }
-        printSlow("You win!");
+        switch (state.exitState) {
+            case 1:
+                printSlow("You win!");
+                break;
+        
+            default:
+                printSlow("Quitting, thanks for playing!");
+        }
     }
 }

@@ -2,7 +2,34 @@
   contents: [poison frog]
   doors:
       green: "Closet"
+      white: "Front Yard"
+      yellow: "Dinning Room"
+      passage: "Hallway"
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
       green: "Starting Room"
+"Front Yard":
+  contents: []
+  doors:
+      white: "Starting Room"
+      hole: "Rabbit Burrow"
+"Dinning Room":
+  contents: []
+  doors:
+    yellow: "Starting Room"
+    arch: "Kitchen"
+"Hallway":
+  contents: []
+  doors:
+    passage: "Starting Room"
+    brown: "Kitchen"
+"Kitchen":
+  contents: []
+  doors:
+    arch: "Dinning Room"
+    brown: "Hallway"
+"Rabbit Burrow":
+  contents: []
+  doors:
+    hole: "Front Yard"
