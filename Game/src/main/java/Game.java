@@ -67,13 +67,17 @@ public class Game {
                     printSlow("Which door?");
                     String door = myObj.nextLine();
                     Room temp = state.room;
-                    try {
-                        String rtemp = state.room.doors.get(door);
-                        state.room = state.rooms.get(rtemp);
-                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
-                    } catch (Exception e) {
-                        printSlow("Unknown door.");
-                        state.room = temp;
+                    if(state.room.locks.containsKey(door) && state.room.locks.get(door)){
+                        printSlow("Unfortunately the " + door + " door seems to be locked. Try to find a key...");
+                    }else{
+                        try {
+                            String rtemp = state.room.doors.get(door);
+                            state.room = state.rooms.get(rtemp);
+                            printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        } catch (Exception e) {
+                            printSlow("Unknown door.");
+                            state.room = temp;
+                        }
                     }
                     break;
                 case 3:
