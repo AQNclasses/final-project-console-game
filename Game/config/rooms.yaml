@@ -14,6 +14,7 @@
   doors:
       white: "Starting Room"
       hole: "Rabbit Burrow"
+      path: "Street"
 "Dinning Room":
   contents: []
   doors:
@@ -29,7 +30,30 @@
   doors:
     arch: "Dinning Room"
     brown: "Hallway"
+    red: "Living Room"
 "Rabbit Burrow":
   contents: []
   doors:
     hole: "Front Yard"
+"Living Room":
+  contents: []
+  doors:
+    red: "Kitchen"
+    blue: "Garage"
+  locks:
+    blue: true
+"Garage":
+  contents: []
+  doors:
+    blue: "Living Room"
+    rolling: "Street"
+  locks:
+    blue: true
+    rolling: true
+"Street":
+  contents: []
+  doors:
+    rolling: "Garage"
+    path: "Front Yard"
+  locks:
+    rolling: true
