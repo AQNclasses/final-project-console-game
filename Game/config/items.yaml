@@ -7,7 +7,7 @@ excalibur:
   min-damage: 1
   max-damage: 10
 poison frog:
-  type: [Weapon, Animal]
+  type: [Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
