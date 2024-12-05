@@ -3,13 +3,12 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import org.yaml.snakeyaml.Yaml;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.yaml.snakeyaml.Yaml;
 
 public class LoadYAML {
 
@@ -44,8 +43,9 @@ public class LoadYAML {
             Map<String, Object> use = (HashMap) properties.get("use");
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
+            boolean locked = properties.get("locked").equals("True");
             List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction));
+            items.put(name, new Item(name, types, desc, usetext, useaction, locked));
         }
         return items;
     }

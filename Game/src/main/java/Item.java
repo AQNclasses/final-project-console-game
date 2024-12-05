@@ -8,6 +8,7 @@ enum ItemType {
     Key,
     Animal,
     Plant,
+    Chest,
     Item;
 
     public static ItemType toType(String s) {
@@ -22,6 +23,8 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "Chest":
+                return ItemType.Chest;
             default:
                 return ItemType.Item;
         }
@@ -36,9 +39,11 @@ public class Item {
     String desc;
     String use;
     String action;
+    boolean locked;
     Boolean used = false;
 
-    Item(String n, List<String> ts, String d, String u, String a) {
+    Item(String n, List<String> ts, String d, String u, String a, boolean lock) {
+        locked = lock;
         name = n;
         for (String ty : ts) types.add(ItemType.valueOf(ty));
         desc = d;

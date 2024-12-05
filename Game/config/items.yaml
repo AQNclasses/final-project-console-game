@@ -1,6 +1,7 @@
 excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
+  locked: "False"
   use:
       text: "You slash with the sword."
       action: "null"
@@ -9,6 +10,7 @@ excalibur:
 poison frog:
   type: [Weapon, Animal]
   description: "A bright purple frog, oozing a thick liquid"
+  locked: "False"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
       action: "drop"
@@ -17,30 +19,50 @@ poison frog:
 broom:
   type: [Item]
   description: "It's for sweeping."
+  locked: "False"
   use:
       text: "The floor looks slightly less dusty."
       action: "null"
 bucket:
   type: [Item]
   description: "It's empty."
+  locked: "False"
   use:
       text: "You put the bucket on your head. You feel marginally safer."
       action: "null"
 mop:
   type: [Item]
   description: "It's for mopping."
+  locked: "False"
   use:
       text: "The floor looks slightly more damp."
       action: "null"
 poster:
   type: [Item]
   description: "A classic."
+  locked: "False"
   use:
       text: "What are you going to do with a poster?"
       action: "null"
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
+  locked: "False"
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+treasure chest:
+  type: [Chest]
+  description: "A rusty looking chest with a lock on it"
+  locked: "True"
+  use:
+      text: "null"
+      action: "null"
+rusty key:
+  type: [Key]
+  description: "Maybe you can open something with it."
+  locked: "False"
+  use:
+      text: "you dont have anything to unlock"
+      action: "null"
+

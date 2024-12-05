@@ -14,8 +14,7 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
-        if (room.contents.contains(items.get("poison frog")) &&
-            room.contents.contains(items.get("book")) ){
+        if (!items.get("treasure chest").locked){
             finished = true;
             String finaltext =  """
                                 The frog hops slowly over to the book and hops on top. Suddenly the book and the

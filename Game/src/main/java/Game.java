@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Game {
 
@@ -11,7 +11,7 @@ public class Game {
         char[] chars = toPrint.toCharArray();
         for (int i=0; i < chars.length; i++) {
             System.out.print(chars[i]);
-            try { Thread.sleep(25);} 
+            try { Thread.sleep(10);} 
             catch (InterruptedException e) {Thread.currentThread().interrupt();}
         }
         System.out.println("");
@@ -50,6 +50,8 @@ public class Game {
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+            System.out.println("[6]: Drop item from inventory.");
+            System.out.println("[7]: Examine an Object in the room.");
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -77,10 +79,14 @@ public class Game {
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
+                       if(item.types.contains(ItemType.Chest)){
+                        printSlow("This item is too heavy to pick up.");
+                       }else{
                         state.room.contents.remove(item);
                         state.rooms.put(state.room.name, state.room);
                         state.inventory.add(item);
                         printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+                       }
                     } catch (Exception e) {
                         printSlow("Unknown item.");
                     }
@@ -107,6 +113,63 @@ public class Game {
                             printSlow("Unknown item.");
                         }
                     } catch (Exception e) {
+                        printSlow("Unknown item.");
+                    }
+                    break;
+                case 6: 
+                    printSlow("Which item?");
+                    itemp = myObj.nextLine();
+                    try {
+                        Item item = state.items.get(itemp);
+                        if (state.inventory.contains(item)) {
+                            state.inventory.remove(item);
+                            printSlow("You dropped the " + item.name + "." );
+                        }else{
+                            printSlow("Unknown item.");
+                        }
+                        
+                    } catch (Exception e) {
+                        printSlow("Unknown item.");
+                    }
+                    break;
+                case 7:
+                    printSlow("Which object?");
+                    itemp = myObj.nextLine();
+                    try {
+                        Item item = state.items.get(itemp);
+                        if (state.room.contents.contains(item)){
+                            printSlow(item.desc);
+                            if(item.types.contains(ItemType.Chest)){
+                                System.out.println("");
+                                System.out.println("Do you want to Open the Chest?");
+                                System.out.println("Yes [1]");
+                                System.out.println("No [2]");
+                                int c = myObj.nextInt();
+                                myObj.nextLine();
+                                switch(c){
+                                    case 1:
+                                    boolean key = false;
+                                    for(Item i:state.inventory){
+                                        if(i.types.contains(ItemType.Key)) key=true;
+                                    }
+                                    if(key){
+                                        state.items.get("treasure chest").locked = false;
+                                        printSlow("you opened the chest!");
+                                    }else{
+                                        printSlow("you dont have a key...");
+                                    }
+                                    break;
+                                    case 2:
+                                    break;
+                                    default:
+                                    break;
+                                }
+                            }
+                        }else{
+                            printSlow("This item is not in the room.");
+                        }
+                        
+                    } catch(Exception e){
                         printSlow("Unknown item.");
                     }
                     break;
