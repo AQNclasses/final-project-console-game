@@ -1,8 +1,22 @@
 "Starting Room":
   contents: [poison frog]
+  locked: false
   doors:
       green: "Closet"
+      red: "Bedroom"
+"Bedroom":
+  contents: [gold key]
+  locked: false
+  doors: 
+      red: "Starting Room"
 "Closet":
   contents: [broom, mop, bucket, poster]
+  locked: false
   doors:
       green: "Starting Room"
+      blue: "Mystery Room"
+"Mystery Room":
+  contents: []
+  locked: true
+  doors:
+      blue: "Closet"

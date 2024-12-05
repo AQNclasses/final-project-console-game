@@ -10,7 +10,7 @@ public class GameState {
     Room room;
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
-    Map<String, Item> items; // global list of known items
+    Map<String, ? extends Item> items; // global list of known items
 
     // update state and check for winning condition
     public String update() {

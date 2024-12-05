@@ -1,13 +1,5 @@
-excalibur:
-  type: [Weapon]
-  description: "Ye sword of olde"
-  use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
-  max-damage: 10
 poison frog:
-  type: [Weapon, Animal]
+  type: [Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
@@ -15,32 +7,49 @@ poison frog:
   min-damage: 2
   max-damage: 4
 broom:
-  type: [Item]
+  type: [CleaningItem]
   description: "It's for sweeping."
   use:
       text: "The floor looks slightly less dusty."
-      action: "null"
+      action: "sweep"
 bucket:
-  type: [Item]
+  type: [CleaningItem]
   description: "It's empty."
   use:
       text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+      action: "wear"
 mop:
-  type: [Item]
+  type: [CleaningItem]
   description: "It's for mopping."
   use:
       text: "The floor looks slightly more damp."
-      action: "null"
+      action: "mop"
 poster:
-  type: [Item]
+  type: [PrintMaterial]
   description: "A classic."
   use:
       text: "What are you going to do with a poster?"
-      action: "null"
+      action: "place"
 book:
-  type: [Item]
+  type: [PrintMaterial]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+gold key:
+   type: [Weapon, Key]
+   description: "A gold skeleton key."
+   use:
+       text: "You turn the key in the lock. It unlocks the door."
+       action: "unlock"
+   color: "gold"
+   min-damage: 1
+   max-damage: 3
+excalibur:
+  type: [Weapon]
+  description: "Ye sword of olde"
+  use:
+      text: "You slash with the sword."
+      action: "stab"
+  min-damage: 1
+  max-damage: 10
