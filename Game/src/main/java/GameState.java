@@ -5,6 +5,9 @@ import java.util.*;
 
 public class GameState {
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
+    HashMap<Room, Boolean> mopped = new HashMap<Room, Boolean>();
+    HashMap<Room, Boolean> swept = new HashMap<Room, Boolean>();
+    boolean cleaned;
     String name;
     boolean finished;
     Room room;
@@ -26,6 +29,12 @@ public class GameState {
                                 """;
             return finaltext;
         }
+        if(!cleaned && room.name.equals("Starting Room") && mopped.get(room) && swept.get(room)) {
+        	room.contents.add(items.get("silver key"));
+        	String cleanRoom= "You've cleaned the room. Check to see if there are any new items.";
+        	cleaned = true;
+        	return cleanRoom;
+        }
         return "";
     }
 
@@ -37,6 +46,9 @@ public class GameState {
         items = yl.items;
         room = rooms.get("Starting Room");
         visited.put(room, true);
+        mopped.put(room, false);
+        swept.put(room, false);
         inventory.add(items.get("book"));
+        cleaned = false;
     }
 }

@@ -1,5 +1,5 @@
 poison frog:
-  type: [Animal]
+  type: [Weapon, Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
@@ -38,7 +38,7 @@ book:
       action: "drop"
 gold key:
    type: [Weapon, Key]
-   description: "A gold skeleton key."
+   description: "A gold skeleton key"
    use:
        text: "You turn the key in the lock. It unlocks the door."
        action: "unlock"
@@ -53,3 +53,12 @@ excalibur:
       action: "stab"
   min-damage: 1
   max-damage: 10
+silver key:
+   type: [Weapon, Key]
+   description: "A silver skeleton key"
+   use:
+       text: "You turn the key in the lock. It unlocks the door."
+       action: "unlock"
+   color: "silver"
+   min-damage: 1
+   max-damage: 3

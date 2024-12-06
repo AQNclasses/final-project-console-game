@@ -21,6 +21,18 @@ public class Game {
 			Thread.currentThread().interrupt();
 		}
 	}
+	
+	private static void unlockDoor(Key key, GameState state, String doorColor) {
+		String rtemp = state.room.doors.get(doorColor);
+		if(rtemp != null) {
+			state.rooms.get(rtemp).locked = false;
+			printSlow(key.use);
+			printSlow("Try to walk through the door.");
+		}
+		else {
+			printSlow("You are using the wrong key.");
+		}
+	}
 
 	public static void main(String[] args) {
 
@@ -31,7 +43,14 @@ public class Game {
 		name = myObj.nextLine();
 		// init game state
 		GameState state = new GameState(name);
-
+		
+		printSlow("welcome, " +name+ ".");
+		System.out.println();
+		printSlow("You've been hired to restore an old house.");
+		System.out.println();
+		printSlow("When you walk in, you didn't realize just how dirty the place was going to be.");
+		System.out.println();
+		printSlow("You might want to look around and see if there are any cleaning supplies so you can get started.");
 		// beginning flavor text
 		/**
         printSlow("Welcome, "+name+".");
@@ -106,19 +125,30 @@ public class Game {
 					Item item = state.items.get(itemp);
 					if (state.inventory.contains(item)) {
 						item.use();
-						printSlow(item.use);
 						if (item.action.equals("drop")) {
+							printSlow(item.use);
 							state.inventory.remove(item);
 							state.room.contents.add(item);
 							state.rooms.put(state.room.name, state.room);
 						}
 						if(item.action.equals("unlock") && (item instanceof Key)) {
 							Key k = (Key) item;
-							if(k.color.equals("gold")) {
-								String rtemp = state.room.doors.get("blue");
-								state.rooms.get(rtemp).locked = false;
-								printSlow("Try to walk through the door again.");
-							}
+							switch(k.color) {
+							case "gold":
+								unlockDoor(k, state, "blue");
+								break;
+							case "silver":
+								unlockDoor(k, state, "red");
+								break;
+							}	
+						}
+						if(item.action.equals("sweep") && item.name.equals("broom")) {
+							printSlow(item.use);
+							state.swept.put(state.room, true);
+						}
+						if(item.action.equals("mop") && item.name.equals("mop")) {
+							printSlow(item.use);
+							state.mopped.put(state.room, true);
 						}
 					}
 					else {

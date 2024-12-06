@@ -6,7 +6,7 @@
       red: "Bedroom"
 "Bedroom":
   contents: [gold key]
-  locked: false
+  locked: true
   doors: 
       red: "Starting Room"
 "Closet":
@@ -16,7 +16,7 @@
       green: "Starting Room"
       blue: "Mystery Room"
 "Mystery Room":
-  contents: []
+  contents: [excalibur]
   locked: true
   doors:
       blue: "Closet"
