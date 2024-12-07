@@ -14,7 +14,15 @@ public class GameTest {
     public void testLocked(){
         LoadYAML y1 = new LoadYAML();
         Item item1 = y1.items.get("treasure chest");
-        assertEquals(item1.locked, false);
+        assertEquals(item1.locked, true);
+    }
+
+    @Test
+    public void checkStuck(){
+        LoadYAML y1 = new LoadYAML();
+        for(Room r:y1.rooms.values()){
+         assertEquals((r.doors != null), true);   
+        }
     }
 
 }

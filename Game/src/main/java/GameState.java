@@ -7,6 +7,7 @@ public class GameState {
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
     String name;
     boolean finished;
+    int health = 20;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
@@ -17,11 +18,13 @@ public class GameState {
         if (!items.get("treasure chest").locked){
             finished = true;
             String finaltext =  """
-                                The frog hops slowly over to the book and hops on top. Suddenly the book and the
-                                frog begin to glow. The room starts spinning and you shut your eyes out of fear.
-                                When you open them, you're back in the original basement room! When you open the
-                                door, you find yourself back in the modern-day library. As you leave and the door
-                                swings shut, you think you hear a faint \"ribbet\"....
+                                YOU WIN YAY!
+                                """;
+            return finaltext;
+        }else if(health <= 0){
+            finished = true;
+            String finaltext =  """
+                                YOU DIED!
                                 """;
             return finaltext;
         }

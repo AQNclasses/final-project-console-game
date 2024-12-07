@@ -52,6 +52,7 @@ public class Game {
             System.out.println("[5]: Use an object from my inventory.");
             System.out.println("[6]: Drop item from inventory.");
             System.out.println("[7]: Examine an Object in the room.");
+            System.out.println("[8]: TEST DAMAGE");
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -174,6 +175,9 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
+                case 8:
+                    state.health =state.health - 20;
+                    break;
                 default:
                     printSlow("Unidentified input, try again?");
             }
@@ -181,6 +185,5 @@ public class Game {
             String update = state.update();
             printSlow(update);
         }
-        printSlow("You win!");
     }
 }
