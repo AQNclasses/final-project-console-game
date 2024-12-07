@@ -11,12 +11,16 @@ public class Room {
     public Map<String,String> doors;
 
     public Room(String name, List<Item> contents, Map<String, String> doors) {
+
         this.name = name;
         this.contents = contents;
         this.doors = doors;
+
     }
 
     public String toString() {
+
         return name;
+        
     }
 }
