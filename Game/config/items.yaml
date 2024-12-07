@@ -6,6 +6,7 @@ excalibur:
       action: "null"
   min-damage: 1
   max-damage: 10
+  
 poison frog:
   type: [Weapon, Animal]
   description: "A bright purple frog, oozing a thick liquid"
@@ -14,30 +15,35 @@ poison frog:
       action: "drop"
   min-damage: 2
   max-damage: 4
+
 broom:
   type: [Item]
   description: "It's for sweeping."
   use:
       text: "The floor looks slightly less dusty."
       action: "null"
+
 bucket:
   type: [Item]
   description: "It's empty."
   use:
       text: "You put the bucket on your head. You feel marginally safer."
       action: "null"
+
 mop:
   type: [Item]
   description: "It's for mopping."
   use:
       text: "The floor looks slightly more damp."
       action: "null"
+
 poster:
   type: [Item]
   description: "A classic."
   use:
       text: "What are you going to do with a poster?"
       action: "null"
+
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."

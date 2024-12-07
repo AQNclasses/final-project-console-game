@@ -25,6 +25,7 @@ public class LoadYAML {
     //Room room = (new Yaml(new Constructor(Room.class))).load(stream);
     public HashMap<String,Room> loadRooms() {
 
+        //load the rooms from your rooms.yaml file, every room has a name, contents and doors
         data = load("rooms.yaml");
 
         for (String name : data.keySet()) {
@@ -43,6 +44,7 @@ public class LoadYAML {
 
     public HashMap<String,Item> loadItems() {
 
+        //load the items from item.yaml, items have a type or multiple, a description, a use and maybe an action, and maybe damage depending on the item type
         data = load("items.yaml");
 
         for (String name : data.keySet()) {
@@ -68,7 +70,7 @@ public class LoadYAML {
                 FileInputStream inputStream = new FileInputStream(file);
                 data = yaml.load(inputStream);
             } catch (FileNotFoundException e) {System.out.println("Couldn't find file");}
-            
+
         return data;
     }
 

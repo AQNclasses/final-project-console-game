@@ -16,7 +16,7 @@ public class Game {
             System.out.print(chars[i]);
             try { Thread.sleep(25);} 
             catch (InterruptedException e) {Thread.currentThread().interrupt();}
-            
+
         }
 
         System.out.println("");
@@ -49,6 +49,8 @@ public class Game {
         System.out.println("");
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
         */
+
+        //runs as long as game has not finished
         while (!state.finished) {
 
             System.out.println("");
@@ -64,6 +66,7 @@ public class Game {
 
             switch (choice) {
 
+                //look around the room
                 case 1:
 
                     printSlow("You can see the following items:");
@@ -72,6 +75,7 @@ public class Game {
                     for (String c : state.room.doors.keySet()) printSlow(c);
                     break;
 
+                //move to a new room
                 case 2:
 
                     printSlow("Which door?");
@@ -91,6 +95,7 @@ public class Game {
 
                     break;
 
+                //pick up an object in the room
                 case 3:
 
                     printSlow("Which item?");
@@ -111,12 +116,14 @@ public class Game {
                     }
                     break;
 
+                //examine your inventory
                 case 4:
 
                     printSlow("Your inventory:");
                     printSlow(state.inventory.toString());
                     break;
-
+                    
+                //use an item
                 case 5:
 
                     printSlow("Which item?");
@@ -152,14 +159,19 @@ public class Game {
 
                     break;
 
+                //anything else besides one of th above inputs
                 default:
                     printSlow("Unidentified input, try again?");
             }
 
+            //Check to see if the win condition has been achieved
             String update = state.update();
+
+            
             printSlow(update);
         }
 
+        //win text
         printSlow("You win!");
     }
 }

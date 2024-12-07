@@ -4,7 +4,7 @@ import java.util.*;
 // Useful for implementing state-based behavior (ex: see something new on second visit to room)
 
 public class GameState {
-    
+
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
     String name;
     boolean finished;
@@ -16,6 +16,7 @@ public class GameState {
     // update state and check for winning condition
     public String update() {
 
+        //Win Condition
         if (room.contents.contains(items.get("poison frog")) && room.contents.contains(items.get("book")) ){
 
             finished = true;

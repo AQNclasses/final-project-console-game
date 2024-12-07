@@ -2,7 +2,20 @@
   contents: [poison frog]
   doors:
       green: "Closet"
+      red: "Garden"
+
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, poster]
   doors:
       green: "Starting Room"
+
+"Garden":
+  contents: [excalibur]
+  doors:
+      green: "Starting Room"
+      blue: "Pond"
+
+"Pond":
+  contents: [bucket]
+  doors:
+    blue: "Garden"
