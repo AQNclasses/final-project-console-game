@@ -26,7 +26,25 @@ public class GameState {
                                 """;
             return finaltext;
         }
-        return "";
+        
+   
+        if(room.contents.contains(items.get("unnamed kid")) &&
+            room.contents.contains(items.get("red pole")) ) {
+                finished = false;
+                String text = """
+                            'thanks for getting my  red power pole for me, I kinda lost it and mr.popos gets real mad when i lose things'
+                            the young boy reaches reaches around a grabs a small empty bottle from his pocket and hands it to you
+                            'this might help you drink the water in the fountain without getting mr.popo mad'
+                            the young boy shivers at the idea of upsetting his gracious teacher
+                            
+                            
+                            """;
+                
+                        
+                       
+              return text;
+            }
+            return "";
     }
 
     public GameState(String name) {

@@ -44,3 +44,26 @@ book:
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+      #senzu bean
+
+bean:
+  type: [Item]
+  description: "an assuming oval shaped bean, its warm to the touch and you supspect it will taste gross."
+  use:
+    text: "you pop this warmish green bean in your mouth. it taste like kitty litter but you can feel your body and mind reinvoragated."
+    action: "eat"
+Unnamed Kid:
+  type: [NPC]
+  description: """
+              in the center of the small courtayrd paved with grey bricks in an almost perfect fashion.
+              we see a small boy with an orange gi on weirdly light blue boots and a small almost monkey like tail
+              coming out of his backside. even though  he seems like a kid but he practicing martial arts with no one around
+              """
+  use:
+    talk: "Hi my name is Goku, Usually I have my power pole when im traing so I look kinda weird "
+
+
+          "if you see it around here can you drop it for me i can give you a pretty cool power up if you do "
+    action:
+
+  

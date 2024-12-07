@@ -1,8 +1,21 @@
 "Starting Room":
   contents: [poison frog]
   doors:
-      green: "Closet"
+      green: [Closet, Sliding Silver Door] 
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
       green: "Starting Room"
+
+      #sliding silver door leads to a small room it seems grey and empty bed with the essentials sheets and blankets, a water fountain that is filled to the brim with water, a red pole leaning against the fountain with a black sash attached to its exterior
+
+"Sliding Silver Door"
+  contents: [bed, water fountain, red pole]
+  doors:  
+      green: "curtain" 
+      red: "Heavy Door"
+"curtain"
+  contents: [Unnamed Kid, bean]
+  doors:
+        green: "Sliding Silver Door"
+    
