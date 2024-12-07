@@ -56,8 +56,8 @@ treasure chest:
   description: "A rusty looking chest with a lock on it"
   locked: "True"
   use:
-      text: "null"
-      action: "null"
+      text: "You opened the treasure chest"
+      action: "open"
 rusty key:
   type: [Key]
   description: "Maybe you can open something with it."

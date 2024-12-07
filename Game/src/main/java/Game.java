@@ -11,12 +11,12 @@ public class Game {
         char[] chars = toPrint.toCharArray();
         for (int i=0; i < chars.length; i++) {
             System.out.print(chars[i]);
-            try { Thread.sleep(10);} 
+            try { Thread.sleep(20);} 
             catch (InterruptedException e) {Thread.currentThread().interrupt();}
         }
         System.out.println("");
         try {
-            Thread.sleep(500);
+            Thread.sleep(50);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -124,6 +124,7 @@ public class Game {
                         if (state.inventory.contains(item)) {
                             state.inventory.remove(item);
                             printSlow("You dropped the " + item.name + "." );
+                            state.room.contents.add(item);
                         }else{
                             printSlow("Unknown item.");
                         }

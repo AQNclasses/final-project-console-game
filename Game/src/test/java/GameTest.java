@@ -1,7 +1,5 @@
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import java.util.HashMap;
+import org.junit.Test;
 
 public class GameTest {
 
@@ -10,6 +8,13 @@ public class GameTest {
         LoadYAML yl = new LoadYAML();
         Room room1 = yl.rooms.get("Starting Room");
         assertEquals(room1.name, "Starting Room");
+    }
+
+    @Test
+    public void testLocked(){
+        LoadYAML y1 = new LoadYAML();
+        Item item1 = y1.items.get("treasure chest");
+        assertEquals(item1.locked, false);
     }
 
 }
