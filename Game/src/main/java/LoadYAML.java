@@ -17,6 +17,7 @@ public class LoadYAML {
     HashMap<String, Object> data;
     HashMap<String, Room> rooms = new HashMap<>();
     HashMap<String, Item> items = new HashMap<>();
+    
 
     // load room data from yaml file
     // could do this more cleverly with packaged class definitions

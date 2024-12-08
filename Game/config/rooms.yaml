@@ -1,8 +1,10 @@
 "Starting Room":
   contents: [poison frog]
   doors:
-      green: "Closet"
-      red: "Garden"
+      green: "Garden"
+      red: "Forge"
+      blue: "Pond"
+      white: "Bright Room"
 
 "Closet":
   contents: [broom, mop, poster]
@@ -10,12 +12,21 @@
       green: "Starting Room"
 
 "Garden":
-  contents: [excalibur]
+  contents: [Green Key]
   doors:
       green: "Starting Room"
-      blue: "Pond"
 
 "Pond":
-  contents: [bucket]
+  contents: [Blue Key]
   doors:
-    blue: "Garden"
+    blue: "Starting Room"
+
+"Forge":
+  contents: [Red Key]
+  doors:
+    red: "Starting Room"
+
+"Bright Room":
+  contents: [excalibur]
+  doors:
+    white: "Starting Room"

@@ -6,9 +6,16 @@ import java.util.*;
 public class GameState {
 
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
+
+    //the name of the room
     String name;
+
     boolean finished;
+
+    //the current room you're in
     Room room;
+
+    //you're inventory
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
     Map<String, Item> items; // global list of known items
@@ -29,6 +36,8 @@ public class GameState {
                                 """;
             return finaltext;
         }
+
+
 
         return "";
     }

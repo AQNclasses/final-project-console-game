@@ -50,3 +50,24 @@ book:
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+
+Blue Key:
+  type: [Item]
+  description: "An worn key with A blue gem embedded within it's head."
+  use:
+      text: "You place the key"
+      action: "drop"
+
+Green Key:
+  type: [Item]
+  description: "An worn key with A green gem embedded within it's head."
+  use:
+      text: "You place the book gently on the floor."
+      action: "drop"
+
+Red Key:
+  type: [Item]
+  description: "An worn key with A red gem embedded within it's head."
+  use:
+      text: "You place the book gently on the floor."
+      action: "drop"
