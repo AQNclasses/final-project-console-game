@@ -1,4 +1,7 @@
 import java.util.List;
+
+import org.checkerframework.checker.units.qual.s;
+
 import java.util.ArrayList;
 
 // Define types of items that share actions / properties
@@ -8,6 +11,9 @@ enum ItemType {
     Key,
     Animal,
     Plant,
+    Cleaner,
+    Cover,
+    Note,
     Item;
 
     public static ItemType toType(String s) {
@@ -22,6 +28,12 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "Cleaner":
+                return ItemType.Cleaner;
+            case "Cover":
+                return ItemType.Cover;
+            case "Note":
+                return ItemType.Note;
             default:
                 return ItemType.Item;
         }
@@ -32,24 +44,22 @@ enum ItemType {
 // All other item classes should inherit this class
 public class Item {
     String name;
-    ArrayList<ItemType> types = new ArrayList<ItemType>();
+    ItemType type;
     String desc;
     String use;
     String action;
     Boolean used = false;
 
-    Item(String n, List<String> ts, String d, String u, String a) {
+    Item(String n, String t, String d, String u, String a) {
         name = n;
-        for (String ty : ts) types.add(ItemType.valueOf(ty));
+        type = ItemType.valueOf(t);
         desc = d;
         use = u;
         action = a;
     }
 
     public String inspect() {
-        String alltypes = "";
-        for (ItemType t: types) alltypes += t.name() + " ";
-        String message = "This is a " + this.name + ", a kind of " + alltypes + ". Description: " + this.desc;
+        String message = "This is a " + this.name + ", a kind of " + type + ". Description: " + this.desc;
         return message;
     }
 

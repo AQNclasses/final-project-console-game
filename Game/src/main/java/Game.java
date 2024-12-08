@@ -50,8 +50,9 @@ public class Game {
             System.out.println("[2]: Move to a new room.");
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
-            System.out.println("[5]: Use an object from my inventory.");
-            System.out.println("[6]: Quit the game.");
+            System.out.println("[5]: Inspect an item in my inventory.");
+            System.out.println("[6]: Use an object from my inventory.");
+            System.out.println("[7]: Quit the game.");
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -62,6 +63,7 @@ public class Game {
                     for (Item c : state.room.contents) printSlow(c.name);
                     printSlow("You also notice that this room has doors:");
                     for (String c : state.room.doors.keySet()) printSlow(c);
+                    printSlow("You can tell the floor is: " + state.room.floor);
                     break;
                 case 2:
                     printSlow("Which door?");
@@ -103,6 +105,21 @@ public class Game {
                     try {
                         Item item = state.items.get(itemp);
                         if (state.inventory.contains(item)) {
+                            printSlow(item.inspect());
+                        }
+                        else {
+                            printSlow("Unknown item.");
+                        }
+                    } catch (Exception e) {
+                        printSlow("Unknown item.");
+                    }
+                    break;
+                case 6:
+                    printSlow("Which item?");
+                    itemp = myObj.nextLine();
+                    try {
+                        Item item = state.items.get(itemp);
+                        if (state.inventory.contains(item)) {
                             item.use();
                             printSlow(item.use);
                             if (item.action.equals("drop")) {
@@ -118,7 +135,7 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case 6:
+                case 7:
                     state.finished = true;
                     break;
                 default:

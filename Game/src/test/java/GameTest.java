@@ -12,4 +12,19 @@ public class GameTest {
         assertEquals(room1.name, "Starting Room");
     }
 
+    // Checks that every door goes both ways
+    // @Test
+    // public void testNumDoors() {
+    //     LoadYAML y1 = new LoadYAML();
+    //     HashMap<String,Room> rooms = y1.loadRooms();
+        
+    // }
+
+    // // Checks that every room is accessible
+    // @Test
+    // public void testAccessiblity() {
+    //     LoadYAML y1 = new LoadYAML();
+    //     HashMap<String,Room> rooms = y1.loadRooms();
+    // }
+
 }

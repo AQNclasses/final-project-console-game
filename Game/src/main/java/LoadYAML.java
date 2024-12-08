@@ -32,7 +32,8 @@ public class LoadYAML {
             for (String it : contemps) contents.add(items.get(it));
             Map<String, String> doors = (HashMap) inRoom.get("doors");
             Map<String, Boolean> locks = (HashMap) inRoom.get("locks");
-            rooms.put(name, new Room(name, contents, doors, locks));
+            String floor = inRoom.get("floor") == null ? "" : inRoom.get("floor").toString();
+            rooms.put(name, new Room(name, contents, doors, locks, floor));
         }
         return rooms;
     }
@@ -45,8 +46,47 @@ public class LoadYAML {
             Map<String, Object> use = (HashMap) properties.get("use");
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
-            List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction));
+            String type = (String)((ArrayList) properties.get("type")).get(0);
+            switch (type) {
+                case "Weapon":
+                    int min = (int)properties.get("min-damage");
+                    int max = (int)properties.get("max-damage");
+                    items.put(name, new Weapon(name, type, desc, usetext, useaction, min, max));
+                    break;
+                
+                case "Healing":
+                    int factor = (int)properties.get("heal-factor");
+                    items.put(name, new Healing(name, type, desc, usetext, useaction, factor));
+                    break;
+                
+                case "Key":
+                    int code = (int)properties.get("code");
+                    items.put(name, new Key(name, type, desc, usetext, useaction, code));
+                    break;
+
+                case "Animal":
+                    int aHealth = (int)properties.get("health");
+                    items.put(name, new Animal(name, type, desc, usetext, useaction, aHealth));
+                    break;
+
+                case "Plant":
+                    int pHealth = (int)properties.get("health");
+                    items.put(name, new Plant(name, type, desc, usetext, useaction, pHealth));
+                    break;
+                
+                case "Cleaner":
+                    break;
+
+                case "Cover":
+                    break;
+
+                case "Note":
+                    break;
+                
+                default:
+                    items.put(name, new Item(name, type, desc, usetext, useaction));
+                    break;
+            }
         }
         return items;
     }

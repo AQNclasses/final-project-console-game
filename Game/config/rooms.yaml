@@ -5,36 +5,43 @@
       white: "Front Yard"
       yellow: "Dinning Room"
       passage: "Hallway"
+  floor: "carpet"
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
       green: "Starting Room"
+  floor: "hardwood"
 "Front Yard":
   contents: []
   doors:
       white: "Starting Room"
       hole: "Rabbit Burrow"
       path: "Street"
+  floor: "grass"
 "Dinning Room":
   contents: []
   doors:
     yellow: "Starting Room"
     arch: "Kitchen"
+  floor: "hardwood"
 "Hallway":
   contents: []
   doors:
     passage: "Starting Room"
     brown: "Kitchen"
+  floor: "carpet"
 "Kitchen":
   contents: []
   doors:
     arch: "Dinning Room"
     brown: "Hallway"
     red: "Living Room"
+  floor: "hardwood"
 "Rabbit Burrow":
   contents: []
   doors:
     hole: "Front Yard"
+  floor: "dirt"
 "Living Room":
   contents: []
   doors:
@@ -42,6 +49,7 @@
     blue: "Garage"
   locks:
     blue: true
+  floor: "carpet"
 "Garage":
   contents: []
   doors:
@@ -50,6 +58,7 @@
   locks:
     blue: true
     rolling: true
+  floor: "concrete"
 "Street":
   contents: []
   doors:
@@ -57,3 +66,4 @@
     path: "Front Yard"
   locks:
     rolling: true
+  floor: "asphalt"

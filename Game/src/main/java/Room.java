@@ -11,12 +11,14 @@ public class Room {
     public List<Item> contents;
     public Map<String,String> doors;
     public Map<String, Boolean> locks;
+    public String floor;
 
-    public Room(String name, List<Item> contents, Map<String, String> doors, Map<String, Boolean> locks) {
+    public Room(String name, List<Item> contents, Map<String, String> doors, Map<String, Boolean> locks, String floor) {
         this.name = name;
         this.contents = contents;
         this.doors = doors;
         this.locks = locks == null ? new HashMap<String, Boolean>() : locks;
+        this.floor = floor;
     }
 
     public String toString() {
