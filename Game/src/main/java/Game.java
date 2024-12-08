@@ -95,6 +95,10 @@ public class Game {
                                 printSlow("As you approach the white door, the three keys fly out of your satchel towards the door.\nThe three keys now hover in front of the door, and to your amazement they begin to glow.\n They merge into a single key ordaned with a white gem and" 
                                 + " moves into the keyhole.\nIt turns with a soft click and you push through the door and into a bright room.");
 
+                                state.inventory.remove(state.items.get("Red Key"));
+                                state.inventory.remove(state.items.get("Green Key"));
+                                state.inventory.remove(state.items.get("Blue Key"));
+
                                 break;
 
                             } else {
@@ -131,10 +135,20 @@ public class Game {
                     try {
 
                         Item item = state.items.get(itemp);
-                        state.room.contents.remove(item);
-                        state.rooms.put(state.room.name, state.room);
-                        state.inventory.add(item);
-                        printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+
+                        if(state.room.contents.contains(item)){
+
+                            state.room.contents.remove(item);
+                            state.rooms.put(state.room.name, state.room);
+                            state.inventory.add(item);
+                            printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+
+                        } else {
+
+                            printSlow("That item is not in this room, maybe it's in your inventory.");
+
+                        }
+                        
 
                     } catch (Exception e) {
 
