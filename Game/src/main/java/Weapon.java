@@ -19,4 +19,13 @@ public class Weapon extends Item {
         return var;
     }
 
+    public void use(GameState state) {
+        if (use != null) {
+            System.out.println(use); // Print the use text from YAML
+        }
+        // For now, display a message indicating the weapon was used
+        System.out.println("You wield the " + name + ".");
+        // Additional functionality can be added later
+    }
+
 }

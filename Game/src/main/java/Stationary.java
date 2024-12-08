@@ -7,8 +7,12 @@ public class Stationary extends Item {
         super(name, types, desc, use, action);
     }
 
-    
+    @Override
     public void use(GameState state) {
-        System.out.println("You can't use the " + this.name + " in this way.");
+        if (use != null) {
+            System.out.println(use); // Print the use text from YAML
+        } else {
+            System.out.println("You can't use the " + this.name + " in this way.");
+        }
     }
 }

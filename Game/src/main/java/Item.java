@@ -8,7 +8,8 @@ enum ItemType {
     Key,
     Animal,
     Plant,
-    Item;
+    Item,
+    Stationary;
 
     public static ItemType toType(String s) {
         switch (s) {
@@ -22,6 +23,8 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "Stationary":
+                return ItemType.Stationary;
             default:
                 return ItemType.Item;
         }
@@ -38,12 +41,12 @@ public class Item {
     String action;
     Boolean used = false;
 
-    Item(String n, List<String> ts, String d, String u, String a) {
-        name = n;
-        for (String ty : ts) types.add(ItemType.valueOf(ty));
-        desc = d;
-        use = u;
-        action = a;
+    Item(String name, List<String> types, String desc, String use, String action) {
+        this.name = name;
+        for (String ty : types) this.types.add(ItemType.toType(ty));
+        this.desc = desc;
+        this.use = use;
+        this.action = action;
     }
 
     public String inspect() {
@@ -57,14 +60,9 @@ public class Item {
         if (use != null) {
             System.out.println(use); // Print the use text from YAML
         }
-    
-        // Dynamically handle behavior for specific items
-        if (name.equals("sand")) {
-            state.inventory.remove(this); // Remove sand from inventory after use
-        }
-    
-        used = true; // Mark the item as used
-        }
+        // Default behavior (if any)
+        used = true;
+    }
 
     @Override
     public String toString() {

@@ -1,5 +1,3 @@
-//package Game.src.main.java;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -46,6 +44,36 @@ public class LoadYAML {
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
             items.put(name, new Item(name, types, desc, usetext, useaction));
+            Item item;
+
+            // Check item types and instantiate accordingly
+            if (types.contains("Animal")) {
+                int min = (int) props.get("min-damage");
+                int max = (int) props.get("max-damage");
+                item = new Animal(name, types, desc, usetext, action, min, max);
+            } else if (types.contains("Stationary")) {
+                item = new Stationary(name, types, desc, usetext, action);
+            } else if (types.contains("Weapon")) {
+                int min = (int) props.get("min-damage");
+                int max = (int) props.get("max-damage");
+                item = new Weapon(name, types, desc, usetext, action, min, max);
+            } else if (types.contains("Key")) {
+                // Key is just an Item by logic, we can keep as Item or special Key class if needed
+                item = new Item(name, types, desc, usetext, action);
+            } else if (types.contains("Healing")) {
+                // Healing items require a heal amount property
+                int healAmount = props.containsKey("heal") ? (int) props.get("heal") : 5;
+                item = new Healing(name, types, desc, usetext, action, healAmount);
+            } else if (types.contains("Plant")) {
+                // Plant needs health property
+                int plantHealth = props.containsKey("health") ? (int) props.get("health") : 10;
+                item = new Plant(name, types, desc, usetext, action, plantHealth);
+            } else {
+                // Default Item
+                item = new Item(name, types, desc, usetext, action);
+            }
+
+            items.put(name, item);
         }
         return items;
     }

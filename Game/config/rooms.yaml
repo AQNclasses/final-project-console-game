@@ -1,23 +1,27 @@
 "Unending Desert":
   contents: [scorpion, sand, lighter]
   doors:
-      blue: "Oasis"
-      red: "Red Rock Cavern"
+    blue: "Oasis"
+    red: "Red Rock Cavern"
 
 "Oasis":
-  contents: [coconut tree, spring, statue, unlit brazier]
+  contents: [coconut tree, spring, strange statue, unlit brazier]
   doors:
-      blue: "Unending Desert"
-      green: "Paradise"
+    blue: "Unending Desert"
+    green: "Veiled Passage"
 
 "Red Rock Cavern":
-  contents: [hidden symbols, unlit torch, minecart]
+  contents: [unlit torch, hidden symbols]
   doors:
-      red: "Unending Desert"
-      black: "Hidden Study"
+    red: "Unending Desert"
+    black: "Hidden Chamber"
 
-"Hidden Study":
+"Hidden Chamber":
   contents: [ancient scroll, treasure chest]
   doors:
-      black: "Red Rock Cavern"
+    white: "Red Rock Cavern"
 
+"Veiled Passage":
+  contents: []
+  doors:
+    green: "Oasis"

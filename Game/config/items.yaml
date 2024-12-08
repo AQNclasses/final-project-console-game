@@ -1,85 +1,121 @@
 scorpion:
   type: [Animal]
-  description: "A venomous scorpion, its tail arched and ready to strike."
+  description: "A venomous scorpion..."
   use:
-      text: "The scorpion arches its tail as you get closer. You shouldn't touch it."
-      action: "inspect"
-  touch:
-      text: "You reach out to touch the scorpion, and it stings you! You feel a burning pain as the venom takes hold..."
-      action: "end_game"
+    text: "The scorpion arches its tail..."
+    action: "attack"
+  min-damage: 3
+  max-damage: 7
+
+key:
+  type: [Key]
+  description: "An ancient key..."
+  use:
+    text: "The key feels heavy in your hand."
+
+excalibur:
+  type: [Weapon]
+  description: "Ye sword of olde"
+  use:
+    text: "You slash with the sword."
+    action: "null"
+  min-damage: 1
+  max-damage: 10
 
 sand:
   type: [Item]
-  description: "A million golden pieces of sand, with thousands more slipping through your fingers."
+  description: "A million golden pieces of sand..."
   use:
-      text: "You throw the sand. It gets in your eyes... useful..."
-      
+    text: "You throw the sand. It gets in your eyes..."
+
 lighter:
   type: [Item]
-  description: "A small metal lighter, low on fuel but still functional."
+  description: "A small metal lighter..."
   use:
-      text: "The lighter flickers to life, its flame small but steady."
-      action: "ignite"
+    text: "The lighter flickers to life..."
+    action: "ignite"
 
 coconut tree:
-  type: [Item]
-  description: "A tall tree bearing coconuts that sway gently in the breeze."
+  type: [Plant]
+  description: "A tall tree bearing coconuts."
   use:
-      text: "You try to shake the tree, but nothing falls."
-      action: "null"
+    text: "You try to shake the tree, but nothing falls."
+    action: "null"
+  health: 10
+
+coconut:
+  type: [Healing]
+  description: "A fresh coconut, brimming with hydrating juice."
+  use:
+    text: "You drink the coconut water."
+    action: "heal"
+  heal: 5
 
 spring:
-  type: [Item]
-  description: "A bubbling natural spring with cool, clear water."
+  type: [Stationary]
+  description: "A bubbling natural spring..."
   use:
-      text: "You take a sip from the spring and feel refreshed."
-      action: "heal"
+    text: "You take a sip from the spring and feel refreshed."
+    action: "heal"
 
-statue:
-  type: [Item]
-  description: "A weathered stone statue with an unreadable inscription."
+strange statue:
+  type: [Stationary]
+  description: "A weathered stone statue..."
   use:
-      text: "The statue's eyes glow faintly as the brazier is lit, and a deep voice resonates: 'Who dares come before me?'"
-      action: "speak"
+    text: "The statue stands silently."
+    action: "null"
+
+haunted statue:
+  type: [Stationary]
+  description: "A statue transformed by flame..."
+  use:
+    text: "The statue crackles with energy..."
+    action: "null"
 
 unlit brazier:
   type: [Stationary]
   description: "A large metal brazier, filled with ash but unlit."
   use:
-      text: "The lighter flickers, but the brazier remains unlit. 'This won't work,' you mutter to yourself."
-      action: "null"
+    text: "The lighter flickers..."
+    action: "null"
+
+lit brazier:
+  type: [Stationary]
+  description: "A brazier blazing with warmth..."
+  use:
+    text: "The brazier crackles..."
 
 hidden symbols:
-  type: [Item]
-  description: "Mysterious symbols carved into the cavern walls, glowing faintly."
+  type: [Stationary]
+  description: "Mysterious symbols carved..."
   use:
-      text: "You trace the symbols with your fingers, and they briefly shine brighter."
-      action: "inspect"
+    text: "You trace the symbols..."
+    action: "inspect"
 
 unlit torch:
   type: [Item]
-  description: "A wooden torch, unlit but ready to be used."
+  description: "A wooden torch, unlit..."
   use:
-      text: "You light the torch with the lighter. The flames burst forth, illuminating your surroundings."
-      action: "light"
+    text: "You hold the unlit torch."
+    action: "light"
 
-minecart:
+lit torch:
   type: [Item]
-  description: "An old, rusty minecart. It looks like it hasn't been used in years."
+  description: "A torch that has been ignited..."
   use:
-      text: "You push the minecart, and it screeches along the tracks."
-      action: "push"
+    text: "The lit torch crackles softly..."
+    action: "light"
 
 ancient scroll:
-  type: [Item]
-  description: "A fragile parchment with ancient text."
+  type: [Item] # could be Magical if we define Magical
+  description: "A fragile parchment..."
   use:
-      text: "You attempt to decipher the text."
-      action: "read"
+    text: "The scroll reads: 'Upon the cavern's faint glyphs, cast desert's grains to reveal your path. Quench the flame in pure waters to lift the veil.'"
+    action: "read"
 
 treasure chest:
-  type: [Item]
-  description: "A locked chest, potentially filled with treasures."
+  type: [Stationary]
+  description: "A locked chest..."
   use:
-      text: "You try to open the chest, but it remains locked."
-      action: "null"
+    text: "You try to open the chest, but it remains locked."
+    action: "null"
