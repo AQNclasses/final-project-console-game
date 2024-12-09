@@ -37,7 +37,16 @@ public class GameState {
             return finaltext;
         }
 
+        if (room.toString().compareTo("Boss Room") == 0 && inventory.contains(items.get("excalibur")) != true){
 
+            finished = true;
+            String finaltext =  """
+                                As you walk into the room you are met with a giant knight, 
+                                you reach for your weapon but before you can you are smashed into the ground by the knight.\n
+                                Everything goes black.
+                                """;
+            return finaltext;
+        }
 
         return "";
     }

@@ -30,3 +30,9 @@
   contents: [excalibur]
   doors:
     white: "Starting Room"
+    black: "Boss Room"
+
+"Boss Room":
+  contents: []
+  doors:
+    black: "Starting Room"
