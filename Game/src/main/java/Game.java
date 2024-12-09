@@ -176,13 +176,49 @@ public class Game {
                         if (state.inventory.contains(item)) {
 
                             item.use();
-                            printSlow(item.use);
+                            //printSlow(item.use);
 
                             if (item.action.equals("drop")) {
+
+                                printSlow(item.use);
 
                                 state.inventory.remove(item);
                                 state.room.contents.add(item);
                                 state.rooms.put(state.room.name, state.room);
+
+                            }
+
+                            if (item.action.equals("Fill")) {
+
+                                if(state.room.toString().compareTo("Pond") != 0){
+
+                                    printSlow("There is nothing to fill the bucket with in this room.");
+
+                                } else {
+
+                                    printSlow("You approch the pond and fill the bucket with\u001B[34m water\u001B[0m.");
+
+                                    state.inventory.remove(item);
+                                    state.inventory.add(state.items.get("full bucket"));
+
+                                }
+
+                            }
+
+                            if (item.action.equals("Splash")) {
+
+                                if(state.room.toString().compareTo("Forge") != 0){
+
+                                    printSlow("You empty the bucket onto the floor of the room, nothing happens.");
+
+                                } else {
+
+                                    printSlow("You empty the bucket into the glowing forge extinguishing the flames.");
+
+                                }
+
+                                state.inventory.remove(item);
+                                state.inventory.add(state.items.get("empty bucket"));
 
                             }
 

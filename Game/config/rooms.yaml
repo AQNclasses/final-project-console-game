@@ -12,7 +12,7 @@
       green: "Starting Room"
 
 "Garden":
-  contents: [Green Key]
+  contents: [Green Key, empty bucket]
   doors:
       green: "Starting Room"
 
