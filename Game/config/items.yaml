@@ -44,3 +44,38 @@ book:
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+motorcycle:
+  type: [Vehicle]
+  description: "Rusty old motorcycle that goes super duper fast."
+  use:
+      text: "You get on the motorcycle but theres no gas."
+      action: "null"
+lamborghini:
+  type: [Vehicle]
+  description: "Matte Black Lamborghini SVJ glistens in the Garage light."
+  use:
+      text: "null"
+      action: "unlock"
+car keys:
+  type: [Key]
+  description: "Lamborghini car keys."
+  use:
+      text: "Black car keys that jingle."
+      action: "open car door"
+enderflame:
+  type: [Weapon]
+  description: "This glowing purple enderflame staff that contains extreme aura."
+  use:
+      text: "You grab the enderflame and power and great energy surfe through you."
+      action: "equip"
+  min-damage: 20
+  max-damage: 40
+steve:
+  type: [Enemy]
+  description: "Steve from minecraft has super cool armor shields on his body ready to battle you."
+  use:
+      text: "You are dead."
+      action: "kill"
+  min-damage: 30
+  max-damage: 50
+  health: 200
