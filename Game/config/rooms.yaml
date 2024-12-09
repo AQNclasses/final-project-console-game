@@ -12,17 +12,17 @@
       green: "Starting Room"
 
 "Garden":
-  contents: [Green Key, empty bucket]
+  contents: [green key, empty bucket]
   doors:
       green: "Starting Room"
 
 "Pond":
-  contents: [Blue Key]
+  contents: [blue key]
   doors:
     blue: "Starting Room"
 
 "Forge":
-  contents: [Red Key]
+  contents: [red key]
   doors:
     red: "Starting Room"
 
