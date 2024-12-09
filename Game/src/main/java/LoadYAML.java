@@ -73,14 +73,18 @@ public class LoadYAML {
                     int pHealth = (int)properties.get("health");
                     items.put(name, new Plant(name, type, desc, usetext, useaction, pHealth));
                     break;
-                
+                    
                 case "Cleaner":
+                    boolean wet = (boolean)properties.get("wet");
+                    items.put(name, new Cleaner(name, type, desc, usetext, useaction, wet));
                     break;
-
-                case "Cover":
+                    
+                case "Cover":    
+                    items.put(name, new Cover(name, type, desc, usetext, useaction));
                     break;
-
+                    
                 case "Note":
+                    items.put(name, new Note(name, type, desc, usetext, useaction));
                     break;
                 
                 default:
