@@ -16,7 +16,7 @@
   doors:
       white: "Starting Room"
       hole: "Rabbit Burrow"
-      path: "Street"
+      # path: "Street"
   floor: "grass"
 "Dinning Room":
   contents: []
@@ -52,7 +52,7 @@
   contents: []
   doors:
     blue: "Living Room"
-    rolling: "Street"
+    # rolling: "Street"
   locked: true
   floor: "concrete"
 "Street":

@@ -3,8 +3,6 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.lang.reflect.Constructor;
 import org.yaml.snakeyaml.Yaml;
 import java.util.HashMap;
 import java.util.Map;
@@ -82,6 +80,11 @@ public class LoadYAML {
                 case "Cover":
                     String usetext2 = (String) use.get("text2");
                     items.put(name, new Cover(name, type, desc, usetext, usetext2, useaction));
+                    break;
+                
+                case "Vehicle":
+                    String altText = (String) use.get("altText");
+                    items.put(name, new Vehicle(name, type, desc, usetext, altText, useaction));
                     break;
                 
                 default:

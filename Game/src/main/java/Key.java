@@ -6,10 +6,6 @@ public class Key extends Item{
         code = num;
     }
 
-    public boolean unlock(int num) {
-        return num == code;
-    }
-
     // Unlocks every connected room
     // This function will need to be changed if there are multiple room keys
     @Override

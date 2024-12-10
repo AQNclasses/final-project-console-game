@@ -29,6 +29,28 @@ public class GameState {
                                 """;
             return finaltext;
         }
+        if (((Vehicle)items.get("car")).running){
+            finished = true;
+            exitState = 1;
+            String finaltext =  """
+                                You were able to leave the house and make a quick get away.
+                                It was certainly a weird house with some interesting things, 
+                                but the smell of smoke was starting to get to you.
+                                """;
+            return finaltext;
+        }
+        if (items.size() == 0){
+            finished = true;
+            exitState = 0;
+            String finaltext =  """
+                                What have you done! That potion has caused all of the items to vanish.
+                                Without any items there is no way to complete the game.
+                                That's it you had a chance and you blew it. All the rooms are empty.
+                                There were two other endings that would have ended better for you, but
+                                noooooo, you had to go and drink the disappearing poisons and leave nothing left.
+                                """;
+            return finaltext;
+        }
         return "";
     }
 

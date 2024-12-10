@@ -91,6 +91,12 @@ public class Game {
                                 printSlow("Unfortunately the " + door + " door seems to be locked. Try to find a key...");
                                 state.room = temp;
                             }else{
+                                if(state.inventory.contains(state.items.get("car"))){
+                                    state.inventory.remove(state.items.get("car"));
+                                    temp.contents.add(state.items.get("car"));
+                                    state.rooms.put(temp.name, temp);
+                                    printSlow("You leave the car in the " + temp.name + ".");
+                                }
                                 printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
                             }
                         } catch (Exception e) {
@@ -162,6 +168,10 @@ public class Game {
             printSlow(update);
         }
         switch (state.exitState) {
+            case 0:
+                printSlow("You lose!");
+                break;
+            
             case 1:
                 printSlow("You win!");
                 break;
