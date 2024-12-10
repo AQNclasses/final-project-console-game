@@ -3,13 +3,12 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import org.yaml.snakeyaml.Yaml;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.yaml.snakeyaml.Yaml;
 
 public class LoadYAML {
 
@@ -45,7 +44,19 @@ public class LoadYAML {
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
+            //types to name
+            String type = types.get(0);
+            //we need a switch case
             items.put(name, new Item(name, types, desc, usetext, useaction));
+            /*switch(type){
+                case "Weapon":
+                    String act;
+                    
+                    items.put(name, new Weapon(name,type,desc,use,act,min_damage,max_damage));
+                case "NPC":
+
+        
+            }*/
         }
         return items;
     }
@@ -65,3 +76,4 @@ public class LoadYAML {
         rooms = loadRooms();
     }
 }
+//working on getting all items loaded properly switch case
