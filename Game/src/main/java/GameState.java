@@ -9,6 +9,7 @@ public class GameState {
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
     String name;
     boolean finished;
+    boolean locked;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
@@ -41,6 +42,7 @@ public class GameState {
         }
         
         return "";
+        
     }
 
     public GameState(String name) {

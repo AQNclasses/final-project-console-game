@@ -91,5 +91,10 @@ mysterious seeds:
   description: "They resemble smaller cocoa fruits, the smell oddly sweet, but the fact that they came from a murderous monster puts you off"
   use:
       action: "null"
+brown key:
+  type: [Item]
+  description: "Seems to be an old wooden brown key, yet the brown feels unnaturally brown... almost like paint"
+  use:
+    action: "null"
   
 

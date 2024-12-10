@@ -31,8 +31,10 @@ public class LoadYAML {
             List<String> contemps = (ArrayList) inRoom.get("contents");
             for (String it : contemps) contents.add(items.get(it));
             Map<String, String> doors = (HashMap) inRoom.get("doors");
-            rooms.put(name, new Room(name, contents, doors));
+            Map<String, String> lockedDoors = (HashMap) inRoom.getOrDefault("lockedDoors", new HashMap<>());
+            rooms.put(name, new Room(name, contents, doors, lockedDoors));
         }
+        
         return rooms;
     }
 
