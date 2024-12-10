@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Game {
 
@@ -27,11 +27,6 @@ public class Game {
         // only instantiate once
         Scanner myObj = new Scanner(System.in);
 
-        System.out.println("What is your name?");
-        name = myObj.nextLine();
-        // init game state
-        GameState state = new GameState(name);
-
         // beginning flavor text
         /**
         printSlow("Welcome, "+name+".");
@@ -42,6 +37,16 @@ public class Game {
         System.out.println("");
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
         */
+
+        printSlow("You jolt awake, sitting in a chair across from a warm fireplace. After a quick glance at your surroundings, you realize you have no idea where you are. A wave of confusion hits as you realize you not only don't know where you are, but who you are.");
+        System.out.println();
+        printSlow("Who are you?");
+        name = myObj.nextLine();
+        //init gamestate
+        GameState state = new GameState(name);
+        printSlow("That's right, " + name + ", thats who you are.");
+        
+
         while (!state.finished) {
             System.out.println("");
             System.out.println("What do you want to do next?");

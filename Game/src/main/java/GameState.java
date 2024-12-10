@@ -11,6 +11,9 @@ public class GameState {
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
     Map<String, Item> items; // global list of known items
+    boolean pet = false;
+    boolean ate = false;
+    boolean wardenRoom = false;
 
     // update state and check for winning condition
     public String update() {

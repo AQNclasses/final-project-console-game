@@ -1,8 +1,39 @@
-"Starting Room":
-  contents: [poison frog]
+"Study":
+  contents: [old book]
   doors:
       green: "Closet"
+      elegentDoor: "Warden's Room"
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
       green: "Starting Room"
+"Warden's Room":
+  contents: [smallPenny]
+  doors:
+    elegentDoor: "Study"
+"Library":
+  conents: []
+  doors:
+    bathroomDoor: "Bathroom"
+    wooden: "Study"
+    heavy: "Hallway"
+"Hallway":
+  contents: []
+  doors:
+    heavy: "Library"
+    secret: "Monty's Room"
+    mosaic: "Courtyard"
+"Courtyard":
+  contents: []
+  doors:
+    mosaic: "Hallway"
+    glass: "Greenhouse"
+    swinging: "Kitchen"
+"Greenhouse"
+  contents: []
+  doors:
+    glass: "Courtyard"
+"Kitchen"
+  contents: []
+  doors:
+    swinging: "Courtyard"
