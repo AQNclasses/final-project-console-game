@@ -1,8 +1,23 @@
 "Starting Room":
   contents: [poison frog]
   doors:
-      green: "Closet"
+      green door: "Closet"
+      black door: "Garage"
+      brown drawer: "Drawer"
+"Drawer":
+  contents: [car keys]
+  doors:
+      brown drawer: "Starting Room"
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
-      green: "Starting Room"
+      green door: "Starting Room"
+"Garage":
+  contents: [enderflame, motorcycle, lamborghini]
+  doors:
+      black door: "Starting Room"
+      purple door: "EnderPortal"
+"EnderPortal":
+  contents: [steve]
+  doors door:
+      purple: "Garage"

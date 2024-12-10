@@ -4,6 +4,9 @@ import java.util.ArrayList;
 // Define types of items that share actions / properties
 enum ItemType {
     Weapon,
+    Vehicle,
+    Food,
+    Enemy,
     Healing,
     Key,
     Animal,
@@ -22,6 +25,12 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "Vehicle":
+                return ItemType.Vehicle;
+            case "Food":
+                return ItemType.Food;
+            case "Enemy":
+                return ItemType.Enemy;
             default:
                 return ItemType.Item;
         }
