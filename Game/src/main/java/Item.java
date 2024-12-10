@@ -63,7 +63,7 @@ public class Item {
         return message;
     }
 
-    public void use() {
+    public void use(GameState state) {
         used = true;
     }
 
