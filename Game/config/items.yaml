@@ -71,8 +71,8 @@ flowers:
   type: [Plant]
   description: "Beautiful tulip with a sweet smell. They should be on display"
   use:
-      text: "You put the flower in the vase."
-      action: "place"
+      text: "You put the flowers down."
+      action: "drop"
   health: 2
 red note:
   type: [Note]
