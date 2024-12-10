@@ -41,7 +41,6 @@ public class GameTest {
 
         traverse(rooms.get("Starting Room"), rooms, visited);
 
-        //System.out.println("Rooms: " + rooms.size() + " Accessible: " + visited.size());
         assertEquals(rooms.size(), visited.size());
     }
 
