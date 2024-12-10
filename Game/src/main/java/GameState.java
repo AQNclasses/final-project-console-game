@@ -1,3 +1,5 @@
+// Ending Location
+
 import java.util.*;
 
 // Tracks global game state
@@ -14,6 +16,7 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
+        // if you place the book down in the room with the poison frog
         if (room.contents.contains(items.get("poison frog")) &&
             room.contents.contains(items.get("book")) ){
             finished = true;
@@ -26,6 +29,17 @@ public class GameState {
                                 """;
             return finaltext;
         }
+
+        if (room.contents.contains(items.get("mysterious seeds")) &&
+            (!room.contents.contains(items.get("carnivorous plant")))) {
+            finished = true;
+            String finaltext = """
+                    After successfully defeating the plant, you pick up its seeds, and the remaining roots and vines disintegrate, revealing a door to the outside, which you open and find yourself in a new world... It may get rough from here, but you have a weird feeling that everything will be alright. 
+                    """;
+            
+            return finaltext;
+        }
+        
         return "";
     }
 

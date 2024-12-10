@@ -44,3 +44,52 @@ book:
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+crystal ball:
+  type: [Item, Weapon]
+  description: "Energy from the Arcane seems to resonate within"
+  use:
+      text: "The ball starts to float, seemingly fills you with energy and knowledge of the Arcane... you suddenly feel the ability to cast fire ball"
+      action: "null"
+shield:
+  type: [Item, Weapon]
+  description: "Solid yet durable, has a insignia unknown to you"
+  use:
+      text: "Its a solid piece of metal, you feel reassured it can protect you, yet you wonder why you feel the need to protect yourself..."
+      action: "null"
+map:
+  type: [Item]
+  description: "Resembles and old pirate map, almost like it leads to another room..."
+  use:
+      text: "You pick up the map and it shows all the rooms, there is a specific room with a weird symbol on it, but beyond that it seems there is a door to the outside..."
+      action: "null"
+rat:
+  type: [Animal]
+  description: "Its furry and grey, thats it."
+  use:
+      action: "null"
+dagger:
+  type: [Item, Weapon]
+  description: "Small and sharp, it feels almost weightless in your hands... it could help defend yourself"
+  use:
+      text: "You examine the blade, it feels oddly sharp, for what it looks like... you feel like you could so some damage with this"
+      action: "null"
+  min-damage: 1
+  max-damage: 5
+carnivorous plant:
+  type: [Animal]
+  description: "It seems to resemble the piranha plant from the hit Mario games... except its real."
+  use:
+      action: "null"
+medicinal herbs:
+  type: [Item]
+  description: "The leaves look soft, giving you a almost calming feel, like you would feel a lot better if you ate them..."
+  use:
+      text: "You feel replenished, all of your injuries have healed, and you feel like you can take on the world"
+      action: "null"
+mysterious seeds:
+  type: [Item]
+  description: "They resemble smaller cocoa fruits, the smell oddly sweet, but the fact that they came from a murderous monster puts you off"
+  use:
+      action: "null"
+  
+

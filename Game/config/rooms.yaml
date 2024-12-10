@@ -15,14 +15,7 @@
   doors:
       brown: "Starting Room"
       
-
-"Green Room"
-  contents: [carnivorous plant, medicinal herbs, rusty shovel, "mysterious" seeds]
+"Green Room":
+  contents: [carnivorous plant, medicinal herbs, mysterious seeds]
   doors:
       blue: "Starting Room"
-      black: "Outside"
-
-"Outside"
-  contents: [grass, dirt, flowers, slime]
-  doors:
-      black: "Green Room"
