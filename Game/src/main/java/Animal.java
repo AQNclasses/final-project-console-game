@@ -19,4 +19,19 @@ public class Animal extends Item {
         return var;
     }
 
+    //extending animal class
+    //implementing 
+    @Override
+    public void use(GameState state){
+        if("attack".equals(action)){
+            int damage = attack();
+            Game.printSlow("The animal quickly attack with " + this.name + " for " + damage + " hit points." );
+
+        }
+    }
+    
+    public abstract class Item{
+        public abstract void use(GameState state);
+    }
+
 }

@@ -44,3 +44,39 @@ book:
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+
+
+key:
+  type: [Item]
+  description: "A mysterious key that seems to belong to a locked door.."
+  use:
+    text: "You insert the key into the keyhole."
+    action: "drop"
+
+ancient sword:
+  type: [Item]
+  description: "The Ancient Sword that once belonged to Professor Nilles, although it used to be in a display case.."
+  use:
+    text: "You attempt to use the sword, but can barely move it, guess we should find what room this belongs in."
+    action: "null"
+
+mushroom:
+  type: [Plant]
+  description: "A tiny mushroom that has a weird stench to it."
+  use:
+    text: "You take a closer look at the mushroom..."
+    action: "touch"
+
+cactus:
+  type: [Plant]
+  description: "A prickly cactus in a little pot that says 'Billy'. I guess the cactus has a name."
+  use:
+    text: "You take a closer look at the cactus..."
+    action: "touch"
+
+sunflower:
+  type: [Plant]
+  description: "A beautiful, stunning sunflower in a world of darkness."
+  use:
+    text: "You take a closer look at the sunflower..."
+    action: "touch"

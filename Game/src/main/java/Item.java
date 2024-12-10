@@ -57,6 +57,11 @@ public class Item {
         used = true;
     }
 
+    //implement by subclass
+    public void use(GameState state){
+        
+    }
+
     @Override
     public String toString() {
         return this.name;
