@@ -1,13 +1,15 @@
 public class Cleaner extends Item {
     boolean wet;
-
+    
     public Cleaner(String name, String type, String desc, String use, String act, boolean wet) {
         super(name, type, desc, use, act);
         this.wet = wet;
     }
-
+    
+    // Changes the floor modifier based on if the clearer was wet or not
     @Override
     public void use(GameState state){
+        super.use(state);
         String floor = state.room.floor;
         switch (floor) {
             case "carpet":

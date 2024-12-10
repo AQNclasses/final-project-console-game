@@ -1,5 +1,5 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [poison frog, yellow note, red note, blue note]
   doors:
       green: "Closet"
       white: "Front Yard"
@@ -47,23 +47,17 @@
   doors:
     red: "Kitchen"
     blue: "Garage"
-  locks:
-    blue: true
   floor: "carpet"
 "Garage":
   contents: []
   doors:
     blue: "Living Room"
     rolling: "Street"
-  locks:
-    blue: true
-    rolling: true
+  locked: true
   floor: "concrete"
 "Street":
   contents: []
   doors:
     rolling: "Garage"
     path: "Front Yard"
-  locks:
-    rolling: true
   floor: "asphalt"

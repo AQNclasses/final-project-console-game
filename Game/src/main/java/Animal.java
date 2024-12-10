@@ -22,7 +22,7 @@ public class Animal extends Item {
 
     @Override
     public String inspect(){
-        String message = super.inspect() + ". Health: " + health;
+        String message = super.inspect() + " This animal is currently " + (alive ? "alive." : "dead. ") + " Health is at " + health;
         return message;
     }
 

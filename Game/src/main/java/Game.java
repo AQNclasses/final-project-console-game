@@ -32,6 +32,8 @@ public class Game {
         // init game state
         GameState state = new GameState(name);
 
+        Boolean invalidInput;
+
         // beginning flavor text
         /*
         printSlow("Welcome, "+name+".");
@@ -54,8 +56,17 @@ public class Game {
             System.out.println("[6]: Use an object from my inventory.");
             System.out.println("[7]: Quit the game.");
 
-            choice = myObj.nextInt();
-            myObj.nextLine(); // consume newline from above
+            invalidInput = true;
+            while(invalidInput){
+                try{
+                    choice = myObj.nextInt();
+                    myObj.nextLine(); // consume newline from above
+                    invalidInput = false;
+                }catch(Exception e){
+                    myObj.nextLine(); // consume newline from above
+                    System.out.println("Invalid input, try again?");
+                }
+            }
 
             switch (choice) {
                 case 1:
@@ -73,18 +84,19 @@ public class Game {
                     printSlow("Which door?");
                     String door = myObj.nextLine();
                     Room temp = state.room;
-                    if(state.room.locks.containsKey(door) && state.room.locks.get(door)){
-                        printSlow("Unfortunately the " + door + " door seems to be locked. Try to find a key...");
-                    }else{
-                        try {
+                    try {
                             String rtemp = state.room.doors.get(door);
                             state.room = state.rooms.get(rtemp);
-                            printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                            if(state.room.locked){
+                                printSlow("Unfortunately the " + door + " door seems to be locked. Try to find a key...");
+                                state.room = temp;
+                            }else{
+                                printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                            }
                         } catch (Exception e) {
                             printSlow("Unknown door.");
                             state.room = temp;
                         }
-                    }
                     break;
                 case 3:
                     printSlow("Which item?");

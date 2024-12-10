@@ -31,9 +31,9 @@ public class LoadYAML {
             List<String> contemps = (ArrayList) inRoom.get("contents");
             for (String it : contemps) contents.add(items.get(it));
             Map<String, String> doors = (HashMap) inRoom.get("doors");
-            Map<String, Boolean> locks = (HashMap) inRoom.get("locks");
-            String floor = inRoom.get("floor") == null ? "" : inRoom.get("floor").toString();
-            rooms.put(name, new Room(name, contents, doors, locks, floor));
+            Boolean locked = inRoom.get("locked") == null ? false : (Boolean)inRoom.get("locked");
+            String floor = inRoom.get("floor") == null ? "Unknown Substance" : inRoom.get("floor").toString();
+            rooms.put(name, new Room(name, contents, doors, locked, floor));
         }
         return rooms;
     }
@@ -82,10 +82,6 @@ public class LoadYAML {
                 case "Cover":
                     String usetext2 = (String) use.get("text2");
                     items.put(name, new Cover(name, type, desc, usetext, usetext2, useaction));
-                    break;
-                    
-                case "Note":
-                    items.put(name, new Note(name, type, desc, usetext, useaction));
                     break;
                 
                 default:

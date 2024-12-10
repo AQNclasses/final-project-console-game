@@ -9,6 +9,7 @@ public class Cover extends Item {
         this.use2 = use2;
     }
 
+    // Toggles vision based on weather or the cover is in use
     @Override
     public void use(GameState state) {
         super.use(state);

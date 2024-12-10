@@ -18,7 +18,7 @@ public class Plant extends Item {
 
     @Override
     public String inspect(){
-        String message = super.inspect() + ". Health: " + health;
+        String message = super.inspect() + " This plant is currently " + (alive ? "alive." : "dead. ") + " Health is at " + health;
         return message;
     }
 

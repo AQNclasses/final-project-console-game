@@ -1,9 +1,3 @@
-import java.util.List;
-
-import org.checkerframework.checker.units.qual.s;
-
-import java.util.ArrayList;
-
 // Define types of items that share actions / properties
 enum ItemType {
     Weapon,
@@ -59,7 +53,7 @@ public class Item {
     }
 
     public String inspect() {
-        String message = "This is a " + this.name + ", a kind of " + type + ". Description: " + this.desc;
+        String message = "This is a " + this.name + ", a kind of " + type + ". Description: " + this.desc + ".";
         return message;
     }
 

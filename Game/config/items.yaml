@@ -15,34 +15,34 @@ poison frog:
   health: 5
 broom:
   type: [Cleaner]
-  description: "It's for sweeping."
+  description: "It's for sweeping"
   use:
       text: "The floor looks slightly less dusty."
       action: "clean"
   wet: false
 bucket:
   type: [Cover]
-  description: "It's empty."
+  description: "It's empty"
   use:
       text: "You put the bucket on your head. You feel marginally safer."
       text2: "You take the bucket off your head and are able to see again."
       action: "hide"
 mop:
   type: [Cleaner]
-  description: "It's for mopping."
+  description: "It's for mopping"
   use:
       text: "The floor looks slightly more damp."
       action: "clean"
   wet: true
 poster:
   type: [Item]
-  description: "A classic."
+  description: "A classic"
   use:
       text: "What are you going to do with a poster?"
       action: "drop"
 book:
   type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
+  description: "An old book about Java. It seems to have some purple residue on it"
   use:
       text: "You place the book gently on the floor."
       action: "drop"
@@ -55,35 +55,36 @@ rusty key:
   code: 1
 car key:
   type: [Key]
-  description: "A shiny key to a car."
+  description: "A shiny key to a car"
   use:
       text: "You can hear a honking nearby."
       action: "unlock"
   code: 0
 bandage:
   type: [Healing]
-  description: "A bandage to heal wounds."
+  description: "A bandage to heal wounds"
   use:
-      text: "You cover the wounds."
+      text: "You bandages are able to heal all animals in the room."
       action: "heal"
   heal-factor: 3
 flowers:
   type: [Plant]
-  description: "Beautiful tulip with a sweet smell. They should be on display."
+  description: "Beautiful tulip with a sweet smell. They should be on display"
   use:
       text: "You put the flower in the vase."
       action: "place"
   health: 2
 red note:
   type: [Note]
-  description: "A note written on a light red piece of paper."
+  description: "A note written on a light red piece of paper"
   use:
       text: "You were asleep when I got home last night, so I'm leaving this note for you.
-            \nWhen I got home I put the car keys on the counter in the kitchen."
-      action: "read"
+            \nWhen I got home I put the car keys on the counter in the kitchen.
+            \n\nYou put the note down."
+      action: "drop"
 yellow note:
   type: [Note]
-  description: "A note written on a yellow piece of paper."
+  description: "A note written on a yellow piece of paper"
   use:
       text: "Grocery list:
             \n- Chicken breast
@@ -92,13 +93,15 @@ yellow note:
             \n- Milk
             \n- Salad mix
             \n- Italian dressing
-            \n- Box of cookies"
-      action: "read"
+            \n- Box of cookies
+            \n\nYou put the note down."
+      action: "drop"
 blue note:
   type: [Note]
-  description: "A note written on a light blue piece of paper."
+  description: "A note written on a light blue piece of paper"
   use:
       text: "I took your house key last night because I lost mine and I couldn't find the backup key.
             \nNormally the key is under the rock by the front door, but something has dug around it.
-            \nMay the thing that dug by the front door is the same thing that's been leaving holes in the lawn."
-      action: "read"
+            \nMaybe the thing that dug by the front door is the same thing that's been leaving holes in the lawn.
+            \n\nYou put the note down."
+      action: "drop"
