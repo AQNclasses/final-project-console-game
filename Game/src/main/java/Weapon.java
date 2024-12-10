@@ -19,4 +19,14 @@ public class Weapon extends Item {
         return var;
     }
 
+    //extending weapon class
+    //implementing 
+    @Override
+    public void use(GameState state){
+        if("attack".equals(action)){
+            int damage = attack();
+            Game.printSlow("You quickly attack with " + this.name + " for " + damage + " hit points." );
+        }
+    }
+
 }

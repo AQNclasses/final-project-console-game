@@ -7,7 +7,7 @@ public class Game {
     static String itemp;
 
     // helper function for printing
-    private static void printSlow(String toPrint) {
+    public static void printSlow(String toPrint) {
         char[] chars = toPrint.toCharArray();
         for (int i=0; i < chars.length; i++) {
             System.out.print(chars[i]);
@@ -33,7 +33,7 @@ public class Game {
         GameState state = new GameState(name);
 
         // beginning flavor text
-        /**
+        
         printSlow("Welcome, "+name+".");
         System.out.println("");
         printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
@@ -41,7 +41,7 @@ public class Game {
         printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
         System.out.println("");
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
-        */
+        
         while (!state.finished) {
             System.out.println("");
             System.out.println("What do you want to do next?");
@@ -64,6 +64,17 @@ public class Game {
                 case 2:
                     printSlow("Which door?");
                     String door = myObj.nextLine();
+                    if(door.equals("red")){
+                        if(state.inventory.contains(state.items.get("key"))){
+                            printSlow("You used the key to unlock this door.");
+                            
+                        }
+
+                        else{
+                            printSlow("This door needs a key.");
+                            break;
+                        }
+                    }
                     try {
                         String rtemp = state.room.doors.get(door);
                         state.room = state.rooms.get(rtemp);

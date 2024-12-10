@@ -1,8 +1,25 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [poison frog, mushroom]
   doors:
-      green: "Closet"
+      blue: "Storage Room"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, bucket, key]
   doors:
-      green: "Starting Room"
+      blue: "Storage Room"
+"Storage Room":
+  contents: [poster, cactus]
+  doors:
+    yellow: "Closet"
+    green: "Starting Room"
+    orange: "Display Case"
+    red: "Mysterious Room"
+"Display Case":
+  contents: [sunflower]
+  doors:
+    blue: "Storage Room"
+
+"Mysterious Room":
+  contents: [ancient sword]
+  doors:
+    blue: "Storage Room"
+

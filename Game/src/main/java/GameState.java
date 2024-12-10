@@ -26,6 +26,18 @@ public class GameState {
                                 """;
             return finaltext;
         }
+
+        //room.contents.contains(items.get("ancient sword"))
+        if (room.contents.contains(items.get("ancient sword"))){
+            finished = true;
+            String finaltext =  """
+                                You look around and see the ancient sword in in the corner and remember the empty display case, you think to yourself...
+                                'This must be where it belongs', you put the sword back into the display case which reveals
+                                a name on the sword... 'Professor Nilles'. 
+                                """;
+            return finaltext;
+        }
+
         return "";
     }
 
