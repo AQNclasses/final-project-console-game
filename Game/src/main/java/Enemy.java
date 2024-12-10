@@ -15,7 +15,7 @@ public class Enemy extends Item {
         rn = new Random();
     }
 
-    // Random damage between min and max (inclusive)
+    
     public int attack() {
         return minDamage + rn.nextInt((maxDamage - minDamage) + 1);
     }
@@ -24,23 +24,31 @@ public class Enemy extends Item {
     public boolean takeDamage(int damage, GameState state) {
         health -= damage;
         if (health <= 0) {
-            System.out.println("The " + name + " has been defeated!");
-            return true; // Enemy is defeated
+            return true; // enemy is defeated
         } else {
             System.out.println("The " + name + " takes " + damage + " damage and has " + health + " health remaining.");
-            return false; // Enemy is still alive
+            return false; // enemy is still alive
         }
     }
 
     @Override
     public void use(GameState state) {
         if (use != null) {
-            System.out.println(use); // Print the use text from YAML
+            System.out.println(use); 
         }
         int damage = attack();
-        System.out.println("The " + this.name + " attacks you!");
+        state.health -= damage; // Rreduce players health
         System.out.println("You take " + damage + " damage!");
-        state.health -= damage; // Reduce player's health
         System.out.println("Your current health is now: " + state.health);
+    }
+    public void counterAttack(GameState state) {
+        int damage = this.attack(); // call enemys attack
+        state.health -= damage;
+        System.out.println("The " + this.name + " counterattacks and deals " + damage + " damage to you!");
+        System.out.println("Your current health is now: " + state.health);
+        if (state.health <= 0) {
+            System.out.println("You have died. Game Over.");
+            state.finished = true;
+        }
     }
 }

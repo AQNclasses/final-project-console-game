@@ -3,20 +3,24 @@ import java.util.ArrayList;
 
 // Define types of items that share actions / properties
 enum ItemType {
-    Weapon,
+    Utility,
     Healing,
     Key,
     Animal,
     Plant,
     Item,
+    Weapons,
+    Enemy,
     Stationary;
 
     public static ItemType toType(String s) {
         switch (s) {
-            case "Weapon":
-                return ItemType.Weapon;
+            case "Utlity":
+                return ItemType.Utility;
             case "Healing":
                 return ItemType.Healing;
+            case "Weapons":
+                return ItemType.Weapons;
             case "Key":
                 return ItemType.Key;
             case "Animal":
@@ -25,6 +29,8 @@ enum ItemType {
                 return ItemType.Plant;
             case "Stationary":
                 return ItemType.Stationary;
+            case "Enemy":
+                return ItemType.Enemy;
             default:
                 return ItemType.Item;
         }

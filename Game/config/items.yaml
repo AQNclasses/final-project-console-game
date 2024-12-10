@@ -1,43 +1,35 @@
 scorpion:
   type: [Animal]
-  description: "A venomous scorpion..."
+  description: "A venomous scorpion, its tail arched and ready to strike."
   use:
-    text: "The scorpion arches its tail..."
+    text: "The scorpion arches its tail as you get closer. You shouldn't touch it."
     action: "attack"
   min-damage: 3
   max-damage: 7
+  health: 10
 
 key:
   type: [Key]
-  description: "An ancient key..."
+  description: "An ancient key with intricate engravings."
   use:
-    text: "The key feels heavy in your hand."
-
-excalibur:
-  type: [Weapon]
-  description: "Ye sword of olde"
-  use:
-    text: "You slash with the sword."
-    action: "null"
-  min-damage: 1
-  max-damage: 10
+    text: "You hold the key tightly, still hot from the flame."
 
 sand:
   type: [Item]
-  description: "A million golden pieces of sand..."
+  description: "A million little pieces of golden sand, with thousands more slipping through your fingers."
   use:
-    text: "You throw the sand. It gets in your eyes..."
-
+    text: "You toss some sand, it gets in your eyes. Useful..."
+    
 lighter:
   type: [Item]
-  description: "A small metal lighter..."
+  description: "A small metal lighter, low on fuel but still functional."
   use:
-    text: "The lighter flickers to life..."
+    text: "The lighter flickers to life, its flame small but steady."
     action: "ignite"
 
 coconut tree:
   type: [Plant]
-  description: "A tall tree bearing coconuts."
+  description: "A tall tree bearing coconuts that sway gently in the breeze."
   use:
     text: "You try to shake the tree, but nothing falls."
     action: "null"
@@ -49,73 +41,176 @@ coconut:
   use:
     text: "You drink the coconut water."
     action: "heal"
+  heal: 10
+
+glowvine:
+  type: [Plant]
+  description: "A creeping bioluminescent vine that grows along the cavern walls, with fruits growing along the way."
+  use:
+    text: "You attempt to pluck a low hanging fruit off, but the vine is sstrong like elastic"
+    action: "null"
+  health: 6
+
+glowfruit:
+  type: [Healing]
+  description: "A bioluminescent fruit that glows faintly. It's cold to the touch but tastes like ripe melon."
+  use:
+    text: "You take a bite out of the glowfruit"
+    action: "heal"
+  heal: 8
+
+cactus:
+  type: [Plant]
+  description: "A prickly cactus, with a singular cactus fruit"
+  use:
+    text: "You attempt to grab the fruit, but are pricked instead"
+    action: "null"
+  health: 4
+
+cactus fruit:
+  type: [Healing]
+  description: "A juicy cactus fruit, full of hydrating water."
+  use:
+    text: "You take a juicy bite of the cactus fruit."
+    action: "heal"
   heal: 5
 
 spring:
   type: [Stationary]
-  description: "A bubbling natural spring..."
+  description: "A bubbling natural spring with cool, clear water."
   use:
     text: "You take a sip from the spring and feel refreshed."
-    action: "heal"
+    action: "sip"
 
 strange statue:
   type: [Stationary]
-  description: "A weathered stone statue..."
+  description: "A weathered stone statue. You feel a strange presence emanating from it."
   use:
     text: "The statue stands silently."
-    action: "null"
-
-haunted statue:
-  type: [Stationary]
-  description: "A statue transformed by flame..."
-  use:
-    text: "The statue crackles with energy..."
     action: "null"
 
 unlit brazier:
   type: [Stationary]
   description: "A large metal brazier, filled with ash but unlit."
   use:
-    text: "The lighter flickers..."
-    action: "null"
+    text: "The brazier patiently awaits a purpose"
+    
 
 lit brazier:
   type: [Stationary]
-  description: "A brazier blazing with warmth..."
+  description: "A brazier blazing with warmth and light, its flames dancing."
   use:
-    text: "The brazier crackles..."
+    text: "The brazier crackles, as the fire dances."
 
-hidden symbols:
+unintelligible symbols:
   type: [Stationary]
-  description: "Mysterious symbols carved..."
+  description: "Mysterious symbols carved into the cavern walls, glowing faintly."
   use:
-    text: "You trace the symbols..."
+    text: "You trace the symbols with your fingers, but they remain unintelligible."
     action: "inspect"
 
 unlit torch:
   type: [Item]
-  description: "A wooden torch, unlit..."
+  description: "A wooden torch, unlit but ready to be used."
   use:
     text: "You hold the unlit torch."
     action: "light"
 
 lit torch:
   type: [Item]
-  description: "A torch that has been ignited..."
+  description: "A torch blazing with fire."
   use:
-    text: "The lit torch crackles softly..."
-    action: "light"
+    text: "As the torch sways in your hand, embers dissapear into the night"
+
 
 ancient scroll:
-  type: [Item] # could be Magical if we define Magical
-  description: "A fragile parchment..."
+  type: [Item]
+  description: "A fragile parchment with faded text."
   use:
-    text: "The scroll reads: 'Upon the cavern's faint glyphs, cast desert's grains to reveal your path. Quench the flame in pure waters to lift the veil.'"
+    text: "The scroll reads: 'Upon the cavern's faint glyphs, cast desert's grains to reveal your path.'"
     action: "read"
 
-treasure chest:
-  type: [Stationary]
-  description: "A locked chest..."
+axe:
+  type: [Utility]
+  description: "A heavy axe, perfect for chopping down stubborn trees."
   use:
-    text: "You try to open the chest, but it remains locked."
+    text: "You swing the axe with force."
+    action: "chop"
+  min-damage: 4
+  max-damage: 6
+
+logs:
+  type: [Item]
+  description: "A pile of rough-hewn logs, cut from the fallen tree."
+  use:
+    text: "The logs are heavy and sturdy. They're best used as firewood."
+
+stump:
+  type: [Stationary]
+  description: "A stump where the coconut tree once stood, a reminder of its former glory."
+  use:
+    text: "The stump remains firmly rooted in the ground."
     action: "null"
+
+shadowy figure:
+  type: [Enemy]
+  description: "A sinister figure cloaked in shadows, its eyes glowing faintly red."
+  use:
+    text: "The shadowy figure lunges at you with malevolent force."
+    action: "attack"
+  health: 25
+  min-damage: 9
+  max-damage: 13
+
+flame spirit:
+  type: [Enemy]
+  description: "A being of pure flame, its form flickering with every gust of air."
+  use:
+    text: "The flame spirit attacks you, engulfing you in searing heat!"
+    action: "burn"
+  health: 15
+  min-damage: 6
+  max-damage: 9
+
+hungry vulture:
+  type: [Enemy]
+  description: "Bird bird bird, bird is the word - yaml file"
+  use:
+    text: "attack birdbirdbird - yaml"
+    action: "claw & peck"
+  health: 11
+  min-damage: 4
+  max-damage: 6
+
+rusty sword:
+  type: [Weapons]
+  description: "A worn and rusty sword, but it can still cut."
+  use:
+    text: "You swing the rusty sword with precision."
+    action: "slash"
+  min-damage: 3
+  max-damage: 7
+
+venomous sword:
+  type: [Weapons]
+  description: "A deadly sword coated with venom, far more dangerous than its rusty predecessor."
+  use:
+    text: "You swing the venomous sword with deadly precision."
+    action: "slash"
+  min-damage: 5
+  max-damage: 10
+venom:
+  type: [Item]
+  description: "A vial of venom extracted from a defeated scorpion."
+  use:
+    text: "The venom glistens with a greenish hue."
+
+
+hatchet:
+  type: [Utility]
+  description: "A small hatchet, perfect for clearing shrubbery."
+  use:
+    text: "You swing the hatchet with force."
+    action: "chop"
+  min-damage: 2
+  max-damage: 4

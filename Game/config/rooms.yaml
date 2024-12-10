@@ -1,5 +1,5 @@
 "Unending Desert":
-  contents: [scorpion, sand, lighter]
+  contents: [scorpion, sand, lighter, cactus]
   doors:
     blue: "Oasis"
     red: "Red Rock Cavern"
@@ -8,18 +8,17 @@
   contents: [coconut tree, spring, strange statue, unlit brazier]
   doors:
     blue: "Unending Desert"
-    green: "Veiled Passage"
 
 "Red Rock Cavern":
-  contents: [unlit torch, hidden symbols]
+  contents: [unlit torch, unintelligible symbols, glowvine]
   doors:
     red: "Unending Desert"
     black: "Hidden Chamber"
 
 "Hidden Chamber":
-  contents: [ancient scroll, treasure chest]
+  contents: [ancient scroll, axe]
   doors:
-    white: "Red Rock Cavern"
+    black: "Red Rock Cavern"
 
 "Veiled Passage":
   contents: []

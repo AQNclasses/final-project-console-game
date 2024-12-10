@@ -8,28 +8,27 @@ public class Plant extends Item {
         this.health = health;
     }
 
-    public void takeDamage(int dmg, GameState state) {
+    /**
+     * Method to apply damage to the plant.
+     * @param dmg Damage to apply.
+     * @param state Current game state.
+     * @return true if plant is destroyed, false otherwise.
+     */
+    public boolean takeDamage(int dmg, GameState state) {
         health -= dmg;
         if (health <= 0) {
-            // Plant destroyed, perform logic (e.g., drop coconut)
             System.out.println("You chop down the " + name + "!");
-            // Remove from room
             state.room.contents.remove(this);
-            // Add coconut (healing item) to room
-            Item coconut = state.items.get("coconut");
-            if (coconut != null) {
-                state.room.contents.add(coconut);
-                System.out.println("A coconut falls from the tree and lands on the ground.");
-            }
+            return true;
         } else {
-            System.out.println("You strike the " + name + ". It looks weakened.");
+            System.out.println("You strike the " + name + ".");
+            return false;
         }
     }
 
     @Override
     public void use(GameState state) {
-        // Using a plant doesn't do much, unless we define something special
-        if (use != null) System.out.println(use);
-        else System.out.println("You can't use the " + this.name + " in that way.");
+        
+        System.out.println("You can't use the " + this.name + " directly.");
     }
 }

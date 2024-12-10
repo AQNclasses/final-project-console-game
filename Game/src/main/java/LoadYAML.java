@@ -47,32 +47,44 @@ public class LoadYAML {
             Item item;
 
             // Check item types and instantiate accordingly
-            if (types.contains("Animal")) {
-                int min = (int) props.get("min-damage");
-                int max = (int) props.get("max-damage");
-                item = new Animal(name, types, desc, usetext, action, min, max);
+             if (types.contains("Animal")) {
+                int health = (int) properties.get("health");
+                int minDamage = (int) properties.get("min-damage"); 
+                int maxDamage = (int) properties.get("max-damage"); 
+                item = new Animal(name, types, desc, usetext, useaction, health, minDamage, maxDamage);
+             } else if (types.contains("Enemy")) { 
+                int health = (int) properties.get("health");
+                int minDamage = (int) properties.get("min-damage");
+                int maxDamage = (int) properties.get("max-damage");
+                    item = new Enemy(name, types, desc, usetext, useaction, health, minDamage, maxDamage);
+                
+        } else if (types.contains("Weapons")) {
+                int minDamage = (int) properties.get("min-damage");
+                int maxDamage = (int) properties.get("max-damage");
+                item = new Weapons(name, types, desc, usetext, useaction, minDamage, maxDamage);
+            
             } else if (types.contains("Stationary")) {
-                item = new Stationary(name, types, desc, usetext, action);
-            } else if (types.contains("Weapon")) {
-                int min = (int) props.get("min-damage");
-                int max = (int) props.get("max-damage");
-                item = new Weapon(name, types, desc, usetext, action, min, max);
+                item = new Stationary(name, types, desc, usetext, useaction);
+            } else if (types.contains("Utility")) {
+                Number minDamageNum = (Number) properties.get("min-damage");
+                Number maxDamageNum = (Number) properties.get("max-damage");
+                int min = minDamageNum.intValue();
+                int max = maxDamageNum.intValue();
+                item = new Utility(name, types, desc, usetext, useaction, min, max);
             } else if (types.contains("Key")) {
-                // Key is just an Item by logic, we can keep as Item or special Key class if needed
-                item = new Item(name, types, desc, usetext, action);
+                // Key is just an Item by logic, no extra properties needed
+                item = new Item(name, types, desc, usetext, useaction);
             } else if (types.contains("Healing")) {
-                // Healing items require a heal amount property
-                int healAmount = props.containsKey("heal") ? (int) props.get("heal") : 5;
-                item = new Healing(name, types, desc, usetext, action, healAmount);
+                int heal = (int) properties.get("heal");
+                item = new Healing(name, types, desc, usetext, useaction, heal);
             } else if (types.contains("Plant")) {
-                // Plant needs health property
-                int plantHealth = props.containsKey("health") ? (int) props.get("health") : 10;
-                item = new Plant(name, types, desc, usetext, action, plantHealth);
+                int health = (int) properties.get("health");
+                item = new Plant(name, types, desc, usetext, useaction, health);
             } else {
-                // Default Item
-                item = new Item(name, types, desc, usetext, action);
+                // Default Item if none of the specialized types match
+                item = new Item(name, types, desc, usetext, useaction);
             }
-
+    
             items.put(name, item);
         }
         return items;

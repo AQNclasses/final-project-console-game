@@ -23,7 +23,5 @@ public class Weapons extends Item {
         if (use != null) {
             System.out.println(use); 
         }
-        
-        System.out.println("You swing the " + name + " with force.");
     }
 }
