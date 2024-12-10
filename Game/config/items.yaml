@@ -44,26 +44,22 @@ book:
   use:
       text: "You place the book gently on the floor."
       action: "drop"
-      #senzu bean
-
-bean:
+red pole:
   type: [Item]
-  description: "an assuming oval shaped bean, its warm to the touch and you supspect it will taste gross."
+  description: "A red cyclinder shaped pole about 2 feet in length its suprisingly light then it looks as you pick it up. you feel as if you could touch the moon."
   use:
-    text: "you pop this warmish green bean in your mouth. it taste like kitty litter but you can feel your body and mind reinvoragated."
-    action: "eat"
+      text: "the pole shifts in your handing shifting to your size."
+      action: "Null"
+Empty Sacred Container:
+  type: [Item]
+  description: "A blue vase like glass with gems embalmed on the side any water in here must be real delicious"
+  use:
+      text: "This container is empty I bet i could take it to the water fountain"
+      action: "Null"
 Unnamed Kid:
   type: [NPC]
-  description: """
-              in the center of the small courtayrd paved with grey bricks in an almost perfect fashion.
-              we see a small boy with an orange gi on weirdly light blue boots and a small almost monkey like tail
-              coming out of his backside. even though  he seems like a kid but he practicing martial arts with no one around
-              """
+  description: "a 3'4 child stands before you, in a orange tunic with a small black belt tied around your waist, with spiky black hair and a small monkey tail coming out of its rear
+  this monkey kid seems tough but also pleasent to be around, he will follow you around till you find his power pole "
   use:
-    talk: "Hi my name is Goku, Usually I have my power pole when im traing so I look kinda weird "
-
-
-          "if you see it around here can you drop it for me i can give you a pretty cool power up if you do "
-    action:
-
-  
+      text: "This container is empty I bet i could take it to the water fountain"
+      action: "Null"

@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Game {
 
@@ -75,12 +75,23 @@ public class Game {
                 case 3:
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
+                    boolean pickedup = false;
                     try {
                         Item item = state.items.get(itemp);
-                        state.room.contents.remove(item);
+                        
                         state.rooms.put(state.room.name, state.room);
+
+
+                        //we could infinetely pick up items this is an if else statement to fix that
+                        if(state.room.contents.contains(item)){
                         state.inventory.add(item);
+                        state.room.contents.remove(item);
                         printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+                        }else{
+                            printSlow("You already picked up this item");
+                        }
+                       
+                       
                     } catch (Exception e) {
                         printSlow("Unknown item.");
                     }
