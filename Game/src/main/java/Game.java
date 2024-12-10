@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Game {
 
     static String name;
-    static int choice;
+    static String choice;
     static String itemp;
 
     // helper function for printing
@@ -54,17 +54,17 @@ public class Game {
             System.out.println("[7]: Examine an Object in the room.");
             System.out.println("[8]: TEST DAMAGE");
 
-            choice = myObj.nextInt();
-            myObj.nextLine(); // consume newline from above
-
+            choice = myObj.nextLine();
+            //myObj.nextLine(); // consume newline from above
+            
             switch (choice) {
-                case 1:
+                case "1":
                     printSlow("You can see the following items:");
                     for (Item c : state.room.contents) printSlow(c.name);
                     printSlow("You also notice that this room has doors:");
                     for (String c : state.room.doors.keySet()) printSlow(c);
                     break;
-                case 2:
+                case "2":
                     printSlow("Which door?");
                     String door = myObj.nextLine();
                     try {
@@ -75,7 +75,7 @@ public class Game {
                         printSlow("Unknown door.");
                     }
                     break;
-                case 3:
+                case "3":
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
@@ -92,11 +92,11 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case 4:
+                case "4":
                     printSlow("Your inventory:");
                     printSlow(state.inventory.toString());
                     break;
-                case 5:
+                case "5":
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
@@ -117,7 +117,7 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case 6: 
+                case "6": 
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
@@ -134,7 +134,7 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case 7:
+                case "7":
                     printSlow("Which object?");
                     itemp = myObj.nextLine();
                     try {
@@ -175,7 +175,7 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case 8:
+                case "8":
                     state.health =state.health - 20;
                     break;
                 default:
