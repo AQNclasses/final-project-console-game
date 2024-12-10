@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Game {
 
     static String name;
-    static int choice;
+    static String choice;
     static String itemp;
 
     // helper function for printing
@@ -52,11 +52,11 @@ public class Game {
             System.out.println("[5]: Use an object from my inventory.");
             System.out.println("[6]: Drive a vehicle in the room.");
             System.out.println("[7]: Attack Enemy");
-            choice = myObj.nextInt();
-            myObj.nextLine(); // consume newline from above
+            choice = myObj.nextLine();
+            //myObj.nextLine(); // consume newline from above
 
             switch (choice) {
-                case 1:
+                case "1":
                     printSlow("You can see the following items:");
                     for (Item c : state.room.contents) printSlow(c.name);
                         if(state.room.doors.containsKey("brown drawer")){
@@ -73,7 +73,7 @@ public class Game {
                             printSlow(c);
                     }
                     break;
-                case 2:
+                case "2":
                     printSlow("Which door?");
                     String door = myObj.nextLine();
                     try {
@@ -92,7 +92,7 @@ public class Game {
                         printSlow("Unknown door.");
                         }
                     break;
-                case 3:
+                case "3":
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
@@ -110,11 +110,11 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case 4:
+                case "4":
                     printSlow("Your inventory:");
                     printSlow(state.inventory.toString());
                     break;
-                case 5:
+                case "5":
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
@@ -135,7 +135,7 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case 6:
+                case "6":
                     boolean noVehicle = true;
                     for (Item c : state.room.contents){ 
                         if(c.types.contains(ItemType.Vehicle)== true){
@@ -175,7 +175,7 @@ public class Game {
                     printSlow("Invalid input.");
                 }
                     break;
-                case 7:
+                case "7":
                     boolean noEnemies = true;
                     String enemy = "";
                     for (Item c : state.room.contents){ 
