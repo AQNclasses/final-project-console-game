@@ -56,7 +56,20 @@ public class LoadYAML {
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction));
+
+            switch(types.get(0)){
+
+                case "Weapon":
+
+                case "Animal":
+
+                    
+
+                default:
+
+                    items.put(name, new Weapon(name, types, desc, use, act, min_damage, max_damage));
+
+            }
 
         }
 

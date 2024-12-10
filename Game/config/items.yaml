@@ -17,7 +17,7 @@ poison frog:
   max-damage: 4
 
 broom:
-  type: [Item]
+  type: [Weapon]
   description: "It's for sweeping."
   use:
       text: "The floor looks slightly less dusty."

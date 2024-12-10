@@ -104,7 +104,7 @@ public class Game {
                             } else {
 
                                 printSlow("You Approch the " + door + " door. You attempt to open the door but it doesn't budge.\nUpon closer inspection of the ornate door you notice a keyhole with a large white gem above it.\nAbove the large gem there are three smaller gems, There is a "
-                                + "\u001B[31m" + "Red Gem " + "\u001B[0m" + "a " + "\u001B[32m" + "Green Gem " + "\u001B[0m" + "and a " + "\u001B[34m" + "Blue Gem." + "\u001B[0m");
+                                + "\u001B[31m" + "Red Gem " + "\u001B[0m" + "a " + "\u001B[32m" + "Green Gem " + "\u001B[0m" + "and a " + "\u001B[34m" + "Blue Gem" + "\u001B[0m" + ".");
 
                                 break;
 
