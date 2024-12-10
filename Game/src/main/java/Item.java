@@ -37,6 +37,7 @@ public class Item {
     String use;
     String action;
     Boolean used = false;
+    Boolean pickedUp = false;
 
     Item(String n, List<String> ts, String d, String u, String a) {
         name = n;
@@ -55,6 +56,12 @@ public class Item {
 
     public void use() {
         used = true;
+    }
+    public boolean isPickedUp() {
+        return pickedUp;
+    }
+    public void pickedUp() {
+        pickedUp = true;
     }
 
     @Override
