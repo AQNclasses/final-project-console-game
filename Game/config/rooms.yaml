@@ -2,7 +2,20 @@
   contents: [poison frog]
   doors:
       green: "Closet"
+      blue: "Green Room"
+      brown: "Basement"
+
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
       green: "Starting Room"
+
+"Basement":
+  contents: [crystal ball, shield, map, rat, dagger]
+  doors:
+      brown: "Starting Room"
+      
+
+"Green Room"
+  contents: [carnivorous plant, medicinal herbs, ]
+  z
