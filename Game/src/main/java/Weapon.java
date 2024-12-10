@@ -19,4 +19,16 @@ public class Weapon extends Item {
         return var;
     }
 
+    public void attackWithWeapon(GameState gameState) {
+        int damage = attack();
+        System.out.println(name + " attacked for " + damage + " damage.");
+        gameState.enemyHealth(-damage);
+    }
+
+    @Override
+    public void use(GameState gameState) {
+        System.out.println(useText); 
+        attackWithWeapon(gameState); 
+        used = true;
+    }
 }

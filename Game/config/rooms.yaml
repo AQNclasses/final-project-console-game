@@ -2,7 +2,21 @@
   contents: [poison frog]
   doors:
       green: "Closet"
+      red: "Outdoor Patio"
+  hiddenItem: null
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
       green: "Starting Room"
+  hiddenItem: null
+"Outdoor Patio":
+  contents: [plant, excalibur]
+  doors:
+      red: "Starting Room"
+      blue: "Living Room"
+  hiddenItem: key
+"Living Room":
+  contents: [book, bookshelf, TV, rug]
+  doors:
+      blue: "Outdoor Patio"
+  hiddenItem: null

@@ -42,6 +42,7 @@ public class Game {
         System.out.println("");
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
         */
+
         while (!state.finished) {
             System.out.println("");
             System.out.println("What do you want to do next?");
@@ -51,25 +52,42 @@ public class Game {
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
 
-            choice = myObj.nextInt();
-            myObj.nextLine(); // consume newline from above
+            String input = myObj.nextLine();
+            try {
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                printSlow("Invalid input. Please enter a number between 1 and 5.");
+                continue; 
+            }
 
             switch (choice) {
                 case 1:
                     printSlow("You can see the following items:");
-                    for (Item c : state.room.contents) printSlow(c.name);
+                    if (state.room.contents.isEmpty()) {
+                        printSlow(" - No items in this room.");
+                    } else {
+                        for (Item c : state.room.contents) printSlow("- " + c.name);
+                    }
                     printSlow("You also notice that this room has doors:");
-                    for (String c : state.room.doors.keySet()) printSlow(c);
+                    for (String d : state.room.doors.keySet()) {
+                        printSlow("- " + d);
+                    }
                     break;
                 case 2:
                     printSlow("Which door?");
                     String door = myObj.nextLine();
-                    try {
-                        String rtemp = state.room.doors.get(door);
-                        state.room = state.rooms.get(rtemp);
-                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
-                    } catch (Exception e) {
+                    if (state.room.doors.containsKey(door)) {
+                        if (state.locked(door)) {
+                            printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        } else {
+                            printSlow("The " + door + "door won't open, but I notice a keyhole in the handle.");
+                        }
+                    } else {
                         printSlow("Unknown door.");
+                        printSlow("The doors avaiable are: ");
+                        for (String d : state.room.doors.keySet()) {
+                            printSlow("- " + d);
+                        }
                     }
                     break;
                 case 3:
@@ -77,32 +95,45 @@ public class Game {
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
-                        state.room.contents.remove(item);
-                        state.rooms.put(state.room.name, state.room);
-                        state.inventory.add(item);
-                        printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+                        if (item == null) {
+                            printSlow("Unknown item.");
+                            break;
+                        }
+                        if (state.room.contents.contains(item)) {
+                            state.room.contents.remove(item);
+                            state.inventory.add(item);
+                            printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+                        } else {
+                            printSlow("You cannot seem to find " + item.name);
+                        }
                     } catch (Exception e) {
                         printSlow("Unknown item.");
                     }
                     break;
                 case 4:
                     printSlow("Your inventory:");
-                    printSlow(state.inventory.toString());
+                    if (state.inventory.isEmpty()) {
+                        printSlow(" - Empty");
+                    } else {
+                        for (Item inv : state.inventory) {
+                            printSlow("- " + inv.name);
+                        }
+                    }
                     break;
                 case 5:
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
-                        if (state.inventory.contains(item)) {
-                            item.use();
-                            printSlow(item.use);
-                            if (item.action.equals("drop")) {
-                                state.inventory.remove(item);
-                                state.room.contents.add(item);
-                                state.rooms.put(state.room.name, state.room);
-                            }
+
+                        if (item == null) {
+                            printSlow("Unknown item.");
+                            break;
                         }
+
+                        if (state.inventory.contains(item)) {
+                            item.use(state); 
+                        } 
                         else {
                             printSlow("Unknown item.");
                         }
