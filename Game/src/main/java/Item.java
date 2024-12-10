@@ -8,33 +8,14 @@ enum ItemType {
     Key,
     Animal,
     Plant,
-    Item;
-
-    public static ItemType toType(String s) {
-        switch (s) {
-            case "Weapon":
-                return ItemType.Weapon;
-            case "Healing":
-                return ItemType.Healing;
-            case "Key":
-                return ItemType.Key;
-            case "Animal":
-                return ItemType.Animal;
-            case "Plant":
-                return ItemType.Plant;
-            default:
-                return ItemType.Item;
-        }
-    }
+    Item,
 }
 
-// Object defining how general items work in your game
-// All other item classes should inherit this class
-public class Item {
+public abstract class Item {
     String name;
-    ArrayList<ItemType> types = new ArrayList<ItemType>();
+    List<ItemType> types = new ArrayList<>();
     String desc;
-    String use;
+    String useText;
     String action;
     Boolean used = false;
 
@@ -42,23 +23,51 @@ public class Item {
         name = n;
         for (String ty : ts) types.add(ItemType.valueOf(ty));
         desc = d;
-        use = u;
+        useText = u;
         action = a;
     }
 
+
     public String inspect() {
-        String alltypes = "";
-        for (ItemType t: types) alltypes += t.name() + " ";
-        String message = "This is a " + this.name + ", a kind of " + alltypes + ". Description: " + this.desc;
+        StringBuilder allTypes = new StringBuilder();
+        for (int i = 0; i < types.size(); i++) {
+            allTypes.append(types.get(i).name());
+            if (i < types.size() - 1) {
+                allTypes.append(", ");
+            }
+        }
+        String message = "This is a " + this.name + ", a kind of " + allTypes + ". Description: " + this.desc;
         return message;
     }
 
-    public void use() {
-        used = true;
-    }
+
+    public abstract void use(GameState gameState);
 
     @Override
     public String toString() {
         return this.name;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Item other = (Item) obj;
+        if (name == null) {
+            return other.name == null;
+        } else
+            return name.equals(other.name);
+    }
+
+    @Override
+    public int hashCode() {
+        if (name == null)
+            return 0;
+        return name.hashCode();
     }
 }

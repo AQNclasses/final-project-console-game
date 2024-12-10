@@ -18,5 +18,15 @@ public class Animal extends Item {
         int var = min + rn.nextInt((max-min) + 1);
         return var;
     }
+    public void attackAnimal(GameState gameState) {
+        int damage = attack();
+        System.out.println(name + " attacked for " + damage);
+        gameState.enemyHealth(-damage);
+    }
 
+    public void use(GameState gameState) {
+        System.out.println(useText); 
+        attackAnimal(gameState); 
+        used = true;
+    }
 }
