@@ -28,8 +28,8 @@ public class GameState {
         }
         
    
-        if(inventory.contains(items.get("red pole")) &&
-            room.contents.contains(items.get("unnamed kid")) ) {
+        if(room.contents.contains(items.get("red pole")) &&
+            room.contents.contains(items.get("Unnamed Kid")) ) {
                 finished = false;
                 String text = """
                             'thanks for getting my  red power pole for me, I kinda lost it and mr.popos gets real mad when i lose things'
@@ -41,7 +41,7 @@ public class GameState {
                             """;
 
                             inventory.add(items.get("Empty Sacred Container"));
-                            inventory.add(items.remove("red pole"));
+                            room.contents.remove("red pole");
                 
                         
                        
@@ -50,7 +50,7 @@ public class GameState {
             
        /*  if(items.get("Empty Glass Vial").isUsed() && room.contents.contains(items.get"Holy Fountain")){
             finished = false;
-            String text "";
+            String text "You put the";
 */
         
         return "";

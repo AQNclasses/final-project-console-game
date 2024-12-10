@@ -11,7 +11,7 @@
       #sliding silver door leads to a small room it seems grey and empty bed with the essentials sheets and blankets, a water fountain that is filled to the brim with water, a red pole leaning against the fountain with a black sash attached to its exterior
 
 "Sliding Silver Door":
-  contents: [red pole]
+  contents: [red pole, Holy Fountain]
   doors:  
       green: "curtain"
       red: "Starting Room"

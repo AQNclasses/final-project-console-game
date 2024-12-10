@@ -2,64 +2,76 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
-      action: "null"
+    text: "You slash with the sword."
+    action: "null"
   min-damage: 1
   max-damage: 10
+
 poison frog:
   type: [Weapon, Animal]
-  description: "A bright purple frog, oozing a thick liquid"
+  description: "A bright purple frog, oozing a thick liquid."
   use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
+    text: "You place the frog gently on the floor. The frog croaks contentedly."
+    action: "drop"
   min-damage: 2
   max-damage: 4
+
 broom:
   type: [Item]
   description: "It's for sweeping."
   use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
+    text: "The floor looks slightly less dusty."
+    action: "null"
+
 bucket:
   type: [Item]
   description: "It's empty."
   use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+    text: "You put the bucket on your head. You feel marginally safer."
+    action: "null"
+
 mop:
   type: [Item]
   description: "It's for mopping."
   use:
-      text: "The floor looks slightly more damp."
-      action: "null"
+    text: "The floor looks slightly more damp."
+    action: "null"
+
 poster:
   type: [Item]
   description: "A classic."
   use:
-      text: "What are you going to do with a poster?"
-      action: "null"
+    text: "What are you going to do with a poster?"
+    action: "null"
+red pole:
+  type: [Item]
+  description: "A red cylinder-shaped pole about 2 feet in length. It's surprisingly light, and it looks as you pick it up. You feel as if you could touch the moon."
+  use:
+    text: "The pole shifts in your hand, adjusting to your size. you drop it on the ground out of suprise"
+    action: "drop"
+
+Empty Sacred Container:
+  type: [Item]
+  description: "A blue vase-like glass with gems embedded on the side. Any water in here must be really delicious."
+  use:
+    text: "This container is empty. I bet I could take it to the water fountain."
+    action: "null"
+
+Unnamed Kid:
+  type: [NPC]
+  description: "A 3'4\" child stands before you, wearing an orange tunic with a small black belt tied around their waist. They have spiky black hair and a small monkey tail coming out from the rear. This monkey kid seems tough but also pleasant to be around."
+  use:
+    action: "null"
+  dialogue: "Hey, my name is Goku. If you see a red staff around here, bring it here and drop it on the ground, and I can give you a cool way to store the holy water. I'd be careful if Mr. Popo catches you trying to touch the water fountain; he gets real mad."
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
-red pole:
-  type: [Item]
-  description: "A red cyclinder shaped pole about 2 feet in length its suprisingly light then it looks as you pick it up. you feel as if you could touch the moon."
+    text: "You place the book gently on the floor."
+    action: "drop"
+Holy Fountain:
+  type: [Table]
+  description: "this might fountain is quite a sight you go to take a sip from it but an ominous presence is felt so deep in your soul that you decide to find a proper cup you wouldn't dare contanimate these powerfull waters"
   use:
-      text: "the pole shifts in your handing shifting to your size."
-      action: "Null"
-Empty Sacred Container:
-  type: [Item]
-  description: "A blue vase like glass with gems embalmed on the side any water in here must be real delicious"
-  use:
-      text: "This container is empty I bet i could take it to the water fountain"
-      action: "Null"
-Unnamed Kid:
-  type: [NPC]
-  description: "a 3'4 child stands before you, in a orange tunic with a small black belt tied around your waist, with spiky black hair and a small monkey tail coming out of its rear
-  this monkey kid seems tough but also pleasent to be around, he will follow you around till you find his power pole "
-  use:
-      text: "This container is empty I bet i could take it to the water fountain"
-      action: "Null"
+    text: "You place the book gently on the floor."
+    action: "drop"

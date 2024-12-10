@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -50,6 +51,7 @@ public class Game {
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+            System.out.println("[6]: talk to someone in the room.");
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -75,9 +77,22 @@ public class Game {
                 case 3:
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
-                    boolean pickedup = false;
+                    
+                    
+            //types to name
+                    
                     try {
                         Item item = state.items.get(itemp);
+                        List<ItemType> types = item.getType();
+                        if(types.contains(ItemType.Table) || types.contains(ItemType.NPC)){
+                            printSlow("You cant pick that up");
+                            printSlow(item.desc);
+                            break;
+
+
+                        }
+
+                        
                         
                         state.rooms.put(state.room.name, state.room);
 
@@ -121,8 +136,6 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                default:
-                    printSlow("Unidentified input, try again?");
             }
 
             String update = state.update();
