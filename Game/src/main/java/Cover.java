@@ -6,8 +6,8 @@ public class Cover extends Item {
     }
 
     @Override
-    public void use() {
-        super.use();
+    public void use(GameState state) {
+        super.use(state);
         inUse = !inUse;
     }
 }

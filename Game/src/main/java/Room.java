@@ -12,6 +12,7 @@ public class Room {
     public Map<String,String> doors;
     public Map<String, Boolean> locks;
     public String floor;
+    public String floorModifier;
 
     public Room(String name, List<Item> contents, Map<String, String> doors, Map<String, Boolean> locks, String floor) {
         this.name = name;
@@ -19,6 +20,7 @@ public class Room {
         this.doors = doors;
         this.locks = locks == null ? new HashMap<String, Boolean>() : locks;
         this.floor = floor;
+        floorModifier = "";
     }
 
     public String toString() {

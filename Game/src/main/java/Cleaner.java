@@ -8,7 +8,20 @@ public class Cleaner extends Item {
         this.wet = wet;
     }
 
-    public boolean clean() {
-        return wet;
+    @Override
+    public void use(GameState state){
+        String floor = state.room.floor;
+        switch (floor) {
+            case "carpet":
+                
+                break;
+
+            case "hardwood":
+
+                break;
+        
+            default:
+                break;
+        }
     }
 }
