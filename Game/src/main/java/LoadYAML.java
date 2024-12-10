@@ -79,8 +79,9 @@ public class LoadYAML {
                     items.put(name, new Cleaner(name, type, desc, usetext, useaction, wet));
                     break;
                     
-                case "Cover":    
-                    items.put(name, new Cover(name, type, desc, usetext, useaction));
+                case "Cover":
+                    String usetext2 = (String) use.get("text2");
+                    items.put(name, new Cover(name, type, desc, usetext, usetext2, useaction));
                     break;
                     
                 case "Note":

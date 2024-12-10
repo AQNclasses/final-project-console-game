@@ -25,6 +25,7 @@ bucket:
   description: "It's empty."
   use:
       text: "You put the bucket on your head. You feel marginally safer."
+      text2: "You take the bucket off your head and are able to see again."
       action: "hide"
 mop:
   type: [Cleaner]

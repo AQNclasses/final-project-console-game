@@ -59,11 +59,15 @@ public class Game {
 
             switch (choice) {
                 case 1:
-                    printSlow("You can see the following items:");
-                    for (Item c : state.room.contents) printSlow(c.name);
-                    printSlow("You also notice that this room has doors:");
-                    for (String c : state.room.doors.keySet()) printSlow(c);
-                    printSlow("You can tell the floor is: " + state.room.floor);
+                    if(state.sight){
+                        printSlow("You can see the following items:");
+                        for (Item c : state.room.contents) printSlow(c.name);
+                        printSlow("You also notice that this room has doors:");
+                        for (String c : state.room.doors.keySet()) printSlow(c);
+                        printSlow("You can tell the floor is: " + state.room.floorModifier + state.room.floor);
+                    }else{
+                        printSlow("Your vision is currently obscured.");
+                    }
                     break;
                 case 2:
                     printSlow("Which door?");
@@ -120,7 +124,7 @@ public class Game {
                     try {
                         Item item = state.items.get(itemp);
                         if (state.inventory.contains(item)) {
-                            item.use();
+                            item.use(state);
                             printSlow(item.use);
                             if (item.action.equals("drop")) {
                                 state.inventory.remove(item);

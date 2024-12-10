@@ -7,6 +7,7 @@ public class GameState {
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
     String name;
     boolean finished;
+    boolean sight = true;
     int exitState;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
