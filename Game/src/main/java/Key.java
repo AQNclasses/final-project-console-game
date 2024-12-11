@@ -28,6 +28,5 @@ public class Key extends Item {
     public String getDoorName() {
         return doorName;  // Return the door name
     }
-    //most of this ended up being not used to make the locked doors work
     
 }

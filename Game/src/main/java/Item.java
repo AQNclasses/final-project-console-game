@@ -66,7 +66,8 @@ public class Item {
         return types;
     }
     public String dialogue(GameState state){
-        return NPC.dialogue;
+        String dialogue = NPC.dialogue;
+        return dialogue;
     }
  
 

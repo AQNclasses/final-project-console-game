@@ -72,7 +72,7 @@ public class LoadYAML {
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
             //finds the dialogue case
-            
+
             String dialogue = (String) properties.get("dialogue");
             //types so we can set up the switch case 
 
@@ -101,7 +101,7 @@ public class LoadYAML {
                     items.put(name, new Weapon(name, types, desc, usetext, useaction, min_damage, max_damage));
                     break;
                 case "NPC":
-                    items.put(name, new NPC(name, types, desc, usetext, useaction, dialogue ));
+                    items.put(name, new NPC(name, types, desc, usetext, useaction, dialogue));
                     break;
                 case "Table":
                     items.put(name, new Table(name, types, desc, usetext, useaction));
