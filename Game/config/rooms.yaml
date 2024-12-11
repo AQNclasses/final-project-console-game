@@ -2,7 +2,18 @@
   contents: [poison frog]
   doors:
       green: "Closet"
+      yellow: "Living Room"
+      blue: "Super Secret Lair"
+
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
       green: "Starting Room"
+"Living Room":
+  contents: [chair, mug, rustic bronze key]
+  doors:
+      yellow: "Starting Room"
+"Super Secret Lair":
+  contents: [bed, sweater, chest, gilded 2h sword]
+  doors: 
+      blue: "Starting Room"

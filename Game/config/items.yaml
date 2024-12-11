@@ -44,3 +44,40 @@ book:
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+# new Item Mug
+mug:
+  type: [Item]
+  description: "A very basic white mug with a letter T on it.  It seems to contain a mysterious unknown liquid"
+  use:
+    text: "You drink the mug."
+    action: "drink"
+# new item table
+table:
+  type: [Item]
+  description: "An old rustic long wooden table"
+  use:
+    text: "This table is to heavy to move"
+    action: "null"
+# new item chair
+chair:
+  type: [Item]
+  description: "It looks like 10 sticks were strung together"
+  use:
+    text: "The chair is not very comfortable"
+    action: "sit"
+# new item key
+rustic bronze key:
+  type: [Key, Item]
+  description: "An old, rustic key that doesn't seem special at all."
+  use:
+    text: "This key might be useful to unlock a door"
+    action: "unlock"
+# Sword
+gilded 2h sword:
+  type: [Weapon, Item]
+  description: "This is a shiny gold sword that looks very rare."
+  use:
+    text: "This sword looks important"
+    action: "null"
+
+

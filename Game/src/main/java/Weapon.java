@@ -6,7 +6,8 @@ public class Weapon extends Item {
     int max;
     private Random rn;
 
-    public Weapon(String name, List<String> types, String desc, String use, String act, int min_damage, int max_damage) {
+    public Weapon(String name, List<String> types, String desc, String use, String act, int min_damage,
+            int max_damage) {
         super(name, types, desc, use, act);
         min = min_damage;
         max = max_damage;
@@ -15,8 +16,7 @@ public class Weapon extends Item {
 
     // uniformly distributed random number
     public int attack() {
-        int var = min + rn.nextInt((max-min) + 1);
+        int var = min + rn.nextInt((max - min) + 1);
         return var;
     }
-
 }

@@ -8,7 +8,7 @@ import java.util.Map;
 public class Room {
     public String name;
     public List<Item> contents;
-    public Map<String,String> doors;
+    public Map<String, String> doors;
 
     public Room(String name, List<Item> contents, Map<String, String> doors) {
         this.name = name;
