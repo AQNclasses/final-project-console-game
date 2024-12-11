@@ -117,7 +117,7 @@ public class Game {
 					state.room.contents.remove(item);
 					state.rooms.put(state.room.name, state.room);
 					state.inventory.add(item);
-					printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+					printSlow("You pick up the " + item.name + ". " + item.desc);
 				} catch (Exception e) {
 					printSlow("Unknown item.");
 				}
