@@ -74,24 +74,25 @@ public class LoadYAML {
                 case "Weapon":
                     int minDamage = (int) properties.get("min-damage");
                     int maxDamage = (int) properties.get("max-damage");
-                    items.put(name, new Item.Weapon(name, types, desc, usetext, useaction, minDamage, maxDamage));
+                    items.put(name, new Weapon(name, types, desc, usetext, useaction, minDamage, maxDamage));
                     break;
                 case "Healing":
                     int healNum = (int) properties.get("healNum");
-                    items.put(name, new Item.Healing(name, types, desc, usetext, useaction, healNum));
+                    items.put(name, new Healing(name, types, desc, usetext, useaction, healNum));
                     break;
                 case "Key":
-                    items.put(name, new Item.Key(name, types, desc, usetext, useaction));
+                    items.put(name, new Key(name, types, desc, usetext, useaction));
+                    break;
                 case "Animal":
-                    items.put(name, new Item.Animal(name, types, desc, usetext, useaction));
+                    items.put(name, new Animal(name, types, desc, usetext, useaction));
                     break;
                 case "Plant":
                     int healthBoost = (int) properties.get("health-boost");
-                    items.put(name, new Item.Plant(name, types, desc, usetext, useaction, healthBoost));
+                    items.put(name, new Plant(name, types, desc, usetext, useaction, healthBoost));
                     break;
                 case "Potion":
                     String potionEffect = (String) properties.get("potionEffect");
-                    items.put(name, new Item.Potion(name, types, desc, usetext, useaction, potionEffect));
+                    items.put(name, new Potion(name, types, desc, usetext, useaction, potionEffect));
                     break;
                 default:
                     items.put(name, new Item(name, types, desc, usetext, useaction));
