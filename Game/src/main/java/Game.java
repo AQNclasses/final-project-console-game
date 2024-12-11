@@ -40,27 +40,38 @@ public class Game {
         System.out.println("");
         printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
         System.out.println("");
-        printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing a mysterious door of treasures at the center of the earth, (\'Lost Treasure\', written by UNKNOWN)");
-        printSlow("Before you are able to open the book, you start feeling drowsy and rest your head on the table, your blinking slows... Upon blinking once more, you look up and notice that the room looks... different. The lighting seems a little dimmer and you could have sworn the carpet was a different pattern when you first walked into this room.");
+        printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing a mysterious door");
+        printSlow("of treasures at the center of the earth, (\'Lost Treasure\', written by UNKNOWN).");
+        printSlow("Before you are able to open the book, you start feeling drowsy and rest your head on the table, your blinking slows...");
+        printSlow("Upon blinking once more, you look up and notice that the room looks... different. The lighting seems a little dimmer");
+        printSlow("and you could have sworn the carpet was a different pattern when you first walked into this room.");
         System.out.println("");
         printSlow("You hear an ever so slight noise... what sounds like a groan is coming from the closet...");
             
 
         GameState state = new GameState(name);
-        String ld = "library door", cl = "closet", lt = "left tunnel", rt = "right tunnel", va = "vault", gd = "gold door", sk = "skeleton";
+        String ld = "library", cl = "closet", lt = "left tunnel", rt = "right tunnel", va = "vault", gd = "gold door", sk = "skeleton";
         Room room = state.room;
 
         while (!state.finished) {
             System.out.println("");
             System.out.println("What do you want to do next?");
+            System.out.println("(Current Location: " + state.room + ")");
             System.out.println("[1]: Look around the area.");
             System.out.println("[2]: Change locations");
             System.out.println("[3]: Pick up an object in the area.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+            System.out.println("[0]: End this program.");
 
-            choice = myObj.nextInt();
-            myObj.nextLine(); // consume newline from above
+            String input = myObj.nextLine();
+            try {
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e){
+                choice = -1;
+            }
+            //choice = myObj.nextInt();
+            //myObj.nextLine(); // consume newline from above
             
             switch (choice) {
                 case 1:
@@ -90,7 +101,7 @@ public class Game {
                     String door = myObj.nextLine();
                     
                     try {
-                        if (door.equals(ld) && state.visited.get(state.rooms.get(ld))) {
+                        if (door.equals(ld) && state.visited.get(state.rooms.get(ld)) && state.room.equals(state.rooms.get("closet"))) {
                             printSlow("You try to open the library door but it appears to be locked.");
                             break;
                         } else if (door.equals(cl) && !state.items.get("book").isPickedUp()) {
@@ -98,11 +109,15 @@ public class Game {
                             break;
                         }                     
                         String rtemp = state.room.doors.get(door); // getting room but in string form, checks to see if door is part of rooms doors
-
                         Room prevroom = state.room;
                         // need an if else catch statement if door is not a door
                         state.room = state.rooms.get(rtemp); // setting room in room form
                         room = state.room;
+                        if (state.room == null) {
+                            state.room = prevroom;
+                            throw new Exception("ThrowException:Not a door choice.");
+                        }
+
 
                         if((door.equals(lt)|| door.equals(rt)) && !prevroom.equals(state.rooms.get(cl))) {
                             printSlow("You begin walking deep into the " + door + ".");
@@ -119,16 +134,16 @@ public class Game {
                         else if (door.equals(sk)) {
                             printSlow("You walk up to the " + room.name + " and kneel down.");
                         }
-                        else if (door.equals(gd) && !state.inventory.contains(state.items.get("key"))) {
-                            printSlow("You are infront of the glowing " + room.name + ", it remains locked.");
-                        }
-                        else if (door.equals(gd) && state.inventory.contains(state.items.get("key"))) {
+                        else if (door.equals(gd) && state.inventory.contains(state.items.get("goldkey")) && state.inventory.contains(state.items.get("greenkey")) && state.inventory.contains(state.items.get("redkey"))) {
                             printSlow("You are infront of the glowing " + room.name + ", the only thing left to do is use the keys.");
+                        }                        
+                        else if (door.equals(gd)) {
+                            printSlow("You are infront of the glowing " + room.name + ", it remains locked.");
                         }                        
                         else if (room.equals(state.rooms.get("vault"))) {
                             printSlow("You step into the " + room);
                             if (ogerHealth > 0) {
-                                printSlow("Kill oger to collect greenkey.");
+                                printSlow("Kill oger to collect green key.");
                                 printSlow("Oger Health: " + ogerHealth);
                             }
                         }                         
@@ -140,10 +155,13 @@ public class Game {
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
-                        
                         Item item = state.items.get(itemp);
+                        if(state.inventory.contains(item)) {
+                            printSlow("Item is already in inventory.");
+                            break;
+                        }
                         if (item.equals(state.items.get("greenkey")) && ogerHealth > 0) {
-                            printSlow("The oger is blocking the greenkey. You must defeat the oger first!");
+                            printSlow("The oger is blocking the green key. You must defeat the oger first!");
                             break;
                         }
                         if (item.equals(state.items.get("book"))) {
@@ -166,6 +184,9 @@ public class Game {
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
+                        if (item == null) {
+                            throw new Exception("ThrowException: Not an item.");
+                        }
                         if (state.inventory.contains(item)) {
                             item.use();
                             if (item.action.equals("slip")) {
@@ -260,6 +281,9 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
+                case 0:
+                    state.quitProgram = true;
+                    break;
                 default:
                     printSlow("Unidentified input, try again?");
             }
@@ -267,6 +291,10 @@ public class Game {
             String update = state.update();
             printSlow(update);
         }
+        if (state.quitProgram) {
+            printSlow("Program Terminated.");
+        } else {
         printSlow("You win!");
+        }
     }
 }

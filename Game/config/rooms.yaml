@@ -1,11 +1,11 @@
-"library door":
+"library":
   contents: [book, cactus, sunflower, tulip]
   doors:
       closet: "closet"
 "closet":
   contents: [broom, mop]
   doors:
-      library door: "library door"
+      library: "library"
       left tunnel: "left tunnel"
       right tunnel: "right tunnel"
 "left tunnel":

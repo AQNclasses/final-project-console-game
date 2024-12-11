@@ -10,6 +10,7 @@ public class GameState {
     ArrayList<Room> storyTold = new ArrayList<>();
     String name;
     boolean finished;
+    boolean quitProgram;
     boolean closetUpdate = false;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
@@ -18,7 +19,10 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
-        
+        if (quitProgram) {
+            finished = true;
+            return "";
+        }
         if(!storyTold.contains(room) ) {
             String storytext = ""; 
             if (room.equals(rooms.get("closet"))) { 
@@ -63,7 +67,7 @@ public class GameState {
             if (room.equals(rooms.get("gold door"))) { 
                 storytext = """
                     You are able to see the gold door clearly now. Above the doorknob of the gold door you see 3 locks, first lock
-                    with the color red, second lock with the color green, and third lock with the color gold. 
+                    with the color red, second lock with the color green, and third lock with the color gold. You need 3 keys.
 
                     Locks Unlocked: 0/3
                     """;
@@ -71,13 +75,14 @@ public class GameState {
         if (room.equals(rooms.get("light"))){
             finished = true;
             String finaltext =  """
-                                A bright glowing light fills your eyes, You reach into the light, trying to grab it in your hands. Suddenly, you start to
+                                The door is finally unlocked. When you turn the doorknob and open the door a bright glowing light 
+                                fills your eyes, You reach into the light, trying to grab it in your hands. Suddenly, you start to
                                 feel drowsy once again. You bink once more and awaken back on the table you rested your
                                 head on. You lift your head off the table and realize you've been dreaming this 
                                 whole time. As you get up to return the book to its shelf, you take a final glance 
                                 at the front cover. Your eyes widen as you read the title...
                                 """;
-            String finaltext2 = name + "'s \'Lost Treasure\', Written by " + name;
+            String finaltext2 ="\'" + name + "'s Lost Treasure\', Written by " + name;
              storytext = finaltext + finaltext2;
         }            
             storyTold.add(room);
@@ -102,11 +107,12 @@ public class GameState {
     public GameState(String name) {
         this.name = name;
         finished = false;
+        quitProgram = false;
         LoadYAML yl = new LoadYAML();
         rooms = yl.rooms;
         items = yl.items;
         storyTold.add(room);
-        room = rooms.get("library door");
+        room = rooms.get("library");
         visited.put(room, true);
         //inventory.add(items.get("book"));
     }
