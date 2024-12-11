@@ -60,7 +60,7 @@
 "Servant's Kitchen":
         contents: []
         doors:
-                Cellar Door: "Cellar"
+                Cellar Door: "_Locked"
 
 #Upper Floor
 "Upper Floor":
@@ -85,6 +85,7 @@
         contents: [Annabelle]
         doors:
                 door: "Servant's Kitchen"
+                dev: "Cellar"
 #Extra
 "_Locked":
         contents: []

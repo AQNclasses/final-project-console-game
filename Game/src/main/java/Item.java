@@ -80,7 +80,7 @@ abstract public class Item {
         s.room.contents.remove(this);
         s.rooms.put(s.room.name, s.room);
         s.inventory.add(this);
-        return "\n" + desc + "\nYou obtained the " + name + "!";
+        return "\nYou obtained the " + name + "!\n" + desc;
     }
 
     abstract public String use(GameState s);

@@ -57,13 +57,11 @@ public class LoadYAML {
                 Class itemClass = Class.forName(types.get(0));
                 Constructor con = itemClass.getConstructor(strClass, List.class, strClass, strClass, strClass, String[].class);
                 Map<String, String> args = (HashMap) properties.get("args");
+		args.replace("item", "BestFriend", bfName);
                 String[] argParam = args.values().toArray(new String[0]);
-                
-                
 
                 it = (Item) con.newInstance(name,types,desc,usetext,useaction,argParam);
             }catch(Exception e){ //use default constructor
-                System.out.println(name);
                 it = new defaultItem(name,types,desc,usetext,useaction);
             }
             

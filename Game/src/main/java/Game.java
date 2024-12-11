@@ -38,7 +38,7 @@ public class Game {
 
 		bestf = state.BestFriend;
 		// beginning flavor text
-		/*
+		
 		printSlow("Welcome, "+name+".");
 		System.out.println("");
 		printSlow("Your best friend [BestFriend] is an urban explorer who goes spelunking abandonned buildings");
@@ -46,7 +46,9 @@ public class Game {
 		printSlow("2 weeks ago, [BestFriend] has gone missing while exploring an ancient clinic at the edge of town");
 		System.out.println("");
 		printSlow("The police have been useless, so it is up to you to find out what happened to [BestFriend], and bring her home");
-		*/
+		System.out.println("");
+		printSlow("As you enter the foyer of the clinic, the door slams shut and you hear the lock...");
+		
 		while (!state.finished) {
 			System.out.println("");
 			System.out.println("What do you want to do next?");
@@ -83,10 +85,12 @@ public class Game {
 							printSlow("You walk towards the " + state.room.name + ".");
 							state.roomCheck();
 							int numEnemies = state.isDanger ? rn.nextInt(3) + 1 : 0;
+							numEnemies = rn.nextBoolean() ? numEnemies : 0;
 							if(numEnemies > 0){
 								for(int i = 1; i < numEnemies; i++){
 									Enemy foe = new Enemy( (Enemy) state.items.get("Ghost") );
 									foe.name += " " + i;
+									foe.item = "Bandage";
 									state.battleField.add(foe);
 								}
 							}

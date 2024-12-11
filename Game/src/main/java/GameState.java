@@ -29,8 +29,9 @@ public class GameState {
             room = rooms.get("Servant's Quarter");
             return phase2Start;
         }
-        if(inventory.contains(items.get("BestFriend"))){
+        if(inventory.contains(items.get(BestFriend))){
             String win = "You rescued " + BestFriend + "!\n You Win";
+		finished = true;
             return win;
         }
         return "";
@@ -48,17 +49,14 @@ public class GameState {
         LoadYAML yl = new LoadYAML(BestFriend);
         rooms = yl.rooms;
         items = yl.items;
-        room = rooms.get("Master Bedroom");
-        visited.put(room, true);
+        room = rooms.get("Foyer");
         inventory.add(items.get("Phone"));
-        inventory.add(items.get(BestFriend+"'s Phone"));
-        inventory.add(items.get("Revolver"));
-        // inventory.add(items.get("BestFriend"));
+        visited.put(room, true);
     }
 
     public void roomCheck(){
         Item sir = items.get("Sir Arthur");
-        Item boss = items.get("");
+        Item boss = items.get("Annabelle");
         if(room.contents.contains(sir)){
             battleField.add((Enemy)sir);
         }

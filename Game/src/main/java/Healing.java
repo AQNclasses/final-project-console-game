@@ -18,7 +18,7 @@ public class Healing extends Item{
         if(count > 0){
             s.hp += hpRestore;
             count--;
-            text += hpRestore + "hp restored. \nCurrent hp: " + s.hp;
+            text += hpRestore + " hp restored. \nCurrent hp: " + s.hp;
         }
         if(count <= 0){
             s.inventory.remove(this);
@@ -34,7 +34,7 @@ public class Healing extends Item{
             super.defaultPickUp(s);
             count = 1;
         }
-        return desc + "\nYou obtained the " + name + "!";
+        return "You obtained the " + name + "!\n" + desc;
     }
     
 }

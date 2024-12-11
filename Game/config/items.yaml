@@ -123,8 +123,8 @@ Bandage:
     type: [Healing]
     description: "A simple cloth wrapping. "
     use:
-        text: "You wrap the bandage around your wound"
-        action: "give"
+        text: "You wrap the bandage around your wound."
+        action: "healing"
     args:
         heal amount: "6"
 
@@ -138,8 +138,8 @@ Ghost:
         min-damage: "1"
         max-damage: "3"
         numAttacks: "1"
-        hp: "5"
-        item: "Old Key"
+        hp: "14"
+        item: "Bandage"
 
 Sir Arthur:
     type: [Enemy]
@@ -150,8 +150,8 @@ Sir Arthur:
     args:
         min-damage: "4"
         max-damage: "8"
-        numAttacks: "2"
-        hp: "14"
+        numAttacks: "3"
+        hp: "37"
         item: "Cellar Key"
 
 Annabelle:
@@ -163,19 +163,19 @@ Annabelle:
     args:
         min-damage: "4"
         max-damage: "8"
-        numAttacks: "2"
-        hp: "14"
+        numAttacks: "4"
+        hp: "60"
         item: "BestFriend"
 
 BestFriend:
     type: [Item]
     description: "It's your best friend! She seems to be unconscious."
     use:
-        text: "Wny are would you use [BestFriend]"
+        text: "Wny would you use [BestFriend]"
         action: "none"
 
 Pentagram:
-    type: [Item]
+    type: [Decor]
     description: "A 5 pointed star drawn in blood. Not to be confuse with a pentacle"
     use:
         text: "Its just a drawing"

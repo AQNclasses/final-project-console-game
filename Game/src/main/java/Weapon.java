@@ -18,6 +18,7 @@ public class Weapon extends Item {
         super(other);
         min = other.min;
         max = other.max;
+	numAttacks = other.numAttacks;
         rn = other.rn;
         varNum += 3;
     }
@@ -29,6 +30,7 @@ public class Weapon extends Item {
     }
     public String attack(GameState s){
         String text ="";
+	String loot = "";
         if(!s.battleField.isEmpty()){
             int damage = rollDamage();
             //target random enemy
@@ -37,13 +39,13 @@ public class Weapon extends Item {
             text += "You attack " + target.name + "!  They lose " + damage + " hp.";
 
             if(target.hp <= 0){
-                text += "   You defeated " + target.name + "!";
-                target.remove(s);
+                loot += "\nYou defeated " + target.name + "!";
+                loot += target.remove(s);
             }
         }else{
             text += "There is no need for that...";
         }
-        return text;
+        return text + loot;
     }
     public String use(GameState s){
         String text = use () + "\n";
@@ -53,7 +55,7 @@ public class Weapon extends Item {
         for(i = 0; (i < numAttacks && !s.battleField.isEmpty() ); i++){
             temp += attack(s) + "\n";
         }
-        text += "You attacked " + i + " times.";
+        text += "You attacked " + i + " times.\n";
         return text + temp;
     }
 
