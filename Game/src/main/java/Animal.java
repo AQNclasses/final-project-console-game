@@ -19,4 +19,10 @@ public class Animal extends Item {
         return var;
     }
 
+    public void use(GameState state) {
+        state.updateHealth(-this.attack());
+        super.use();
+
+    }
+
 }

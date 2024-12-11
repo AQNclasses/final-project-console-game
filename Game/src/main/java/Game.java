@@ -64,6 +64,39 @@ public class Game {
                 case 2:
                     printSlow("Which door?");
                     String door = myObj.nextLine();
+
+                    // if the door has a required key
+                    if (state.room.lockedDoors.containsKey(door)) {
+                        // set the key and the key to false
+                        String requiredKey = state.room.lockedDoors.get(door);
+                        boolean hasKey = false;
+                        // iterate through inventory
+                        for (Item x : state.inventory) {
+                            // if user has the key
+                            if (x.name.equals(requiredKey)) {
+                                // set the key to true and break
+                                hasKey = true;
+                                break;
+                                
+                            }
+
+                        }
+                        // if has key is true
+                        if (hasKey) {
+                            // print message letting user know the door is opening
+                            printSlow("You used the " + requiredKey + " to unlock the " + door + " door!");
+                            // unlock the door                            
+                            state.room.lockedDoors.remove(door);
+                        // else 
+                        } else {
+                            // print message saying the door is locked
+                            printSlow("The " + door + " door is locked. You might need something to open it...");
+                            // break
+                            break;
+                        }
+
+                    }
+
                     try {
                         String rtemp = state.room.doors.get(door);
                         state.room = state.rooms.get(rtemp);

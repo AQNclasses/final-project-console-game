@@ -1,8 +1,26 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [poison frog, mystic cloak]
   doors:
       green: "Closet"
+      blue: "Green Room"
+      brown: "Basement"
+  lockedDoors:
+      brown: "brown key"
+
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, bucket, poster, brown key, enchanted scroll]
   doors:
       green: "Starting Room"
+  lockedDoors: {}
+
+"Basement":
+  contents: [crystal ball, shield, map, rat, dagger]
+  doors:
+      brown: "Starting Room"
+  lockedDoors: {}
+      
+"Green Room":
+  contents: [carnivorous plant, medicinal herbs, mysterious seeds]
+  doors:
+      blue: "Starting Room"
+  lockedDoors : {}

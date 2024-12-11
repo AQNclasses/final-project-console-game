@@ -8,6 +8,7 @@ enum ItemType {
     Key,
     Animal,
     Plant,
+    Magic,
     Item;
 
     public static ItemType toType(String s) {
@@ -22,6 +23,8 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "Magic":
+                return ItemType.Magic;
             default:
                 return ItemType.Item;
         }
