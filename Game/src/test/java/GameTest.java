@@ -15,10 +15,13 @@ public class GameTest {
         state.inventory.add(key);
 
         assertTrue(state.canOpenDoor("iron", state.rooms.get("Library")));
+    public void testYAML() {
+        LoadYAML yl = new LoadYAML();
+        Room room1 = yl.rooms.get("Starting Room");
+        assertEquals(room1.name, "Starting Room");
     }
 
-    @Test
-    public void testScrollKnowledge() {
+        public void testScrollKnowledge() {
         GameState state = new GameState("TestPlayer");
 
         assertEquals(0, GameState.playerKnowledge);
