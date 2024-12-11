@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 
 // Define types of items that share actions / properties
@@ -8,6 +9,7 @@ enum ItemType {
     Key,
     Animal,
     Plant,
+    Chest,
     Item;
 
     public static ItemType toType(String s) {
@@ -22,6 +24,8 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "Chest":
+                return ItemType.Chest;
             default:
                 return ItemType.Item;
         }
@@ -56,7 +60,7 @@ public class Item {
     public void use() {
         used = true;
     }
-
+    
     @Override
     public String toString() {
         return this.name;

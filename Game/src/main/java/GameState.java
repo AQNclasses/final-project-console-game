@@ -7,6 +7,9 @@ public class GameState {
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
     String name;
     boolean finished;
+    int health = 20;
+    boolean battle = false;
+    Weapon weapon;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
@@ -14,15 +17,23 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
-        if (room.contents.contains(items.get("poison frog")) &&
-            room.contents.contains(items.get("book")) ){
+        Chest ches = (Chest)items.get("treasure chest");
+        if (!ches.locked){
             finished = true;
             String finaltext =  """
-                                The frog hops slowly over to the book and hops on top. Suddenly the book and the
-                                frog begin to glow. The room starts spinning and you shut your eyes out of fear.
-                                When you open them, you're back in the original basement room! When you open the
-                                door, you find yourself back in the modern-day library. As you leave and the door
-                                swings shut, you think you hear a faint \"ribbet\"....
+                                As the lid creaks open you see a bright light shining from inside.
+                                After a moment, the chest starts shaking. You feel yourself being sucked into the chest.
+                                You close your eyes, to prepare for what's coming...
+                                Moments later, you slowly open your eyes...
+                                
+
+                                It was just a dream.
+                                """;
+            return finaltext;
+        }else if(health <= 0){
+            finished = true;
+            String finaltext =  """
+                                YOU DIED!
                                 """;
             return finaltext;
         }

@@ -2,18 +2,28 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
-  max-damage: 10
+      text: "sword"
+      action: "equip"
+  min-damage: 10
+  max-damage: 25
+toy sword:
+  type: [Weapon]
+  description: "Just a toy sword."
+  use:
+      text: "you equip the toy sword"
+      action: "equip"
+  min-damage: 8
+  max-damage: 20
 poison frog:
-  type: [Weapon, Animal]
+  type: [Animal]
+  drops: [excalibur]
   description: "A bright purple frog, oozing a thick liquid"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
       action: "drop"
   min-damage: 2
   max-damage: 4
+  health: 20
 broom:
   type: [Item]
   description: "It's for sweeping."
@@ -40,7 +50,41 @@ poster:
       action: "null"
 book:
   type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
+  description: "An old copy of Franz Kafka's Metamorphosis. It seems to have some purple residue on it."
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+treasure chest:
+  type: [Chest]
+  contents: []
+  description: "A rusty looking chest with a lock on it"
+  locked: "True"
+  use:
+      text: "You opened the treasure chest"
+      action: "open"
+rusty key:
+  type: [Key]
+  description: "Maybe you can open something with it."
+  use:
+      text: "you dont have anything to unlock"
+      action: "null"
+toy chest:
+  type: [Chest]
+  contents: [toy sword]
+  description: "A toy chest, probably filled with toys."
+  locked: "False"
+  use:
+      text: "You opened the toy chest"
+      action: "open"
+skeleton warrior:
+  type: [Animal]
+  drops: [rusty key]
+  description: "A dangerous looking skeleton holding a sword in his hand."
+  use:
+      text: ""
+      action: ""
+  min-damage: 2
+  max-damage: 10
+  health: 25
+
+

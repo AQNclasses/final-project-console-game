@@ -1,5 +1,5 @@
-import java.util.Random;
 import java.util.List;
+import java.util.Random;
 
 public class Weapon extends Item {
     int min;

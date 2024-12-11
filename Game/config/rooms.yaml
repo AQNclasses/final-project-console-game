@@ -1,8 +1,18 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [poster]
   doors:
       green: "Closet"
+      red: "Attic"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, bucket, toy chest]
   doors:
       green: "Starting Room"
+"Attic":
+  contents: [treasure chest, poison frog]
+  doors:
+      red: "Starting Room"
+      portal: "Dungeon"
+"Dungeon":
+  contents: [skeleton warrior]
+  doors:
+      portal: "Attic"
