@@ -38,7 +38,7 @@ book:
       action: "drop"
 gold key:
    type: [Weapon, Key]
-   description: "A gold skeleton key"
+   description: "A gold skeleton key."
    use:
        text: "You turn the key in the lock. It unlocks the door."
        action: "unlock"
@@ -55,7 +55,7 @@ excalibur:
   max-damage: 10
 silver key:
    type: [Weapon, Key]
-   description: "A silver skeleton key"
+   description: "A silver skeleton key."
    use:
        text: "You turn the key in the lock. It unlocks the door."
        action: "unlock"
