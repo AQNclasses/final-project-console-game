@@ -2,45 +2,106 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
-  max-damage: 10
+    text: "You slash with the sword."
+    action: "null"
+  min-damage: 15
+  max-damage: 30
+
 poison frog:
   type: [Weapon, Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
-  min-damage: 2
-  max-damage: 4
+    text: "You place the frog gently on the floor. The frog croaks contentedly."
+    action: "drop"
+  min-damage: 10
+  max-damage: 20
+
+magic key:
+  type: [Key]
+  description: "An ornate key glowing with mysterious energy"
+  use:
+    text: "The key glows brightly in your hand."
+    action: "unlock"
+
+ancient scroll:
+  type: [Scroll]
+  description: "A weathered scroll with mystical writings"
+  use:
+    text: "The scroll's text begins to glow as you read it."
+    action: "read"
+  knowledge: 5
+
+potion:
+  type: [Healing]
+  description: "A bubbling red potion"
+  use:
+    text: "You drink the potion and feel refreshed."
+    action: "heal"
+  heal-amount: 20
+
+crystal:
+  type: [Scroll]
+  description: "A clear crystal humming with energy"
+  use:
+    text: "The crystal resonates with nearby magical items."
+    action: "detect"
+  detection-range: 2
+
+grimoire:
+  type: [Scroll]
+  description: "An ancient book of spells"
+  use:
+    text: "You read an incantation from the grimoire."
+    action: "cast"
+  spell-power: 10
+
+crown:
+  type: [Item]
+  description: "A golden crown with mysterious inscriptions"
+  use:
+    text: "The crown fits perfectly on your head."
+    action: "wear"
+
 broom:
   type: [Item]
   description: "It's for sweeping."
   use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
+    text: "The floor looks slightly less dusty."
+    action: "null"
+
 bucket:
   type: [Item]
   description: "It's empty."
   use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+    text: "You put the bucket on your head. You feel marginally safer."
+    action: "null"
+
 mop:
   type: [Item]
   description: "It's for mopping."
   use:
-      text: "The floor looks slightly more damp."
-      action: "null"
+    text: "The floor looks slightly more damp."
+    action: "null"
+
 poster:
   type: [Item]
   description: "A classic."
   use:
-      text: "What are you going to do with a poster?"
-      action: "null"
+    text: "What are you going to do with a poster?"
+    action: "null"
+
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+    text: "You place the book gently on the floor."
+    action: "drop"
+
+  rusty_dagger:
+    type: [ Weapon ]
+    description: "An old dagger, but still sharp"
+    use:
+      text: "You strike quickly with the dagger"
+      action: "attack"
+    min-damage: 10
+    max-damage: 15

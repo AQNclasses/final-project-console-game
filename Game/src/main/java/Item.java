@@ -8,6 +8,7 @@ enum ItemType {
     Key,
     Animal,
     Plant,
+    Scroll,
     Item;
 
     public static ItemType toType(String s) {
@@ -28,8 +29,7 @@ enum ItemType {
     }
 }
 
-// Object defining how general items work in your game
-// All other item classes should inherit this class
+
 public class Item {
     String name;
     ArrayList<ItemType> types = new ArrayList<ItemType>();
@@ -37,6 +37,8 @@ public class Item {
     String use;
     String action;
     Boolean used = false;
+    protected GameState gameState; // Add reference to GameState
+
 
     Item(String n, List<String> ts, String d, String u, String a) {
         name = n;
@@ -44,6 +46,9 @@ public class Item {
         desc = d;
         use = u;
         action = a;
+    }
+    public void setGameState(GameState state) {
+        this.gameState = state;
     }
 
     public String inspect() {

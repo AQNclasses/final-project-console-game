@@ -5,8 +5,10 @@ public class Game {
     static String name;
     static int choice;
     static String itemp;
+    static int playerHealth = 100;
+    static int enemyHealth = 0;
+    static boolean enemyPresent = false;
 
-    // helper function for printing
     private static void printSlow(String toPrint) {
         char[] chars = toPrint.toCharArray();
         for (int i=0; i < chars.length; i++) {
@@ -24,14 +26,15 @@ public class Game {
 
     public static void main(String[] args) {
 
-        // only instantiate once
         Scanner myObj = new Scanner(System.in);
 
         System.out.println("What is your name?");
         name = myObj.nextLine();
-        // init game state
         GameState state = new GameState(name);
 
+
+        printSlow("Welcome, " + name + ". Be careful - there are monsters here!");
+        printSlow("Your health: " + playerHealth);
         // beginning flavor text
         /**
         printSlow("Welcome, "+name+".");
@@ -50,9 +53,18 @@ public class Game {
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+            if (enemyPresent) {
+                System.out.println("[6]: Fight the enemy!");
+            }
 
             choice = myObj.nextInt();
-            myObj.nextLine(); // consume newline from above
+            myObj.nextLine();
+
+            if (!enemyPresent && Math.random() < 0.2) {
+                enemyPresent = true;
+                enemyHealth = 50;
+                printSlow("\nA monster appears! It looks hostile!");
+            }
 
             switch (choice) {
                 case 1:
@@ -65,9 +77,21 @@ public class Game {
                     printSlow("Which door?");
                     String door = myObj.nextLine();
                     try {
+                        if (!state.canOpenDoor(door, state.room)) {
+                            printSlow("This door appears to be locked. You need a key to open it.");
+                            break;
+                        }
                         String rtemp = state.room.doors.get(door);
                         state.room = state.rooms.get(rtemp);
+                        if (door.equals("iron") && !state.unlockedDoors.getOrDefault("iron", false)) {
+                            printSlow("You use the magic key to unlock the door.");
+                            state.unlockDoor("iron");
+                        }
                         printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        if (enemyPresent) {
+                            printSlow("You managed to escape from the monster!");
+                            enemyPresent = false;
+                        }
                     } catch (Exception e) {
                         printSlow("Unknown door.");
                     }
@@ -95,12 +119,21 @@ public class Game {
                     try {
                         Item item = state.items.get(itemp);
                         if (state.inventory.contains(item)) {
-                            item.use();
-                            printSlow(item.use);
-                            if (item.action.equals("drop")) {
+                            if (item.types.contains(ItemType.Healing)) {
+                                playerHealth = Math.min(100, playerHealth + 20);
+                                printSlow("You used a healing item! Health: " + playerHealth);
                                 state.inventory.remove(item);
-                                state.room.contents.add(item);
-                                state.rooms.put(state.room.name, state.room);
+                            } else if (item.types.contains(ItemType.Weapon) && enemyPresent) {
+                                int damage = 20 + (int)(Math.random() * 10);
+                                enemyHealth -= damage;
+                                printSlow("You attack the monster for " + damage + " damage!");
+                                if (enemyHealth <= 0) {
+                                    printSlow("You defeated the monster!");
+                                    enemyPresent = false;
+                                }
+                            } else {
+                                item.use();
+                                printSlow(item.use);
                             }
                         }
                         else {
@@ -110,12 +143,45 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                default:
+                case 6:
+                    if (enemyPresent) {
+                        int damage = 10 + (int)(Math.random() * 10);
+                        playerHealth -= damage;
+                        printSlow("The monster attacks you for " + damage + " damage!");
+                        printSlow("Your health: " + playerHealth);
+
+                        int counterDamage = 5 + (int)(Math.random() * 5);
+                        enemyHealth -= counterDamage;
+                        printSlow("You punch the monster for " + counterDamage + " damage!");
+
+                        if (enemyHealth <= 0) {
+                            printSlow("You defeated the monster!");
+                            enemyPresent = false;
+                        }
+                    }
+                    break;
+
+            default:
                     printSlow("Unidentified input, try again?");
             }
+            if (enemyPresent && choice != 6) {
+                int damage = 10 + (int)(Math.random() * 10);
+                playerHealth -= damage;
+                printSlow("\nThe monster attacks you for " + damage + " damage!");
+                printSlow("Your health: " + playerHealth);
+                if (playerHealth <= 0) {
+                    printSlow("You have succumbed to your injuries. Game Over.");
+                    break;
+                }
+            }
 
+            if (playerHealth <= 0) {
+                printSlow("You have succumbed to your injuries. Game Over.");
+                break;
+            }
             String update = state.update();
             printSlow(update);
+
         }
         printSlow("You win!");
     }
