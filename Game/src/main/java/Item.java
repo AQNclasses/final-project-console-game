@@ -65,6 +65,12 @@ public class Item {
     public List<ItemType> getType(){
         return types;
     }
+    public String dialogue(GameState state){
+        return NPC.dialogue;
+    }
+ 
+
+
     //returns table or npc
     public boolean isUsed(){
         boolean activation = false;
@@ -74,6 +80,13 @@ public class Item {
         }
         return activation;
     }
+
+
+    public void use(GameState state) {
+        state.health += Healing.healthEffect;
+
+    }
+
 
     @Override
     public String toString() {

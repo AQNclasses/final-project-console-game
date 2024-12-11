@@ -3,75 +3,116 @@ excalibur:
   description: "Ye sword of olde"
   use:
     text: "You slash with the sword."
-    action: "null"
-  min-damage: 1
-  max-damage: 10
+    action: null
+  min_damage: 1
+  max_damage: 10
 
 poison frog:
   type: [Weapon, Animal]
   description: "A bright purple frog, oozing a thick liquid."
   use:
     text: "You place the frog gently on the floor. The frog croaks contentedly."
-    action: "drop"
-  min-damage: 2
-  max-damage: 4
+    action: drop
+  min_damage: 2
+  max_damage: 4
 
 broom:
   type: [Item]
   description: "It's for sweeping."
   use:
     text: "The floor looks slightly less dusty."
-    action: "null"
+    action: null
 
 bucket:
   type: [Item]
   description: "It's empty."
   use:
     text: "You put the bucket on your head. You feel marginally safer."
-    action: "null"
+    action: null
 
 mop:
   type: [Item]
   description: "It's for mopping."
   use:
     text: "The floor looks slightly more damp."
-    action: "null"
+    action: null
 
 poster:
   type: [Item]
   description: "A classic."
   use:
     text: "What are you going to do with a poster?"
-    action: "null"
+    action: null
+
 red pole:
   type: [Item]
   description: "A red cylinder-shaped pole about 2 feet in length. It's surprisingly light, and it looks as you pick it up. You feel as if you could touch the moon."
   use:
-    text: "The pole shifts in your hand, adjusting to your size. you drop it on the ground out of suprise"
-    action: "drop"
+    text: "The pole shifts in your hand, adjusting to your size. you drop it on the ground out of surprise."
+    action: drop
 
 Empty Sacred Container:
   type: [Item]
   description: "A blue vase-like glass with gems embedded on the side. Any water in here must be really delicious."
   use:
     text: "This container is empty. I bet I could take it to the water fountain."
-    action: "null"
-
+    action: drop
+    
 Unnamed Kid:
-  type: [NPC]
-  description: "A 3'4\" child stands before you, wearing an orange tunic with a small black belt tied around their waist. They have spiky black hair and a small monkey tail coming out from the rear. This monkey kid seems tough but also pleasant to be around."
+  type: [NPC]  
+  description: "A 3'4 child stands before you, wearing an orange tunic with a small black belt tied around their waist. They have spiky black hair and a small monkey tail coming out from the rear. This monkey kid seems tough but also pleasant to be around."
   use:
-    action: "null"
-  dialogue: "Hey, my name is Goku. If you see a red staff around here, bring it here and drop it on the ground, and I can give you a cool way to store the holy water. I'd be careful if Mr. Popo catches you trying to touch the water fountain; he gets real mad."
+    action: null
+  dialogue: " Hi its me goku, I kinda lost my red power pole if you can bring it back to me I'd really appreciate it!"
+
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
-    text: "You place the book gently on the floor."
-    action: "drop"
+    text: "You place the book gently on the floor. as you read outs its words the symbols -rm rf are seen clear as day. the worlds to get home are suddenly clear"
+    action: drop
+
 Holy Fountain:
   type: [Table]
-  description: "this might fountain is quite a sight you go to take a sip from it but an ominous presence is felt so deep in your soul that you decide to find a proper cup you wouldn't dare contanimate these powerfull waters"
+  description: "This mighty fountain is quite a sight. You go to take a sip from it, but an ominous presence is felt so deep in your soul that you decide to find a proper cup. You wouldn't dare contaminate these powerful waters."
   use:
-    text: "You place the book gently on the floor."
-    action: "drop"
+    text: "You probably need a container to use on this"
+    action: drop
+
+senzu bean:
+  type: [Healing]
+  description: "This green oval shaped bean smells rancid but is sturdy, like it could regrow an arm."
+  use:
+    text: "You nibble on this bean and reluctantly swallow. As you finish your meal, you feel invigorated and refreshed."
+    action: heal
+  health: 20
+
+Dragon Balls:
+  type: [Table]  
+  description: "You seven stone arranged in a perfect patter each with a yellow star sealed deep inside its clear orange and classy outer shell, there ancienct magic stings your nose."
+  use:
+    text: "you take a closer look at this stones, Maybe with the knowledge of some ancient book could help lead the way"
+    action: drop
+
+Mr Popo:
+  type: [NPC]  
+  description: "You see a genie of legened, with maybe an outdated design."
+  use:
+    action: null
+  dialogue: "\u001B[35mHello, I'm Suprise you pushed opened that door, I suppose you can use the dragon balls if you wish. I dont know another way to return back your world.\u001B[0m"
+
+speedrunners potion:
+  type: [Healing]
+  description: "this 16ox black can with a green M at its side is nor really recommeneded for anyone if you drink it I bet the game will end "
+  use:
+    text: "as you take a sip of this incadancesnt brew you feel your heart begin to speed up and eventually stop,"
+    action: heal
+  health: -50
+
+Filled Sacred Container:
+  type: [Key]
+  description: "The water in here must be really delicious and really powerful."
+  use:
+    text: "Drinking this water you feel Newfound strength rush through your body and you feel as if no door is big enough to stop you"
+    action: unlock
+  door_name: "Heavy Door"  # Add this if it's meant to unlock a door when used
