@@ -1,13 +1,12 @@
 import java.util.Random;
-import java.util.List;
 
 public class Weapon extends Item {
     int min;
     int max;
     private Random rn;
 
-    public Weapon(String name, List<String> types, String desc, String use, String act, int min_damage, int max_damage) {
-        super(name, types, desc, use, act);
+    public Weapon(String name, String type, String desc, String use, String act, int min_damage, int max_damage) {
+        super(name, type, desc, use, act);
         min = min_damage;
         max = max_damage;
         rn = new Random();
@@ -19,4 +18,22 @@ public class Weapon extends Item {
         return var;
     }
 
+    // Calls the attack function for every animal and plant in the room (excluding player's inventory)
+    @Override
+    public void use(GameState state) {
+        super.use(state);
+        for(int i = 0; i < state.room.contents.size(); i++){
+            if(state.room.contents.get(i).type == ItemType.Animal){
+                ((Animal)state.room.contents.get(i)).attack(this.attack());
+            } else if(state.room.contents.get(i).type == ItemType.Plant){
+                ((Plant)state.room.contents.get(i)).attack(this.attack());
+            }
+        }
+    }
+
+    @Override
+    public String inspect(){
+        String message = super.inspect() + ". Damage range: " + min + " - " + max;
+        return message;
+    }
 }

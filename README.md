@@ -44,7 +44,7 @@ items in as Items.
    - Add and implement actions for all the items. All actions should modify GameState.
 5. Add a new subclass of items and at least three corresponding entries in `items.yaml`.
 6. Implement two new tests in `Game/src/test/java/GameTest.java`.
-
+   
 ## Extra Credit Opportunities
 
 Up to 2.5% extra credit (toward your overall class grade) is available if you complete one of the following options:

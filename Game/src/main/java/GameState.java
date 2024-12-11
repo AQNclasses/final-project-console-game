@@ -7,6 +7,8 @@ public class GameState {
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
     String name;
     boolean finished;
+    boolean sight = true;
+    int exitState;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
@@ -17,6 +19,7 @@ public class GameState {
         if (room.contents.contains(items.get("poison frog")) &&
             room.contents.contains(items.get("book")) ){
             finished = true;
+            exitState = 1;
             String finaltext =  """
                                 The frog hops slowly over to the book and hops on top. Suddenly the book and the
                                 frog begin to glow. The room starts spinning and you shut your eyes out of fear.
@@ -26,12 +29,47 @@ public class GameState {
                                 """;
             return finaltext;
         }
+        if (items.get("car") != null && ((Vehicle)items.get("car")).running){
+            finished = true;
+            exitState = 1;
+            String finaltext =  """
+                                You were able to leave the house and make a quick get away.
+                                It was certainly a weird house with some interesting things, 
+                                but the smell of smoke was starting to get to you.
+                                """;
+            return finaltext;
+        }
+        if(items.size() == 0){
+            finished = true;
+            exitState = 0;
+            String finaltext =  """
+                                What have you done! That potion has caused all of the items to vanish.
+                                Without any items there is no way to complete the game.
+                                That's it you had a chance and you blew it. All the rooms are empty.
+                                There were two other endings that would have ended better for you, but
+                                noooooo, you had to go and drink the disappearing poisons and leave nothing left.
+                                """;
+            return finaltext;
+        }
+        if (!((items.containsKey("poison frog") && items.containsKey("book")) || ((items.containsKey("rusty key") || !rooms.get("Garage").locked)  && (items.containsKey("car") && items.containsKey("car key"))))){
+            finished = true;
+            exitState = 0;
+            String finaltext =  """
+                                What have you done! That potion has caused all of the items needed to escape to vanish.
+                                Without those items there is no way to complete the game.
+                                That's it you had a chance and you blew it.
+                                There were two other endings that would have ended better for you, but
+                                noooooo, you had to go and drink the disappearing poisons and leave no way to escape.
+                                """;
+            return finaltext;
+        }
         return "";
     }
 
     public GameState(String name) {
         this.name = name;
         finished = false;
+        exitState = -1;
         LoadYAML yl = new LoadYAML();
         rooms = yl.rooms;
         items = yl.items;

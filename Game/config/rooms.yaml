@@ -2,7 +2,62 @@
   contents: [poison frog]
   doors:
       green: "Closet"
+      white: "Front Yard"
+      yellow: "Dinning Room"
+      passage: "Hallway"
+  floor: "carpet"
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
       green: "Starting Room"
+  floor: "hardwood"
+"Front Yard":
+  contents: [flowers]
+  doors:
+      white: "Starting Room"
+      hole: "Rabbit Burrow"
+      path: "Street"
+  floor: "grass"
+"Dinning Room":
+  contents: [excalibur]
+  doors:
+    yellow: "Starting Room"
+    arch: "Kitchen"
+  floor: "hardwood"
+"Hallway":
+  contents: [bandage]
+  doors:
+    passage: "Starting Room"
+    brown: "Kitchen"
+  floor: "carpet"
+"Kitchen":
+  contents: [yellow note, car key]
+  doors:
+    arch: "Dinning Room"
+    brown: "Hallway"
+    red: "Living Room"
+  floor: "hardwood"
+"Rabbit Burrow":
+  contents: [rusty key, green potion]
+  doors:
+    hole: "Front Yard"
+  floor: "dirt"
+"Living Room":
+  contents: [blue note, red potion]
+  doors:
+    red: "Kitchen"
+    blue: "Garage"
+  floor: "carpet"
+"Garage":
+  contents: [car, red note]
+  doors:
+    blue: "Living Room"
+    rolling: "Street"
+  locked: true
+  floor: "concrete"
+"Street":
+  contents: [black potion]
+  doors:
+    rolling: "Garage"
+    path: "Front Yard"
+  floor: "asphalt"

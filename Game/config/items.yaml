@@ -3,44 +3,136 @@ excalibur:
   description: "Ye sword of olde"
   use:
       text: "You slash with the sword."
-      action: "null"
+      action: "Swing"
   min-damage: 1
   max-damage: 10
 poison frog:
-  type: [Weapon, Animal]
+  type: [Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
       action: "drop"
-  min-damage: 2
-  max-damage: 4
+  health: 5
 broom:
-  type: [Item]
-  description: "It's for sweeping."
+  type: [Cleaner]
+  description: "It's for sweeping"
   use:
       text: "The floor looks slightly less dusty."
-      action: "null"
+      action: "clean"
+  wet: false
 bucket:
-  type: [Item]
-  description: "It's empty."
+  type: [Cover]
+  description: "It's empty"
   use:
       text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+      text2: "You take the bucket off your head and are able to see again."
+      action: "hide"
 mop:
-  type: [Item]
-  description: "It's for mopping."
+  type: [Cleaner]
+  description: "It's for mopping"
   use:
       text: "The floor looks slightly more damp."
-      action: "null"
+      action: "clean"
+  wet: true
 poster:
   type: [Item]
-  description: "A classic."
+  description: "A classic"
   use:
       text: "What are you going to do with a poster?"
-      action: "null"
+      action: "drop"
 book:
   type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
+  description: "An old book about Java. It seems to have some purple residue on it"
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+rusty key:
+  type: [Key]
+  description: "A little rusty, but it might still work"
+  use:
+      text: "You try the key in every nearby door."
+      action: "unlock"
+  code: 1
+car key:
+  type: [Key]
+  description: "A shiny key to a car"
+  use:
+      text: "You can hear a honking nearby."
+      action: "unlock"
+  code: 0
+bandage:
+  type: [Healing]
+  description: "A bandage to heal wounds"
+  use:
+      text: "You bandages are able to heal all animals in the room."
+      action: "heal"
+  heal-factor: 3
+flowers:
+  type: [Plant]
+  description: "Beautiful tulip with a sweet smell. They should be on display"
+  use:
+      text: "You put the flowers down."
+      action: "drop"
+  health: 2
+red note:
+  type: [Note]
+  description: "A note written on a light red piece of paper"
+  use:
+      text: "You were asleep when I got home last night, so I'm leaving this note for you.
+            \nWhen I got home I put the car keys on the counter in the kitchen.
+            \n\nYou put the note down."
+      action: "drop"
+yellow note:
+  type: [Note]
+  description: "A note written on a yellow piece of paper"
+  use:
+      text: "Grocery list:
+            \n- Chicken breast
+            \n- Pasta
+            \n- Alfredo sauce
+            \n- Milk
+            \n- Salad mix
+            \n- Italian dressing
+            \n- Box of cookies
+            \n\nYou put the note down."
+      action: "drop"
+blue note:
+  type: [Note]
+  description: "A note written on a light blue piece of paper"
+  use:
+      text: "I took your house key last night because I lost mine and I couldn't find the backup key.
+            \nNormally the key is under the rock by the front door, but something has dug around it.
+            \nMaybe the thing that dug by the front door is the same thing that's been leaving holes in the lawn.
+            \n\nYou put the note down."
+      action: "drop"
+car:
+  type: [Vehicle]
+  description: "A light blue Datsun with bullet holes in the door"
+  use:
+      text: "You put the key in the ignition and drive away."
+      altText: "You seem to be missing the key."
+      action: "drive"
+red potion:
+  type: [Potion]
+  description: "A dark red potion of with a sweet smell"
+  use:
+      text: "You take a sip of the potion and feel dizzy, next thing that you know
+            \nthe world start spinning and the ground starts to shake.
+            \nYou black out for a moment and when you wake up you are not where you were."
+      action: "drink"
+  pType: 0
+green potion:
+  type: [Potion]
+  description: "A glowing green potion that smells of rotten apples"
+  use:
+      text: "You take a sip of the potion. Nothing seems to change, but your inventory feels lighter."
+      action: "drink"
+  pType: 1
+black potion:
+  type: [Potion]
+  description: "An inky black potion labeled with a skull. This potion also burns your nose to smell"
+  use:
+      text: "You take a sip of the potion and it burns your throat to swallow.
+            \nYou think your imagining things, but before you very eyes every item in the room disappears."
+      action: "drink"
+  pType: 2

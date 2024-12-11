@@ -1,9 +1,9 @@
-public class Animal extends Item {
+public class Plant extends Item {
     int health;
     int maxHealth;
     boolean alive = true;
 
-    public Animal(String name, String type, String desc, String use, String act, int health) {
+    public Plant(String name, String type, String desc, String use, String act, int health) {
         super(name, type, desc, use, act);
         this.health = health;
         maxHealth = health;
@@ -16,13 +16,9 @@ public class Animal extends Item {
         return alive;
     }
 
-    public void heal(int points) {
-        health = Math.min(health + points, maxHealth);
-    }
-
     @Override
     public String inspect(){
-        String message = super.inspect() + " This animal is currently " + (alive ? "alive." : "dead. ") + " Health is at " + health;
+        String message = super.inspect() + " This plant is currently " + (alive ? "alive." : "dead. ") + " Health is at " + health;
         return message;
     }
 
