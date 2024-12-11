@@ -1,8 +1,96 @@
-"Starting Room":
-  contents: [poison frog]
-  doors:
-      green: "Closet"
-"Closet":
-  contents: [broom, mop, bucket, poster]
-  doors:
-      green: "Starting Room"
+#Phase 1 Clinic
+#Ground Floor
+"Foyer":
+        contents: []
+        doors:
+                Living Room: "Living Room"
+                Dining Room: "Dining Room"
+                Front Door: "_Locked"
+                Examination Room: "Examination Room"
+                Stairs: "Upstairs Landing"
+"Living Room":
+        contents: []
+        doors:
+                Foyer: "Foyer"
+                Dining Room: "Dining Room"
+
+"Examination Room":
+        contents: [BestFriend's Phone]
+        doors:
+                Office: "Office"
+                Foyer: "Foyer"
+
+"Office":
+        contents: []
+        doors:
+                Exanimation Room: "Exanimation Room"
+"Dining Room":
+        contents: [Knife]
+        doors:
+                Living Room: "Living Room"
+                Kitchen: "Kitchen"
+
+#Upstairs
+"Upstairs Landing":
+        contents: []
+        doors:
+                Foyer: "Foyer"
+                door: "Child Bedroom"
+                Master Bedroom: "_Locked"
+"Master Bedroom":
+        contents: [Pentagram]
+        doors:
+                Door: "Upstairs Landing"
+"Child Bedroom":
+        contents: [doll]
+        doors:
+                Door: "Upstairs Landing"
+
+#Phase 2 Manor
+"Servant's Quarter":
+        contents: [Knife]
+        doors:
+                Door: "Entrance Hall"
+
+"Entrance Hall":
+        contents: [Armor Stand]
+        doors:
+                Kitchen: "Servant's Kitchen"
+                Stairs: "Upper Floor"
+"Servant's Kitchen":
+        contents: []
+        doors:
+                Cellar Door: "Cellar"
+
+#Upper Floor
+"Upper Floor":
+        contents: []
+        doors:
+                door: "Study"
+                Master Bedroom: "Sir Arthur's Room"
+                stairs: "Entrance Hall"
+
+"Study":
+        contents: [Gun Display]
+        doors:
+                door: "Upper Floor"
+
+"Sir Arthur's Room":
+        contents: [Sir Arthur]
+        doors:
+                door: "Upper Floor"
+
+#Cellar
+"Cellar":
+        contents: [Annabelle]
+        doors:
+                door: "Servant's Kitchen"
+#Extra
+"_Locked":
+        contents: []
+        doors:
+"_secretState":
+        contents: []
+        doors:
+                DOOR_SECRET: "_secretState"
+

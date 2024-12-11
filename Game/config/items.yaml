@@ -1,46 +1,182 @@
-excalibur:
-  type: [Weapon]
-  description: "Ye sword of olde"
-  use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
-  max-damage: 10
-poison frog:
-  type: [Weapon, Animal]
-  description: "A bright purple frog, oozing a thick liquid"
-  use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
-  min-damage: 2
-  max-damage: 4
-broom:
-  type: [Item]
-  description: "It's for sweeping."
-  use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
-bucket:
-  type: [Item]
-  description: "It's empty."
-  use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
-mop:
-  type: [Item]
-  description: "It's for mopping."
-  use:
-      text: "The floor looks slightly more damp."
-      action: "null"
-poster:
-  type: [Item]
-  description: "A classic."
-  use:
-      text: "What are you going to do with a poster?"
-      action: "null"
-book:
-  type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
-  use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+Old Key:
+    type: [Key]
+    description: "A rusty key that is still somehow warm. Unlocks the Master Bedroom."
+    use:
+        text: "You attempt to open the door"
+        action: "unlock"
+    args:
+        srcRoom: "Upstairs Landing"
+        destRoom: "Master Bedroom"
+        door: "Master Bedroom"
+
+Cellar Key:
+    type: [Key]
+    description: "A simple key that glows with spectral energy. Unlocks the Cellar."
+    use:
+        text: "You attempt to open the door"
+        action: "unlock"
+    args:
+        srcRoom: "Servant's Kitchen"
+        destRoom: "Cellar"
+        door: "Master Bedroom"
+doll:
+    type: [Key]
+    description: "An old worn out doll made of cloth. It seams to be well loved."
+    use:
+        text: "You try to call [BestFriend]'s number"
+        action: "reveal"
+    args:
+        srcRoom: "Cellar Room"
+        destRoom: "_secretState"
+        door: "null"
+
+Long Sword:
+    type: [Weapon]
+    description: "A balanced two-hander. Face the pointy bit away from you."
+    use:
+        text: "You slash with the sword."
+        action: "attack"
+    args:
+        min-damage: "4"
+        max-damage: "8"
+        numAttacks: "3"
+
+Revolver:
+    type: [Weapon]
+    description: "A classic six shooter. Yeehaw!"
+    use:
+        text: "You take aim"
+        action: "attack"
+    args:
+        min-damage: "7"
+        max-damage: "12"
+        numAttacks: "6"
+
+Knife:
+    type: [Weapon]
+    description: "An old rusty knife. Hope you got your tetanus shot..."
+    use:
+        text: "You slash with the knife"
+        action: "attack"
+    args:
+        min-damage: "2"
+        max-damage: "4"
+        numAttacks: "1"
+
+Phone:
+    type: [Note]
+    description: "As if you'd ever leave without it."
+    use:
+        text: "You try to call [BestFriend]'s number"
+        action: "reveal"
+    args:
+        srcRoom: "Examination Room"
+        destRoom: "null"
+        door: "null"
+        clue: "You hear a ringing coming from the [Room]"
+        item: "null"
+        revealItem: "False"
+        revealRoom: "False"
+
+BestFriend's Phone:
+    type: [Note]
+    description: "[BestFriend]'s beaten up phone. [BestFriend] usually takes pictures to post on urban exploration forums. Maybe it can help..."
+    use:
+        text: "You look at [BestFriend]'s pictures"
+        action: "reveal"
+    args:
+        srcRoom: "Living Room"
+        destRoom: "null"
+        door: "null"
+        clue: "In one of the pictures you see that you can lift a floorboard in the [Room]."
+        item: "Floor Board"
+        revealItem: "True"
+        revealRoom: "False"
+
+
+Floor Board:
+    type: [Container]
+    description: "the floor board hiding a cavity in the floor"
+    use:
+        text: "You peal away the floor board"
+        action: "give"
+    args:
+        item: "Old Key"
+
+Armor Stand:
+    type: [Container]
+    description: "A display of medieval plate armor. Looks heavy."
+    use:
+        text: "You pry the long sword off of the Armor"
+        action: "give"
+    args:
+        item: "Long Sword"
+Gun Display:
+    type: [Container]
+    description: "A display of a Revolver."
+    use:
+        text: "You take the gun off of the display"
+        action: "give"
+    args:
+        item: "Revolver"
+Bandage:
+    type: [Healing]
+    description: "A simple cloth wrapping. "
+    use:
+        text: "You wrap the bandage around your wound"
+        action: "give"
+    args:
+        heal amount: "6"
+
+Ghost:
+    type: [Enemy]
+    description: "an advasary apparation"
+    use:
+        text: "You slash with the sword."
+        action: "attack"
+    args:
+        min-damage: "1"
+        max-damage: "3"
+        numAttacks: "1"
+        hp: "5"
+        item: "Old Key"
+
+Sir Arthur:
+    type: [Enemy]
+    description: "A balanced two-hander. Face the pointy bit away from you."
+    use:
+        text: "You slash with the sword."
+        action: "attack"
+    args:
+        min-damage: "4"
+        max-damage: "8"
+        numAttacks: "2"
+        hp: "14"
+        item: "Cellar Key"
+
+Annabelle:
+    type: [Enemy]
+    description: "A balanced two-hander. Face the pointy bit away from you."
+    use:
+        text: "You slash with the sword."
+        action: "attack"
+    args:
+        min-damage: "4"
+        max-damage: "8"
+        numAttacks: "2"
+        hp: "14"
+        item: "BestFriend"
+
+BestFriend:
+    type: [Item]
+    description: "It's your best friend! She seems to be unconscious."
+    use:
+        text: "Wny are would you use [BestFriend]"
+        action: "none"
+
+Pentagram:
+    type: [Item]
+    description: "A 5 pointed star drawn in blood. Not to be confuse with a pentacle"
+    use:
+        text: "Its just a drawing"
+        action: "none"
