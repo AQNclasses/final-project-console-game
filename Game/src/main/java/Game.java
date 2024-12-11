@@ -170,6 +170,9 @@ public class Game {
 							state.rooms.put(state.room.name, state.room);
 							state.posterHint = true;
 						}
+						if(item.action.equals("wear") && item.name.equals("bucket")) {
+							printSlow(item.use);
+						}
 					}
 					else {
 						printSlow("Unknown item.");
@@ -204,7 +207,7 @@ public class Game {
 								System.out.print("\007");
 							}
 							if (enemy.health > 0){
-								state.health = state.health - enemy.health;
+								state.health = state.health - enemy.health + state.protection;
 								printSlow("The " + enemy.name + " is wounded but survives. You'll have to pick up your weapon and try again.");
 								printSlow("Your health: " + state.health + ", " + enemy.name + " health: " + enemy.health);
 							} else {
