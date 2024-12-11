@@ -12,4 +12,28 @@ public class GameTest {
         assertEquals(room1.name, "Starting Room");
     }
 
+    @Test
+    public void testItem() {
+        LoadYAML yl = new LoadYAML();
+        GameState state = new GameState("test");
+        state.items = yl.items;
+
+        Item goldPot = state.items.get("gold potion");
+        goldPot.use();
+
+        assertEquals(2, GameState.buffMultiplier);
+    }
+
+    @Test
+    public void testEnemy(){
+        LoadYAML yl = new LoadYAML();
+        Room finalRoom = yl.rooms.get("Final Room");
+
+        GameState.enemyPresent = false;
+        if (finalRoom.hasEnemy()) {
+            GameState.spawnEnemy(finalRoom.enemyHealth);
+        }
+
+        assertTrue(GameState.enemyPresent);
+    }
 }

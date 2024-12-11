@@ -8,6 +8,7 @@ enum ItemType {
     Key,
     Animal,
     Plant,
+    Potion,
     Item;
 
     public static ItemType toType(String s) {
@@ -22,6 +23,8 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "Potion":
+                return ItemType.Potion;
             default:
                 return ItemType.Item;
         }
@@ -54,6 +57,7 @@ public class Item {
     }
 
     public void use() {
+        Game.printSlow(use);
         used = true;
     }
 
