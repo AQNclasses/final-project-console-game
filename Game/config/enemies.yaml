@@ -1,0 +1,6 @@
+"Troll":
+  desc: "A grotesque creature."
+  health: 2
+"Goblin":
+  desc: "The worst enemy."
+  health: 4 

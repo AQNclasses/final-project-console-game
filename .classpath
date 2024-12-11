@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path=".gradle/8.9/dependencies-accessors/b0b32d309130f56363f7e8390f57303b96717543/sources"/>
+	<classpathentry kind="src" path="Game/src/main/java"/>
+	<classpathentry kind="src" path="Game/src/test/java"/>
+	<classpathentry kind="lib" path="Game/build/libs/Game.jar"/>
+	<classpathentry kind="lib" path="gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path=".gradle/8.9/dependencies-accessors/b0b32d309130f56363f7e8390f57303b96717543/classes"/>
+</classpath>

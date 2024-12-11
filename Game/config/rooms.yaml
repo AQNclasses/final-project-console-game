@@ -1,8 +1,26 @@
-"Starting Room":
+"Entry Way":
   contents: [poison frog]
+  locked: false
   doors:
       green: "Closet"
+      red: "Bedroom"
+  enemies: ["Troll"]
+"Bedroom":
+  contents: [gold key]
+  locked: true
+  doors: 
+      red: "Entry Way"
+  enemies: []
 "Closet":
   contents: [broom, mop, bucket, poster]
+  locked: false
   doors:
-      green: "Starting Room"
+      green: "Entry Way"
+      blue: "Mystery Room"
+  enemies: []
+"Mystery Room":
+  contents: [excalibur]
+  locked: true
+  doors:
+      blue: "Closet"
+  enemies: ["Goblin"]
