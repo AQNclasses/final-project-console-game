@@ -85,7 +85,8 @@ public class Game {
 							printSlow("You walk towards the " + state.room.name + ".");
 							state.roomCheck();
 							int numEnemies = state.isDanger ? rn.nextInt(3) + 1 : 0;
-							numEnemies = rn.nextBoolean() ? numEnemies : 0;
+							//For some reason this stops enemies from spawning
+							//numEnemies = rn.nextBoolean() ? numEnemies : 0;
 							if(numEnemies > 0){
 								for(int i = 1; i < numEnemies; i++){
 									Enemy foe = new Enemy( (Enemy) state.items.get("Ghost") );
