@@ -33,15 +33,15 @@ public class Game {
         GameState state = new GameState(name);
 
         // beginning flavor text
-        /**
+        
         printSlow("Welcome, "+name+".");
-        System.out.println("");
-        printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
-        System.out.println("");
-        printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
-        System.out.println("");
-        printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
-        */
+        printSlow("One day while driving past by the Bass Pro Shops Pyramid in Memphis, Tennessee, you notice what seems to be the enterance to a dungeon.");
+        printSlow("");
+        printSlow("Intrigued, you decide to investigate.");
+        printSlow("");
+        printSlow("Upon closer inspection, you find that there is in fact a dungeon here! You decide to enter, in hopes of finding treasure.");
+        printSlow("");
+        
         while (!state.finished) {
             System.out.println("");
             System.out.println("What do you want to do next?");
@@ -50,6 +50,9 @@ public class Game {
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+            System.out.println("");
+            System.out.println("Health: " + state.playerHealth);
+            System.out.println("Hunger: " + state.playerHunger);
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -65,9 +68,14 @@ public class Game {
                     printSlow("Which door?");
                     String door = myObj.nextLine();
                     try {
-                        String rtemp = state.room.doors.get(door);
-                        state.room = state.rooms.get(rtemp);
-                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        if (!door.equals("gold")){
+                            String rtemp = state.room.doors.get(door);
+                            state.room = state.rooms.get(rtemp);
+                            printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        }
+                        else{
+                            printSlow("You need a key to open this door. If you have one you can use it from your inventory while in this room to unlock the door.");
+                        }
                     } catch (Exception e) {
                         printSlow("Unknown door.");
                     }
@@ -77,10 +85,16 @@ public class Game {
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
-                        state.room.contents.remove(item);
-                        state.rooms.put(state.room.name, state.room);
-                        state.inventory.add(item);
-                        printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+                        if (!item.name.equals("slime")){
+                            state.room.contents.remove(item);
+                            state.rooms.put(state.room.name, state.room);
+                            state.inventory.add(item);
+                            printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+                        }
+                        else{
+                            state.playerHealth -= 10;
+                            printSlow("The slime attacks you.");
+                        }
                     } catch (Exception e) {
                         printSlow("Unknown item.");
                     }
@@ -102,6 +116,40 @@ public class Game {
                                 state.room.contents.add(item);
                                 state.rooms.put(state.room.name, state.room);
                             }
+                            else if (item.action.equals("unlock") && state.room.doors.containsKey("gold")){
+                                String rtemp = state.room.doors.get("gold");
+                                state.room = state.rooms.get(rtemp);
+                            }
+                            else if (item.action.equals("feast")){
+                                Food food = (Food) item;
+                                if (state.playerHunger == 100){
+                                    printSlow("You are not hungry");
+                                }
+                                else if (state.playerHunger + food.replenishment >= 100){
+                                    state.playerHunger = 100;
+                                }
+                                else{
+                                    state.playerHunger += food.replenishment;
+                                }
+                            }
+                            else if (item.action.equals("wear")){
+                                Armor armor = (Armor) item;
+                                state.playerHealth += armor.protection;
+                            }
+                            else if (item.action.equals("attack")){
+                                boolean containsSlime = false;
+                                for (Item currentItem : state.room.contents){
+                                    if (currentItem.action.equals("fight")){
+                                        printSlow("You vanquish the slime with your " + item + ".");
+                                        state.room.contents.remove(currentItem);
+                                        containsSlime = true;
+                                        break;
+                                    }
+                                }
+                                if (!containsSlime){
+                                    printSlow("You swing your " + item + " at nothing.");
+                                }
+                            }
                         }
                         else {
                             printSlow("Unknown item.");
@@ -117,6 +165,8 @@ public class Game {
             String update = state.update();
             printSlow(update);
         }
-        printSlow("You win!");
+        if (!state.died){
+            printSlow("You win!");
+        }
     }
 }

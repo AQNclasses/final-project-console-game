@@ -3,7 +3,7 @@ excalibur:
   description: "Ye sword of olde"
   use:
       text: "You slash with the sword."
-      action: "null"
+      action: "attack"
   min-damage: 1
   max-damage: 10
 poison frog:
@@ -15,32 +15,71 @@ poison frog:
   min-damage: 2
   max-damage: 4
 broom:
-  type: [Item]
+  type: [Weapon]
   description: "It's for sweeping."
   use:
       text: "The floor looks slightly less dusty."
-      action: "null"
+      action: "attack"
+  min-damage: 1
+  max-damage: 2
 bucket:
-  type: [Item]
+  type: [Armor]
   description: "It's empty."
   use:
       text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+      action: "wear"
+  protection: 10
 mop:
-  type: [Item]
+  type: [Weapon]
   description: "It's for mopping."
   use:
       text: "The floor looks slightly more damp."
-      action: "null"
+      action: "attack"
+  min-damage: 1
+  max-damage: 2
 poster:
   type: [Item]
   description: "A classic."
   use:
       text: "What are you going to do with a poster?"
-      action: "null"
+      action: "drop"
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+key:
+  type: [Key]
+  description: "A key that unlocks a certain gold door."
+  use:
+    text: "The door clicks open"
+    action: "unlock"
+  opens: "gold"
+berries:
+  type: [Food]
+  description: "The berries are tart."
+  use:
+    text: "You feast on the berries"
+    action: "feast"
+  replenishment: 10
+beef:
+  type: [Food]
+  description: "Are you really going to trust dungeon beef?"
+  use:
+    text: "Your stomach grumbles with dissatisfaction"
+    action: "feast"
+  replenishment: 20
+bread: 
+  type: [Food]
+  description: "The bread is dry and stale."
+  use:
+    text: "The bread crackles as you bite into it"
+    action: "feast"
+  replenishment: 15
+slime:
+  type: [Animal]
+  description: "Don't pick it up."
+  use:
+    text: "You attack the slime."
+    action: "fight"

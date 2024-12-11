@@ -45,7 +45,32 @@ public class LoadYAML {
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction));
+
+            if (types.contains("Food")){
+                int replenishment = (int) properties.get("replenishment");
+                items.put(name, new Food(name, types, desc, usetext, useaction, replenishment));
+            }
+            else if (types.contains("Weapon")){
+                int min = (int) properties.get("min-damage");
+                int max = (int) properties.get("max-damage");
+                items.put(name, new Weapon(name, types, desc, usetext, useaction, min, max));
+            }
+            else if (types.contains("Armor")){
+                int protection = (int) properties.get("protection");
+                items.put(name, new Armor(name, types, desc, usetext, useaction, protection));
+            }
+            else if (types.contains("Key")){
+                String opens = (String) properties.get("opens");
+                items.put(name, new Key(name, types, desc, usetext, useaction, opens));
+            }
+            //else if (types.contains("Animal")){
+                //int min = (int) properties.get("min-damage");
+                //int max = (int) properties.get("max-damage");
+                //items.put(name, new Animal(name, types, desc, usetext, useaction, min, max));
+            //}
+            else{
+                items.put(name, new Item(name, types, desc, usetext, useaction));
+            }
         }
         return items;
     }
