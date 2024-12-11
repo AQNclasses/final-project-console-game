@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 
 // Define types of items that share actions / properties
@@ -39,11 +40,9 @@ public class Item {
     String desc;
     String use;
     String action;
-    boolean locked;
     Boolean used = false;
 
-    Item(String n, List<String> ts, String d, String u, String a, boolean lock) {
-        locked = lock;
+    Item(String n, List<String> ts, String d, String u, String a) {
         name = n;
         for (String ty : ts) types.add(ItemType.valueOf(ty));
         desc = d;
@@ -61,7 +60,7 @@ public class Item {
     public void use() {
         used = true;
     }
-
+    
     @Override
     public String toString() {
         return this.name;

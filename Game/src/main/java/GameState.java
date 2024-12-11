@@ -8,6 +8,8 @@ public class GameState {
     String name;
     boolean finished;
     int health = 20;
+    boolean battle = false;
+    Weapon weapon;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
     Map<String, Room> rooms; // global list of rooms
@@ -15,10 +17,17 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
-        if (!items.get("treasure chest").locked){
+        Chest ches = (Chest)items.get("treasure chest");
+        if (!ches.locked){
             finished = true;
             String finaltext =  """
-                                YOU WIN YAY!
+                                As the lid creaks open you see a bright light shining from inside.
+                                After a moment, the chest starts shaking. You feel yourself being sucked into the chest.
+                                You close your eyes, to prepare for what's coming...
+                                Moments later, you slowly open your eyes...
+                                
+
+                                It was just a dream.
                                 """;
             return finaltext;
         }else if(health <= 0){

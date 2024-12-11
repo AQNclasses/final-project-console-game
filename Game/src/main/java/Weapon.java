@@ -6,8 +6,8 @@ public class Weapon extends Item {
     int max;
     private Random rn;
 
-    public Weapon(String name, List<String> types, String desc, String use, String act, boolean lock, int min_damage, int max_damage) {
-        super(name, types, desc, use, act, lock);
+    public Weapon(String name, List<String> types, String desc, String use, String act, int min_damage, int max_damage) {
+        super(name, types, desc, use, act);
         min = min_damage;
         max = max_damage;
         rn = new Random();

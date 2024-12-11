@@ -13,7 +13,8 @@ public class GameTest {
     @Test
     public void testLocked(){
         LoadYAML y1 = new LoadYAML();
-        Item item1 = y1.items.get("treasure chest");
+        Chest item1 = (Chest)y1.items.get("treasure chest");
+        
         assertEquals(item1.locked, true);
     }
 

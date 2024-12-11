@@ -43,6 +43,70 @@ public class Game {
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
         */
         while (!state.finished) {
+           if(state.room.name.equals("Dungeon")){
+                for(Item g:state.room.contents){
+                    if(g.types.contains(ItemType.Animal) && g.name.equals("skeleton warrior")){
+                        String word;
+                        boolean fight = false;
+                        printSlow("There is a " + g.name + " in the " + state.room + ".");
+                        printSlow("Do you want to fight it?");
+                        printSlow("Yes [1]");
+                        printSlow("No [2]");
+                        word = myObj.nextLine();
+                        while(!fight){
+                        switch(word){
+                            case "1":
+                                fight = true;
+                                state.battle = true;
+                                break;
+                            case "2":
+                                fight = true;
+                                break;
+                            default:
+                                printSlow("Unidentified input, try again?");
+                        }
+
+                    }
+                }
+            }
+        }
+        while(state.battle){
+            printSlow("");
+            printSlow("Do you want to [1] Attack or [2] Run?");
+            String choic = myObj.nextLine();
+            switch(choic){
+                case "1":
+                int damage = 0;
+                if(state.weapon == null) damage = 1; else{
+                    damage = state.weapon.attack();
+                }
+                Animal g = (Animal)state.items.get("skeleton warrior");
+                g.health = g.health - damage;
+                if(g.health >0){
+                   state.health = state.health - g.attack();
+                printSlow("you have: " + state.health + " health!"); 
+                printSlow("The " + g.name + " has " + g.health + " HP left!");
+                }else{
+                    state.room.contents.remove(g);
+                    printSlow("you killed the " + g.name + "!!!");
+                    printSlow("you picked up: ");
+                    for(Item e:g.drops){
+                        printSlow(e.name);
+                        state.inventory.add(e);
+                    }
+                    state.battle = false;
+                }
+                    break;
+                case "2":
+                    printSlow("You ran away safely.");
+                    state.battle = false;
+                    break;
+                default:
+                    printSlow("Unidentified input, try again?");
+            }
+
+        }
+            
             System.out.println("");
             System.out.println("What do you want to do next?");
             System.out.println("[1]: Look around the room.");
@@ -52,7 +116,6 @@ public class Game {
             System.out.println("[5]: Use an object from my inventory.");
             System.out.println("[6]: Drop item from inventory.");
             System.out.println("[7]: Examine an Object in the room.");
-            System.out.println("[8]: TEST DAMAGE");
 
             choice = myObj.nextLine();
             //myObj.nextLine(); // consume newline from above
@@ -80,8 +143,8 @@ public class Game {
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
-                       if(item.types.contains(ItemType.Chest)){
-                        printSlow("This item is too heavy to pick up.");
+                       if(item.types.contains(ItemType.Chest) || item.name.equals("skeleton warrior")){
+                        printSlow("You can not pick this up.");
                        }else{
                         state.room.contents.remove(item);
                         state.rooms.put(state.room.name, state.room);
@@ -108,6 +171,10 @@ public class Game {
                                 state.inventory.remove(item);
                                 state.room.contents.add(item);
                                 state.rooms.put(state.room.name, state.room);
+                            }else if(item.action.equals("equip")){
+                                if(state.weapon != null) state.inventory.add(state.weapon);
+                                state.weapon = (Weapon)item;
+                                state.inventory.remove(item);
                             }
                         }
                         else {
@@ -142,6 +209,7 @@ public class Game {
                         if (state.room.contents.contains(item)){
                             printSlow(item.desc);
                             if(item.types.contains(ItemType.Chest)){
+                                Chest chest = (Chest)item;
                                 System.out.println("");
                                 System.out.println("Do you want to Open the Chest?");
                                 System.out.println("Yes [1]");
@@ -154,9 +222,15 @@ public class Game {
                                     for(Item i:state.inventory){
                                         if(i.types.contains(ItemType.Key)) key=true;
                                     }
-                                    if(key){
-                                        state.items.get("treasure chest").locked = false;
+                                    if(key || chest.locked == false){
+                                        chest.locked = false;
                                         printSlow("you opened the chest!");
+                                            for(String e:chest.insidess){
+                                                printSlow("you pick up 1 " + e + "!");
+                                                Item got = state.items.get(e);
+                                                state.inventory.add(got);
+                                            }
+                                        
                                     }else{
                                         printSlow("you dont have a key...");
                                     }
@@ -176,7 +250,8 @@ public class Game {
                     }
                     break;
                 case "8":
-                    state.health =state.health - 20;
+                        
+                    
                     break;
                 default:
                     printSlow("Unidentified input, try again?");
@@ -187,3 +262,4 @@ public class Game {
         }
     }
 }
+

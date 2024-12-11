@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.checkerframework.checker.units.qual.min;
 import org.yaml.snakeyaml.Yaml;
 
 public class LoadYAML {
@@ -41,11 +42,32 @@ public class LoadYAML {
             Map<String, Object> properties = (HashMap) data.get(name);
             String desc = (String) properties.get("description");
             Map<String, Object> use = (HashMap) properties.get("use");
+
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
-            boolean locked = properties.get("locked").equals("True");
             List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction, locked));
+            if(types.get(0).equals("Animal")){
+                int min_damage = (Integer) properties.get("min-damage");
+                int max_damage = (Integer) properties.get("max-damage");
+                int health = (Integer) properties.get("health");
+                List<Item> conts = new ArrayList<>();
+                List<String> con = (ArrayList) properties.get("drops");
+                for(String g: con) conts.add(items.get(g));
+                items.put(name, new Animal(name, types, desc, usetext, useaction, min_damage, max_damage, health, conts));
+            }else if(types.get(0).equals("Chest")){
+                String lock = (String) properties.get("locked");
+                boolean locked = true;
+                if(lock.equals("False")) locked = false;
+                List<String> bon = (ArrayList) properties.get("contents");
+                items.put(name, new Chest(name, types, desc, usetext, useaction, locked, bon));
+            }else if(types.get(0).equals("Weapon")){
+                int min_damage = (Integer) properties.get("min-damage");
+                int max_damage = (Integer) properties.get("max-damage");
+                items.put(name, new Weapon(name, types, desc, usetext, useaction, min_damage, max_damage));
+            }
+            else{
+            items.put(name, new Item(name, types, desc, usetext, useaction));
+            }
         }
         return items;
     }

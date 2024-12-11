@@ -4,7 +4,7 @@
       green: "Closet"
       red: "Attic"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, bucket, poster, toy chest]
   doors:
       green: "Starting Room"
 "Attic":
@@ -13,6 +13,6 @@
       red: "Starting Room"
       portal: "Dungeon"
 "Dungeon":
-  contents: [rusty key]
+  contents: [skeleton warrior]
   doors:
-      portal: "Starting Room"
+      portal: "Attic"
