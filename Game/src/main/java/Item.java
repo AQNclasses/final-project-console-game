@@ -9,6 +9,7 @@ enum ItemType {
     Cover,
     Note,
     Vehicle,
+    Potion,
     Item;
 
     public static ItemType toType(String s) {
@@ -31,6 +32,8 @@ enum ItemType {
                 return ItemType.Note;
             case "Vehicle":
                 return ItemType.Vehicle;
+            case "Potion":
+                return ItemType.Potion;
             default:
                 return ItemType.Item;
         }

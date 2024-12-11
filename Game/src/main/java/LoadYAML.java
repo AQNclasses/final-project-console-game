@@ -86,6 +86,11 @@ public class LoadYAML {
                     String altText = (String) use.get("altText");
                     items.put(name, new Vehicle(name, type, desc, usetext, altText, useaction));
                     break;
+
+                case "Potion":
+                    int pType = (int)properties.get("pType");
+                    items.put(name, new Potion(name, type, desc, usetext, useaction, pType));
+                    break;
                 
                 default:
                     items.put(name, new Item(name, type, desc, usetext, useaction));

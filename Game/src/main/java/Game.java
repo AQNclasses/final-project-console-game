@@ -71,6 +71,7 @@ public class Game {
             switch (choice) {
                 case 1:
                     if(state.sight){
+                        printSlow("This room is the " + state.room.name + ".");
                         printSlow("You can see the following items:");
                         for (Item c : state.room.contents) printSlow(c.name);
                         printSlow("You also notice that this room has doors:");
