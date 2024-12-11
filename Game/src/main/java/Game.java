@@ -42,6 +42,9 @@ public class Game {
         System.out.println("");
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
         */
+
+        printSlow("Welcome to your worst nightmare, "+name+" a meteor is on its way to hit Earth you must make the correct decision in order to survive...  choose carefully!");
+
         while (!state.finished) {
             System.out.println("");
             System.out.println("What do you want to do next?");
@@ -50,6 +53,8 @@ public class Game {
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+
+            System.out.println("[6]: Which car do you want to drive?");
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -67,7 +72,12 @@ public class Game {
                     try {
                         String rtemp = state.room.doors.get(door);
                         state.room = state.rooms.get(rtemp);
+                        if(state.room.equals("Outside") && (state.inventory.contains(state.items.get("rocket keys")))){
+                            printSlow("this room is locked");
+                        }
+                        else{
                         printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        }
                     } catch (Exception e) {
                         printSlow("Unknown door.");
                     }
@@ -101,6 +111,10 @@ public class Game {
                                 state.inventory.remove(item);
                                 state.room.contents.add(item);
                                 state.rooms.put(state.room.name, state.room);
+                
+                            }
+                            if (item.action.equals("drive")){
+                                state.drives();
                             }
                         }
                         else {
@@ -110,6 +124,15 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
+
+                case 6:
+                String drivecar = state.driveCar(name);
+                    printSlow("Which car do you want to drive?");
+                    itemp = myObj.nextLine();
+                    String driveResult = state.driveCar(itemp);
+                    printSlow(driveResult);
+                    break;
+                    
                 default:
                     printSlow("Unidentified input, try again?");
             }
