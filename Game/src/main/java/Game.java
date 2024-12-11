@@ -32,16 +32,15 @@ public class Game {
         // init game state
         GameState state = new GameState(name);
 
-        // beginning flavor text
-        /**
-        printSlow("Welcome, "+name+".");
-        System.out.println("");
-        printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
-        System.out.println("");
-        printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
-        System.out.println("");
-        printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
-        */
+        //beginning flavor text
+        // printSlow("Welcome, "+name+".");
+        // System.out.println("");
+        // printSlow("You've been studying for your CSCI241 Final when you stumble across an area of your neighborhood you haven't seen before on a walk.");
+        // System.out.println("");
+        // printSlow("You wander through an entrance into a room and find a dusty book titled 'The First Scroll of Java'. As you read, you feel the room shift around you, the air growing colder, the light dimming.");
+        // System.out.println("");
+        // printSlow("A feeling compels you to explore, a force pulling you further into the entirety of the room. Something feels... odd.");
+                
         while (!state.finished) {
             System.out.println("");
             System.out.println("What do you want to do next?");
@@ -50,6 +49,7 @@ public class Game {
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+            System.out.println("[6]: Use an object in the room.");
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -67,7 +67,7 @@ public class Game {
                     try {
                         String rtemp = state.room.doors.get(door);
                         state.room = state.rooms.get(rtemp);
-                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        printSlow("You step through the " + door + " door. You have entered the " + state.room.name + ".");
                     } catch (Exception e) {
                         printSlow("Unknown door.");
                     }
@@ -75,15 +75,20 @@ public class Game {
                 case 3:
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
-                    try {
-                        Item item = state.items.get(itemp);
-                        state.room.contents.remove(item);
-                        state.rooms.put(state.room.name, state.room);
-                        state.inventory.add(item);
-                        printSlow("You pick up the " + item.name + ". " + item.desc + ".");
-                    } catch (Exception e) {
-                        printSlow("Unknown item.");
-                    }
+                        try {
+                            Item item = state.items.get(itemp);
+                            if ((item != null) && !(item instanceof Trap) && !(item instanceof Animal) && state.room.contents.contains(item)) {
+                                state.room.contents.remove(item);
+                                state.rooms.put(state.room.name, state.room);
+                                state.inventory.add(item);
+                                printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+                            } else {
+                                printSlow("That item is not findable/able to be picked up.");
+                            }
+                        } catch (Exception e) {
+                            printSlow("You are unable to grab this item.");
+                        }    
+                    
                     break;
                 case 4:
                     printSlow("Your inventory:");
@@ -97,11 +102,6 @@ public class Game {
                         if (state.inventory.contains(item)) {
                             item.use();
                             printSlow(item.use);
-                            if (item.action.equals("drop")) {
-                                state.inventory.remove(item);
-                                state.room.contents.add(item);
-                                state.rooms.put(state.room.name, state.room);
-                            }
                         }
                         else {
                             printSlow("Unknown item.");
@@ -110,13 +110,23 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
+                case 6: //Added case.
+                    printSlow("What item would you like to interact with?"); 
+                    itemp = myObj.nextLine();
+                    try {
+                        Item item = state.items.get(itemp);
+                        if (item != null && (item.types.contains(ItemType.Trap) || item.types.contains(ItemType.Animal))) {
+                            item.used = true;
+                        }
+                    } catch (Exception e) {
+                        printSlow("Unknown item.");
+                    }
+                    break;
                 default:
                     printSlow("Unidentified input, try again?");
             }
-
             String update = state.update();
             printSlow(update);
         }
-        printSlow("You win!");
     }
 }
