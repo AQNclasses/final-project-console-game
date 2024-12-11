@@ -1,25 +1,25 @@
-excalibur:
+sword:
   type: [Weapon]
-  description: "Ye sword of olde"
+  description: "A fine sword capable of defeating many foes."
   use:
-      text: "You slash with the sword."
+      text: "It is a fine weapon."
       action: "null"
-  min-damage: 1
+  min-damage: 5
   max-damage: 10
 poison frog:
-  type: [Weapon, Animal]
+  type: [Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
       action: "drop"
-  min-damage: 2
-  max-damage: 4
 broom:
-  type: [Item]
-  description: "It's for sweeping."
+  type: [Weapon]
+  description: "It should be used for sweeping, but you could use it as a weapon... if you have to."
   use:
-      text: "The floor looks slightly less dusty."
+      text: "Good old trusty broom."
       action: "null"
+  min-damage: 1
+  max-damage: 5
 bucket:
   type: [Item]
   description: "It's empty."
@@ -27,20 +27,66 @@ bucket:
       text: "You put the bucket on your head. You feel marginally safer."
       action: "null"
 mop:
-  type: [Item]
-  description: "It's for mopping."
+  type: [Weapon]
+  description: "It should be used for mopping, but you could use it as a weapon... if you have to."
   use:
-      text: "The floor looks slightly more damp."
+      text: "Technically a weapon."
       action: "null"
+  min-damage: 1
+  max-damage: 5
 poster:
-  type: [Item]
+  type: [Weapon]
   description: "A classic."
   use:
       text: "What are you going to do with a poster?"
       action: "null"
+  min-damage: 1
+  max-damage: 2
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+herbs:
+  type: [Plant]
+  description: "A magical bundle of herbs, you can feel the energy coursing within them. Consuming it will grant you extra health."
+  use: 
+    action: "consume"
+  health-boost: 15
+key:
+  type: [Key]
+  description: "A small golden key. You should try moving through a locked door now."
+  use:
+    text: "Maybe try going through a locked door now."
+    action: "null"
+crown:
+  type: [Item]
+  description: "A golden opulent crown. It seems to have some purple residue on it."
+  use:
+    text: "You place the crown gently on the floor."
+    action: "drop"
+black potion:
+  type: [Potion]
+  description: "A flask filled with an ominous black liquid. It smells like death. You really shouldn't drink it."
+  use:
+    action: "consume"
+  potionEffect: "death"
+gold potion:
+  type: [Potion]
+  description: "A flask filled with a shimmering gold liquid. It is warm and smells invigorating. Drinking it may grant you a boon."
+  use:
+    action: "consume"
+  potionEffect: "buff"
+purple potion: 
+  type: [Potion]
+  description: "A flask filled with an oozing purple liquid. It smells unpleasant. You probably shouldn't drink it."
+  use:
+    action: "consume"
+  potionEffect: "damage"
+healing stone:
+  type: [Healing]
+  description: "A small white stone that radiates energy. Restores a little health when used."
+  use:
+    action: "heal"
+  healNum: 10
