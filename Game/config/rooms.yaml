@@ -1,14 +1,14 @@
 "Starting Room":
-  contents: [poison frog, rusty key]
+  contents: [poster]
   doors:
       green: "Closet"
       red: "Attic"
 "Closet":
-  contents: [broom, mop, bucket, poster, toy chest]
+  contents: [broom, mop, bucket, toy chest]
   doors:
       green: "Starting Room"
 "Attic":
-  contents: [treasure chest]
+  contents: [treasure chest, poison frog]
   doors:
       red: "Starting Room"
       portal: "Dungeon"

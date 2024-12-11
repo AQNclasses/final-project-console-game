@@ -43,9 +43,9 @@ public class Game {
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
         */
         while (!state.finished) {
-           if(state.room.name.equals("Dungeon")){
+           if(state.room.name.equals("Dungeon") || state.room.name.equals("Attic")){
                 for(Item g:state.room.contents){
-                    if(g.types.contains(ItemType.Animal) && g.name.equals("skeleton warrior")){
+                    if(g.types.contains(ItemType.Animal)){
                         String word;
                         boolean fight = false;
                         printSlow("There is a " + g.name + " in the " + state.room + ".");
@@ -80,13 +80,23 @@ public class Game {
                 if(state.weapon == null) damage = 1; else{
                     damage = state.weapon.attack();
                 }
-                Animal g = (Animal)state.items.get("skeleton warrior");
+                Item enem = null;
+                for(Item e: state.room.contents){
+                    if(e.types.contains(ItemType.Animal)) enem = e;
+                }
+                Animal g = (Animal)enem;
                 g.health = g.health - damage;
                 if(g.health >0){
-                   state.health = state.health - g.attack();
-                printSlow("you have: " + state.health + " health!"); 
-                printSlow("The " + g.name + " has " + g.health + " HP left!");
-                }else{
+                    state.health = state.health - g.attack();
+                    if(state.health <0){
+                        String s = state.update();
+                        printSlow(s);
+                        System.exit(0);
+                    }
+                    printSlow("you have: " + state.health + " health!"); 
+                    printSlow("The " + g.name + " has " + g.health + " HP left!");
+                }
+                else{
                     state.room.contents.remove(g);
                     printSlow("you killed the " + g.name + "!!!");
                     printSlow("you picked up: ");
@@ -104,8 +114,11 @@ public class Game {
                 default:
                     printSlow("Unidentified input, try again?");
             }
-
+            
         }
+        if(!state.finished){
+            
+        
             
             System.out.println("");
             System.out.println("What do you want to do next?");
@@ -262,4 +275,4 @@ public class Game {
         }
     }
 }
-
+}

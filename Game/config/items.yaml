@@ -2,10 +2,10 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 100
-  max-damage: 1000
+      text: "sword"
+      action: "equip"
+  min-damage: 10
+  max-damage: 25
 toy sword:
   type: [Weapon]
   description: "Just a toy sword."
@@ -23,7 +23,7 @@ poison frog:
       action: "drop"
   min-damage: 2
   max-damage: 4
-  health: 1000000
+  health: 20
 broom:
   type: [Item]
   description: "It's for sweeping."
