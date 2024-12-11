@@ -156,7 +156,7 @@ public class Game {
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
-                       if(item.types.contains(ItemType.Chest) || item.name.equals("skeleton warrior")){
+                       if(item.types.contains(ItemType.Chest) || item.types.contains(ItemType.Animal)){
                         printSlow("You can not pick this up.");
                        }else{
                         state.room.contents.remove(item);
