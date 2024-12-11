@@ -21,22 +21,24 @@ public class LoadYAML {
     // load room data from yaml file
     // could do this more cleverly with packaged class definitions
     // Something like this:
-    //InputStream stream = new FileInputStream(fname);
-    //Room room = (new Yaml(new Constructor(Room.class))).load(stream);
-    public HashMap<String,Room> loadRooms() {
+    // InputStream stream = new FileInputStream(fname);
+    // Room room = (new Yaml(new Constructor(Room.class))).load(stream);
+    public HashMap<String, Room> loadRooms() {
         data = load("rooms.yaml");
         for (String name : data.keySet()) {
             List<Item> contents = new ArrayList<>();
             Map<String, Object> inRoom = (HashMap) data.get(name);
             List<String> contemps = (ArrayList) inRoom.get("contents");
-            for (String it : contemps) contents.add(items.get(it));
+
+            for (String it : contemps)
+                contents.add(items.get(it));
             Map<String, String> doors = (HashMap) inRoom.get("doors");
             rooms.put(name, new Room(name, contents, doors));
         }
         return rooms;
     }
 
-    public HashMap<String,Item> loadItems() {
+    public HashMap<String, Item> loadItems() {
         data = load("items.yaml");
         for (String name : data.keySet()) {
             Map<String, Object> properties = (HashMap) data.get(name);
@@ -51,12 +53,14 @@ public class LoadYAML {
     }
 
     public HashMap<String, Object> load(String fname) {
-            Yaml yaml = new Yaml();
-            File file = new File("./config/"+fname);
-            try {
-                FileInputStream inputStream = new FileInputStream(file);
-                data = yaml.load(inputStream);
-            } catch (FileNotFoundException e) {System.out.println("Couldn't find file");}
+        Yaml yaml = new Yaml();
+        File file = new File("./config/" + fname);
+        try {
+            FileInputStream inputStream = new FileInputStream(file);
+            data = yaml.load(inputStream);
+        } catch (FileNotFoundException e) {
+            System.out.println("Couldn't find file");
+        }
         return data;
     }
 

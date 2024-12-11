@@ -15,7 +15,7 @@ public class Animal extends Item {
 
     // uniformly distributed random number
     public int attack() {
-        int var = min + rn.nextInt((max-min) + 1);
+        int var = min + rn.nextInt((max - min) + 1);
         return var;
     }
 
