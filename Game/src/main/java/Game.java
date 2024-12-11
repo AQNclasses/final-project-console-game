@@ -262,10 +262,6 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case "8":
-                        
-                    
-                    break;
                 default:
                     printSlow("Unidentified input, try again?");
             }
