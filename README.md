@@ -36,16 +36,16 @@ You shouldn't have to touch any of the Gradle files.
 ## Requirements and Deliverables
 
 1. Add at least two new rooms in `rooms.yaml`, connected to the existing rooms.
-	Complete: added many rooms to `rooms.yaml`
+	-Complete: added many rooms to `rooms.yaml`
 2. Add an ending related to at least one of your new rooms. Endings are
 implemented in `GameState.java`.
-	Complete: added an ending involved to `GameState.java` 
+	-Complete: added an ending involved to `GameState.java` 
 3. Implement a locked door that can only be opened if a Key is in your inventory.
-	Complete: locked doors point to a "_Locked" Room, a Key Item redirect the door to the correct room when used 
+	-Complete: locked doors point to a "_Locked" Room, a Key Item redirect the door to the correct room when used 
 4. Finish implementing subclasses for Items (Animal, Weapon, etc) instead of reading all
 items in as Items.
    - Add and implement actions for all the items. All actions should modify GameState.
-   Complete: All Items uses a subClass of items.
+   -Complete: All Items uses a subClass of items.
    - Changed Items to abstract class to make it easier to add new subclasses, and stops need for downcasting
 5. Add a new subclass of items and at least three corresponding entries in `items.yaml`.
 	- added Enemy, Container, and Note subclass
