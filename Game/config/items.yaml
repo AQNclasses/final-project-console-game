@@ -28,7 +28,7 @@ poster:
   type: [PrintMaterial]
   description: "A classic."
   use:
-      text: "What are you going to do with a poster?"
+      text: "You put a poster of an old wizard on the wall."
       action: "place"
 book:
   type: [PrintMaterial]

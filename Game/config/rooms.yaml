@@ -4,19 +4,23 @@
   doors:
       green: "Closet"
       red: "Bedroom"
+  enemies: ["Troll"]
 "Bedroom":
   contents: [gold key]
   locked: true
   doors: 
       red: "Starting Room"
+  enemies: []
 "Closet":
   contents: [broom, mop, bucket, poster]
   locked: false
   doors:
       green: "Starting Room"
       blue: "Mystery Room"
+  enemies: ["Goblin"]
 "Mystery Room":
   contents: [excalibur]
   locked: true
   doors:
       blue: "Closet"
+  enemies: []

@@ -26,12 +26,21 @@ public class Game {
 		String rtemp = state.room.doors.get(doorColor);
 		if(rtemp != null) {
 			state.rooms.get(rtemp).locked = false;
+			key.use();
 			printSlow(key.use);
 			printSlow("Try to walk through the door.");
 		}
 		else {
 			printSlow("You are using the wrong key.");
 		}
+		allKeys(state);
+	}
+	
+	private static void allKeys(GameState state) {
+		if(state.items.get("silver key").used && state.items.get("gold key").used) {
+			state.allKeys = true;
+		}
+			
 	}
 
 	public static void main(String[] args) {
@@ -44,13 +53,13 @@ public class Game {
 		// init game state
 		GameState state = new GameState(name);
 		
-		printSlow("welcome, " +name+ ".");
+		printSlow("Welcome, " +name+ ".");
 		System.out.println();
-		printSlow("You've been hired to restore an old house.");
-		System.out.println();
-		printSlow("When you walk in, you didn't realize just how dirty the place was going to be.");
-		System.out.println();
-		printSlow("You might want to look around and see if there are any cleaning supplies so you can get started.");
+		printSlow("You recently inherited an estate from your estranged Uncle.");
+		printSlow("He was rumored to be a strange man, convinced that magic and wizards were real.");
+		printSlow("When you arrive at the estate, you get a strange feeling. As you approach the door, the sun all of a sudden disappears and the sky gets dark. A cold wind picks up.");
+		printSlow("You step through the door with only a suitcase of clothes and an old book gifted to you by your uncle. The place seems like it hasn't been cleaned in years, but you don't have anything with you to start cleaning.");
+		printSlow("Maybe you should look to see if he left any cleaning supplies behind.");
 		// beginning flavor text
 		/**
         printSlow("Welcome, "+name+".");
@@ -69,6 +78,7 @@ public class Game {
 			System.out.println("[3]: Pick up an object from the room.");
 			System.out.println("[4]: Examine my inventory.");
 			System.out.println("[5]: Use an object from my inventory.");
+			System.out.println("[6]: Use a weapon from my inventory.");
 
 			choice = myObj.nextInt();
 			myObj.nextLine(); // consume newline from above
@@ -79,6 +89,12 @@ public class Game {
 				for (Item c : state.room.contents) printSlow(c.name);
 				printSlow("You also notice that this room has doors:");
 				for (String c : state.room.doors.keySet()) printSlow(c);
+				
+				if(state.room.enemies.size() > 0) {
+					printSlow("Out of the corner of your eye you see something moving.");
+					for (Enemy c : state.room.enemies) printSlow("Oh, no! You are faced with a " + c.name + ". " + c.description);
+				}
+				
 				break;
 			case 2:
 				printSlow("Which door?");
@@ -150,12 +166,63 @@ public class Game {
 							printSlow(item.use);
 							state.mopped.put(state.room, true);
 						}
+						if(item.action.equals("place") && item.name.equals("poster")) {
+							printSlow(item.use);
+							state.inventory.remove(item);
+							state.room.contents.add(item);
+							state.rooms.put(state.room.name, state.room);
+							state.posterHint = true;
+						}
 					}
 					else {
 						printSlow("Unknown item.");
 					}
 				} catch (Exception e) {
 					printSlow("Unknown item.");
+				}
+				break;
+			case 6:
+				printSlow("Which weapon?");
+				itemp = myObj.nextLine();
+				try {
+					Enemy enemy = state.room.enemies.get(0);
+					Weapon weapon = state.weapons.get(itemp);
+					Item item = state.items.get(itemp);
+					if (state.inventory.contains(item)) {
+						Weapon w = (Weapon) weapon;
+						printSlow(w.use);
+						if(item.name.equals("poison frog")) {
+							printSlow("The frog sticks out its tongue.");
+						}
+						if (item.action.equals("drop")) {
+							state.inventory.remove(item);
+							state.room.contents.add(item);
+							state.rooms.put(state.room.name, state.room);
+						}
+						if(enemy != null) {
+							Integer attack = weapon.attack();
+							enemy.health = enemy.health - attack;
+							printSlow("You strike the " + enemy.name + " with the power of your " + weapon.name + ".");
+							for (int i=0; i<attack; i++) {
+								System.out.print("\007");
+							}
+							if (enemy.health > 0){
+								state.health = state.health - enemy.health;
+								printSlow("The " + enemy.name + " is wounded but survives. You'll have to pick up your weapon and try again.");
+								printSlow("Your health: " + state.health + ", " + enemy.name + " health: " + enemy.health);
+							} else {
+								enemy.defeated = true;
+								printSlow("The " + enemy.name + " is done for. Bye bye!");
+								printSlow("Your health: " + state.health);
+								state.room.enemies.remove(enemy);
+							}
+						} 
+					}
+					else {
+						printSlow("Unknown weapon.");
+					}
+				} catch (Exception e) {
+					printSlow("Unknown weapon.");
 				}
 				break;
 			default:
@@ -165,6 +232,9 @@ public class Game {
 			String update = state.update();
 			printSlow(update);
 		}
-		printSlow("You win!");
+		if(state.win) {
+			printSlow("You win!");
+		} 
+
 	}
 }
