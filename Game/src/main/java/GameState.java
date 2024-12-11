@@ -20,9 +20,20 @@ public class GameState {
             String finaltext =  """
                                 The frog hops slowly over to the book and hops on top. Suddenly the book and the
                                 frog begin to glow. The room starts spinning and you shut your eyes out of fear.
-                                When you open them, you're back in the original basement room! When you open the
-                                door, you find yourself back in the modern-day library. As you leave and the door
-                                swings shut, you think you hear a faint \"ribbet\"....
+                                When you open them, you're back in your room! As you begin to ponder what just 
+                                happened, you think you hear a faint \"ribbet\".... (Main ending)
+                                """;
+            return finaltext;
+        }
+        if (room.contents.contains(items.get("excalibur"))&&
+        room.contents.contains(items.get("rock")) ){
+            finished = true;
+            String finaltext =  """
+                                You take the sword out of its scabbard and look down at the blade. 
+                                You realise that it is the mighty excalibur. The rock sitting in the 
+                                back of the room catches your eye, as you notice a slit in the stone, 
+                                just about the size of a sword. You stick you blade into the rock and 
+                                with a flash of light you are returned to your bedroom. (Secret ending)
                                 """;
             return finaltext;
         }

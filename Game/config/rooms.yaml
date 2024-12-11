@@ -1,8 +1,27 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [poster]
   doors:
       green: "Closet"
+      red: "Balcony"
+      purple: "Living Room"
+"Living Room":
+  contents: [poison frog, fern]
+  doors:
+      green: "Closet"
+      red: "Balcony"
+      purple: "Living Room"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, bucket, excalibur]
   doors:
       green: "Starting Room"
+      blue: "Balcony"
+      gray: "Secret Room"
+"Balcony":
+   contents: [key, junimo]
+   doors:
+      red: "Starting Room"
+      blue: "Closet"
+"Secret Room":
+  contents: [easter egg, rock]
+  doors:
+    gray: "Closet"
