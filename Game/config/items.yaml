@@ -2,45 +2,120 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
-  max-damage: 10
+    text: "You slash with the sword."
+    action: null
+  min_damage: 1
+  max_damage: 10
+
 poison frog:
   type: [Weapon, Animal]
-  description: "A bright purple frog, oozing a thick liquid"
+  description: "A bright purple frog, oozing a thick liquid."
   use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
-  min-damage: 2
-  max-damage: 4
+    text: "You place the frog gently on the floor. The frog croaks contentedly."
+    action: drop
+  min_damage: 2
+  max_damage: 4
+
 broom:
   type: [Item]
   description: "It's for sweeping."
   use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
+    text: "The floor looks slightly less dusty."
+    action: null
+
 bucket:
   type: [Item]
   description: "It's empty."
   use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+    text: "You put the bucket on your head. You feel marginally safer."
+    action: null
+
 mop:
   type: [Item]
   description: "It's for mopping."
   use:
-      text: "The floor looks slightly more damp."
-      action: "null"
+    text: "The floor looks slightly more damp."
+    action: null
+
 poster:
   type: [Item]
   description: "A classic."
   use:
-      text: "What are you going to do with a poster?"
-      action: "null"
+    text: "What are you going to do with a poster?"
+    action: null
+
+red pole:
+  type: [Item]
+  description: "A red cylinder-shaped pole about 2 feet in length. It's surprisingly light, and it looks as you pick it up. You feel as if you could touch the moon."
+  use:
+    text: "The pole shifts in your hand, adjusting to your size. You drop it on the ground out of surprise."
+    action: drop
+
+Empty Sacred Container:
+  type: [Item]
+  description: "A blue vase-like glass with gems embedded on the side. Any water in here must be really delicious."
+  use:
+    text: "This container is empty. I bet I could take it to the water fountain."
+    action: drop
+
+
+  
+
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+    text: "You place the book gently on the floor. As you read out its words, the symbols -rm rf are seen clear as day. The words to get home are suddenly clear."
+    action: drop
+
+Holy Fountain:
+  type: [Table]
+  description: "This mighty fountain is quite a sight. You go to take a sip from it, but an ominous presence is felt so deep in your soul that you decide to find a proper cup. You wouldn't dare contaminate these powerful waters."
+  use:
+    text: "You probably need a container to use on this."
+    action: drop
+
+senzu bean:
+  type: [Healing]
+  description: "This green oval-shaped bean smells rancid but is sturdy, like it could regrow an arm."
+  use:
+    text: "You nibble on this bean and reluctantly swallow. As you finish your meal, you feel invigorated and refreshed."
+    action: heal
+  health: 20
+
+Dragon Balls:
+  type: [Table]
+  description: "Seven stones arranged in a perfect pattern, each with a yellow star sealed deep inside its clear orange and classy outer shell. Their ancient magic stings your nose."
+  use:
+    text: "You take a closer look at these stones. Maybe with the knowledge of some ancient book, it could help lead the way."
+    action: drop
+
+Mr Popo:
+  type: [NPC]
+  description: "You see a genie of legend, with maybe an outdated design."
+  use:
+    action: null
+  dialogue: "\u001B[35mHello, I'm surprised you pushed open that door. I suppose you can use the dragon balls if you wish. I don't know another way to return back to your world.\u001B[0m"
+
+speedrunners potion:
+  type: [Healing]
+  description: "This 16oz black can with a green M at its side is not really recommended for anyone. If you drink it, I bet the game will end."
+  use:
+    text: "As you take a sip of this incandescent brew, you feel your heart begin to speed up and eventually stop."
+    action: heal
+  health: -50
+
+Filled Sacred Container:
+  type: [Key]
+  description: "The water in here must be really delicious and really powerful."
+  use:
+    text: "Drinking this water, you feel newfound strength rush through your body and you feel as if no door is big enough to stop you."
+    action: unlock
+  door_name: "Heavy Door"
+
+Unnamed Kid:
+  type: [NPC]
+  description: "A 3'4 child stands before you, wearing an orange tunic with a small black belt tied around their waist. They have spiky black hair and a small monkey tail coming out from the rear. This monkey kid seems tough but also pleasant to be around."
+  use:
+    action: null
+  dialogue: " Hi its me goku, I kinda lost my red power pole if you can bring it back to me I'd really appreciate it!"

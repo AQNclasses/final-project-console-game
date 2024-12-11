@@ -8,6 +8,8 @@ enum ItemType {
     Key,
     Animal,
     Plant,
+    NPC,
+    Table,
     Item;
 
     public static ItemType toType(String s) {
@@ -22,6 +24,10 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "NPC":
+                return ItemType.NPC;
+            case "Table":
+                return ItemType.Table;
             default:
                 return ItemType.Item;
         }
@@ -56,6 +62,32 @@ public class Item {
     public void use() {
         used = true;
     }
+    public List<ItemType> getType(){
+        return types;
+    }
+    public String dialogue(GameState state){
+        String dialogue = NPC.dialogue;
+        return dialogue;
+    }
+ 
+
+
+    //returns table or npc
+    public boolean isUsed(){
+        boolean activation = false;
+        if(used == true){
+            activation = true;
+
+        }
+        return activation;
+    }
+
+
+    public void use(GameState state) {
+        state.health += Healing.healthEffect;
+
+    }
+
 
     @Override
     public String toString() {

@@ -1,8 +1,51 @@
-"Starting Room":
-  contents: [poison frog]
+Starting Room:
+  contents:
+    - poison frog
+    - senzu bean
   doors:
-      green: "Closet"
-"Closet":
-  contents: [broom, mop, bucket, poster]
+    green:
+      destination: "Closet"
+      isLocked: false
+    red:
+      destination: "Sliding Silver Door"
+      isLocked: false
+    heavy:
+      destination: "Heavy Door"
+      isLocked: true  # The heavy door is locked
+Closet:
+  contents:
+    - broom
+    - mop
+    - bucket
+    - poster
+    - speedrunners potion
   doors:
-      green: "Starting Room"
+    green:
+      destination: "Starting Room"
+      isLocked: false
+Sliding Silver Door:
+  contents:
+    - red pole
+    - Holy Fountain
+  doors:
+    green:
+      destination: "curtain"
+      isLocked: false
+    red:
+      destination: "Starting Room"
+      isLocked: false
+curtain:
+  contents:
+    - Unnamed Kid
+  doors:
+    green:
+      destination: "Sliding Silver Door"
+      isLocked: false
+Heavy Door:
+  contents:
+    - Mr Popo
+    - Dragon Balls
+  doors:
+    heavy:
+      destination: "Starting Room"
+      isLocked: true
