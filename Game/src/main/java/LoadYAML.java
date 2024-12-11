@@ -18,11 +18,7 @@ public class LoadYAML {
     HashMap<String, Room> rooms = new HashMap<>();
     HashMap<String, Item> items = new HashMap<>();
 
-    // load room data from yaml file
-    // could do this more cleverly with packaged class definitions
-    // Something like this:
-    //InputStream stream = new FileInputStream(fname);
-    //Room room = (new Yaml(new Constructor(Room.class))).load(stream);
+
     public HashMap<String,Room> loadRooms() {
         data = load("rooms.yaml");
         for (String name : data.keySet()) {
@@ -45,14 +41,36 @@ public class LoadYAML {
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction));
+
+            if (types.contains("Animal")) {
+                int minDamage = ((Integer) properties.get("min-damage"));
+                int maxDamage = ((Integer) properties.get("max-damage"));
+                items.put(name, new Animal(name, types, desc, usetext, useaction, minDamage, maxDamage));
+            }
+            else if (types.contains("Weapon")) {
+                int minDamage = ((Integer) properties.get("min-damage"));
+                int maxDamage = ((Integer) properties.get("max-damage"));
+                items.put(name, new Weapon(name, types, desc, usetext, useaction, minDamage, maxDamage));
+            }
+            else if (types.contains("Healing")) {
+                int healAmount = ((Integer) properties.get("heal-amount"));
+                items.put(name, new Healing(name, types, desc, usetext, useaction, healAmount));
+            }
+            else if (types.contains("Key")) {
+                String doorId = (String) properties.get("door-id");
+                items.put(name, new Key(name, types, desc, usetext, useaction, doorId));
+            }
+            else {
+                items.put(name, new Item(name, types, desc, usetext, useaction));
+            }
         }
         return items;
     }
 
+
     public HashMap<String, Object> load(String fname) {
             Yaml yaml = new Yaml();
-            File file = new File("./config/"+fname);
+            File file = new File("Game/config/"+fname);
             try {
                 FileInputStream inputStream = new FileInputStream(file);
                 data = yaml.load(inputStream);
@@ -64,4 +82,5 @@ public class LoadYAML {
         items = loadItems();
         rooms = loadRooms();
     }
+
 }

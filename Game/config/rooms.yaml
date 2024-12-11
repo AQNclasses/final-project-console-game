@@ -1,8 +1,33 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [poison frog, potion, excalibur]
   doors:
-      green: "Closet"
+    green: "Closet"
+    red: "Library"
+    blue: "Laboratory"
+
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
-      green: "Starting Room"
+    green: "Starting Room"
+
+"Library":
+  contents: [ancient scroll, magic key]
+  doors:
+    red: "Starting Room"
+    iron: "Secret Study"
+
+"Laboratory":
+  contents: [potion, crystal, excalibur]
+  doors:
+    blue: "Starting Room"
+    purple: "Vault"
+
+"Secret Study":
+  contents: [grimoire, potion]
+  doors:
+    iron: "Library"
+
+"Vault":
+  contents: [crown]
+  doors:
+    purple: "Laboratory"
