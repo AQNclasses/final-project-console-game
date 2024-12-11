@@ -1,46 +1,90 @@
-excalibur:
+sword:
   type: [Weapon]
-  description: "Ye sword of olde"
+  description: "It's a sharp sword!"
+  damage: 5
   use:
       text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
-  max-damage: 10
-poison frog:
-  type: [Weapon, Animal]
-  description: "A bright purple frog, oozing a thick liquid"
-  use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
-  min-damage: 2
-  max-damage: 4
+      action: "hit"
 broom:
-  type: [Item]
-  description: "It's for sweeping."
+  type: [Weapon]
+  damage: 2
+  description: "I could wack something with this."
   use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
-bucket:
-  type: [Item]
-  description: "It's empty."
-  use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+      text: "You poke him in the eyeball."
+      action: "hit"
 mop:
-  type: [Item]
-  description: "It's for mopping."
+  type: [Weapon]
+  description: "I could wack something with this."
+  damage: 2
   use:
-      text: "The floor looks slightly more damp."
-      action: "null"
-poster:
-  type: [Item]
-  description: "A classic."
+      text: "You poke him in the eyeball."
+      action: "hit"
+dagger:
+  type: [Weapon]
+  description: "It glows with power."
+  damage: 5
   use:
-      text: "What are you going to do with a poster?"
-      action: "null"
+      text: "You charge at the oger with dagger."
+      action: "hit"
 book:
   type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
+  description: "An old book about the lost treasure hidden in the earth, written by UNKNOWN."
   use:
-      text: "You place the book gently on the floor."
+      text: "Upon opening the book, a glowing purple dagger levitates out of the book. The page says, \"A beast killer.\". You grab the dagger and put it in your pocket. The book vanishes in your hands."
+      action: "vanish"
+rock:
+  type: [Weapon]
+  description: "I could throw this."
+  use:
+      text: "You throw the rock at the oger."
+      action: "hit"
+  damage: 1
+mouse:
+  type: [Animal]
+  description: "Do mice have rabies?"
+  retrieved: false
+  use:
+      text: "The mouse scurries into the hole."
       action: "drop"
+redkey:
+  type: [Key]
+  description: "This will unlock a door."
+  unlocked: false
+  use:
+      text: "We place redkey into the doorknob."
+      action: "unlock"
+goldkey:
+  type: [Key]
+  description: "This will unlock a door."
+  unlocked: false
+  use:
+      text: "We place goldkey into the doorknob."
+      action: "unlock"
+greenkey:
+  type: [Key]
+  description: "This will unlock a door."
+  unlocked: false
+  use:
+      text: "We place greenkey into the doorknob."
+      action: "unlock"
+cactus:
+  type: [Plant]
+  description: "Its a prickly plant."
+  slipped: false
+  use:
+      text: "It pricks your finger and you accidently drop it on the floor. Ouch!"
+      action: "slip"
+sunflower:
+  type: [Plant]
+  description: "So cute!"
+  slipped: false
+  use:
+      text: "The sunflower slips out of your hands, it drops on the floor."
+      action: "slip"
+tulip:
+  type: [Plant]
+  description: "Very pretty."
+  slipped: false
+  use:
+      text: "The tulip slips out of your hands, it falls on the floor."
+      action: "slip"

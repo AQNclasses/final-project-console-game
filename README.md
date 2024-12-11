@@ -35,15 +35,17 @@ You shouldn't have to touch any of the Gradle files.
 
 ## Requirements and Deliverables
 
-1. Add at least two new rooms in `rooms.yaml`, connected to the existing rooms.
-2. Add an ending related to at least one of your new rooms. Endings are
-implemented in `GameState.java`.
-3. Implement a locked door that can only be opened if a Key is in your inventory.
-4. Finish implementing subclasses for Items (Animal, Weapon, etc) instead of reading all
+1. Add at least two new rooms in `rooms.yaml`, connected to the existing rooms. CHECK
+2. Add an ending related to at least one of your new rooms. Endings are         CHECK
+implemented in `GameState.java`.             
+3. Implement a locked door that can only be opened if a Key is in your inventory. CHECK
+
+
+4. Finish implementing subclasses for Items (Animal, Weapon, etc) instead of reading all CHECK
 items in as Items.
-   - Add and implement actions for all the items. All actions should modify GameState.
-5. Add a new subclass of items and at least three corresponding entries in `items.yaml`.
-6. Implement two new tests in `Game/src/test/java/GameTest.java`.
+   - Add and implement actions for all the items. All actions should modify GameState. CHECK
+5. Add a new subclass of items and at least three corresponding entries in `items.yaml`. CHECK
+6. Implement two new tests in `Game/src/test/java/GameTest.java`. CHECK
 
 ## Extra Credit Opportunities
 
