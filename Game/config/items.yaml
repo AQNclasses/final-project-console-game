@@ -45,17 +45,22 @@ book:
       text: "You place the book gently on the floor."
       action: "drop"
 crystal ball:
-  type: [Item, Weapon]
+  type: [Magic, Weapon]
   description: "Energy from the Arcane seems to resonate within"
+  effect: "cast fireball"
   use:
       text: "The ball starts to float, seemingly fills you with energy and knowledge of the Arcane... you suddenly feel the ability to cast fire ball"
       action: "null"
+  min-damage: 10
+  max-damage: 20
 shield:
   type: [Item, Weapon]
   description: "Solid yet durable, has a insignia unknown to you"
   use:
       text: "Its a solid piece of metal, you feel reassured it can protect you, yet you wonder why you feel the need to protect yourself..."
       action: "null"
+  min-damage: 5
+  max-damage: 15
 map:
   type: [Item]
   description: "Resembles and old pirate map, almost like it leads to another room..."
@@ -67,6 +72,8 @@ rat:
   description: "Its furry and grey, thats it."
   use:
       action: "null"
+  min-damage: 1 
+  max-damage: 2
 dagger:
   type: [Item, Weapon]
   description: "Small and sharp, it feels almost weightless in your hands... it could help defend yourself"
@@ -80,6 +87,8 @@ carnivorous plant:
   description: "It seems to resemble the piranha plant from the hit Mario games... except its real."
   use:
       action: "null"
+  min-damage: 5
+  max-damage: 15
 medicinal herbs:
   type: [Item]
   description: "The leaves look soft, giving you a almost calming feel, like you would feel a lot better if you ate them..."
@@ -96,5 +105,18 @@ brown key:
   description: "Seems to be an old wooden brown key, yet the brown feels unnaturally brown... almost like paint"
   use:
     action: "null"
+enchanted scroll:
+  type: [Magic]
+  description: "An ancient scroll with cryptic runes"
+  effect: "gain knowledge"
+  use:
+    text: "You read the scroll and feel that your magic arcana has expanded"
+    action: "null"
+mystic cloak:
+  type: [Magic]
+  description: "A cloak that shimmers in the dark, it looks like its owner took good care of it"
+  effect: "invisibility"
+  use:
+    text: "The cloak envelops you, and it fits well, so well you don't notice you've become invisible"
+    action: "null"
   
-

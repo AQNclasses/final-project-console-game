@@ -1,5 +1,5 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [poison frog, mystic cloak]
   doors:
       green: "Closet"
       blue: "Green Room"
@@ -8,7 +8,7 @@
       brown: "brown key"
 
 "Closet":
-  contents: [broom, mop, bucket, poster, brown key]
+  contents: [broom, mop, bucket, poster, brown key, enchanted scroll]
   doors:
       green: "Starting Room"
   lockedDoors: {}
