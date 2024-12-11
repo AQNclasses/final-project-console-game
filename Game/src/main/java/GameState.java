@@ -7,6 +7,8 @@ public class GameState {
     HashMap<Room, Boolean> visited = new HashMap<Room, Boolean>();
     HashMap<Room, Boolean> mopped = new HashMap<Room, Boolean>();
     HashMap<Room, Boolean> swept = new HashMap<Room, Boolean>();
+    HashMap<Room, Boolean> cleanRoom = new HashMap<Room, Boolean>();
+
     boolean cleaned;
     String name;
     boolean finished;
@@ -25,9 +27,18 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
+//    	if(!cleaned && mopped.get(room) != null && mopped.get(room) && swept.get(room) != null && swept.get(room)) {
+//    		String clean = "You've cleaned the room! Looks a lot better in here.";
+//    		if(room.name.equals("Starting Room")) {
+//    			room.contents.add(items.get("silver key"));
+//    			clean += " Check to see if there are any new items.";
+//    		}
+//    		cleaned = true;
+//    		return clean;
+//    	}
         if(!cleaned && room.name.equals("Starting Room") && mopped.get(room) && swept.get(room)) {
         	room.contents.add(items.get("silver key"));
-        	String cleanRoom= "You've cleaned the room. Check to see if there are any new items.";
+        	String cleanRoom= "Check to see if there are any new items.";
         	cleaned = true;
         	return cleanRoom;
         }
@@ -85,7 +96,7 @@ public class GameState {
         if (allRoomsCleaned) {
             finished = true;
             win = true;
-            String finaltext =  "You have vanquished all the nasty dirt from this place. You can live here in peace.";
+            String finaltext =  "You have vanquished all the nasty dirt from all of the rooms. You can live here in peace.";
             return finaltext;
         }
         return "";
@@ -103,6 +114,7 @@ public class GameState {
         visited.put(room, true);
         mopped.put(room, false);
         swept.put(room, false);
+        cleanRoom.put(room, false);
         inventory.add(items.get("book"));
         cleaned = false;
         protection = 0;

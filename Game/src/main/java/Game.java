@@ -60,16 +60,8 @@ public class Game {
 		printSlow("When you arrive at the estate, you get a strange feeling. As you approach the door, the sun all of a sudden disappears and the sky gets dark. A cold wind picks up.");
 		printSlow("You step through the door with only a suitcase of clothes and an old book gifted to you by your uncle. The place seems like it hasn't been cleaned in years, but you don't have anything with you to start cleaning.");
 		printSlow("Maybe you should look to see if he left any cleaning supplies behind.");
-		// beginning flavor text
-		/**
-        printSlow("Welcome, "+name+".");
-        System.out.println("");
-        printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
-        System.out.println("");
-        printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
-        System.out.println("");
-        printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
-		 */
+
+	
 		while (!state.finished) {
 			System.out.println("");
 			System.out.println("What do you want to do next?");
