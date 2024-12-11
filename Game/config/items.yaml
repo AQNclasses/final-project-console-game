@@ -3,7 +3,7 @@ excalibur:
   description: "Ye sword of olde"
   use:
       text: "You slash with the sword."
-      action: "null"
+      action: "attack"
   min-damage: 1
   max-damage: 10
 poison frog:
@@ -11,7 +11,7 @@ poison frog:
   description: "A bright purple frog, oozing a thick liquid"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
+      action: "attack"
   min-damage: 2
   max-damage: 4
 broom:
@@ -19,28 +19,103 @@ broom:
   description: "It's for sweeping."
   use:
       text: "The floor looks slightly less dusty."
-      action: "null"
+      action: "drop"
 bucket:
   type: [Item]
   description: "It's empty."
   use:
       text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+      action: "drop"
 mop:
   type: [Item]
   description: "It's for mopping."
   use:
       text: "The floor looks slightly more damp."
-      action: "null"
+      action: "drop"
 poster:
   type: [Item]
   description: "A classic."
   use:
       text: "What are you going to do with a poster?"
-      action: "null"
+      action: "drop"
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+katana:
+  type: [Weapon]
+  description: "sword forged nearly 400 years ago and is indestructible"
+  use:
+      text: "you swing your sword with great intensity!"
+      action: "attack"
+  min-damage: 1
+  max-damage: 2
+80in-TV:
+  type: [Item]
+  description: "4k 120hz tv"
+  use:
+      text: "you watch ufc 311 for 4 hours"
+      action: "drop"
+spatula:
+  type: [Weapon]
+  description: "looks minimal but contains great power"
+  use:
+      text: "you smash your spatula"
+      action: "attack"
+  min-damage: 100
+  max-damage: 1000
+pick_of_destiny:
+  type: [Weapon]
+  description: "magical pick used by every legendary guitar player known"
+  use:
+      text: "you play the best riffs anybody has every heard"
+      action: "drop"
+  min-damage: 1000
+  max-damage: 10000
+another_mysterious_potion:
+  type: [Potion]
+  description: "a magical potion that gives you some ability"
+  use:
+      text: "you drink the potion..... it does not taste very good"
+      action: "drink"
+  
+dagger:
+  type: [Weapon]
+  description: "a powerful weapon ready for use"
+  use:
+      text: "you stab your enemy"
+      action: "attack"
+  min-damage: 1
+  max-damage: 2
+old_mystery_key:
+  type: [Item]
+  description: "you find a rusty old key "
+  use:
+      text: "unsure if it will even work"
+      action: "open"
+fresh_grass:
+  type: [Item]
+  description: "great smelling grass that brings you back to your childhood"
+  use:
+      text: "you lay down in the grass feeling a incredible sense of freedom"
+      action: "drop"
+beautiful_trees:
+  type: [Item]
+  description: "amazing oak trees that seem larger than life"
+  use:
+      text: "you stand in amazment and shock at the shier magnitude of the trees"
+      action: "drop"
+mysterious_potion:
+  type: [Potion]
+  description: "you come accross this random potion with no clue what it does"
+  use:
+      text: "you drink the potion, it is tough to drink...."
+      action: "drink"
+bonus_life_potion:
+  type: [Potion]
+  description: "this potion gives you a extra life"
+  use:
+      text: "you drink your bonus life potion to get full health back"
+      action: "drink"

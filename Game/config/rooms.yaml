@@ -2,7 +2,24 @@
   contents: [poison frog]
   doors:
       green: "Closet"
+      brown: "Living Room"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, bucket, poster, bonus_life_potion]
   doors:
       green: "Starting Room"
+"Living Room":
+  contents: [mysterious_potion, pick_of_destiny, katana, 80in-TV, spatula]
+  doors:
+      brown: "Starting Room"
+      blue: "Magic room"
+"Magic room":
+  contents: [ another_mysterious_potion, dagger, old_mystery_key]
+  doors:
+      purple: "Living Room"
+      red: "Outside"
+"Outside":
+  contents: [fresh_grass, beautiful_trees]
+  doors:
+    
+
+      
