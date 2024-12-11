@@ -9,10 +9,13 @@ public class Game {
     // helper function for printing
     private static void printSlow(String toPrint) {
         char[] chars = toPrint.toCharArray();
-        for (int i=0; i < chars.length; i++) {
+        for (int i = 0; i < chars.length; i++) {
             System.out.print(chars[i]);
-            try { Thread.sleep(25);} 
-            catch (InterruptedException e) {Thread.currentThread().interrupt();}
+            try {
+                Thread.sleep(25);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
         System.out.println("");
         try {
@@ -29,23 +32,29 @@ public class Game {
 
         // beginning flavor text
         /**
-        printSlow("Welcome, "+name+".");
-        System.out.println("");
-        printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
-        System.out.println("");
-        printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
-        System.out.println("");
-        printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
-        */
+         * printSlow("Welcome, "+name+".");
+         * System.out.println("");
+         * printSlow("You've been studying in the library for hours and decide to take a
+         * break by walking around.");
+         * System.out.println("");
+         * printSlow("You go downstairs into the basement, find an archive room, and get
+         * distracted by an old book describing the first version of Java (\'The Java
+         * Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
+         * System.out.println("");
+         * printSlow("After reading for a while, you look up and notice that the room
+         * looks... different. The lighting seems a little dimmer, the room smells of
+         * cigarettes, and you could have sworn the carpet was a different pattern when
+         * you first walked into this room.");
+         */
 
-        printSlow("You jolt awake, sitting in a chair across from a warm fireplace. After a quick glance at your surroundings, you realize you have no idea where you are. A wave of confusion hits as you realize you not only don't know where you are, but who you are.");
+        printSlow(
+                "You jolt awake, sitting in a chair across from a warm fireplace. After a quick glance at your surroundings, you realize you have no idea where you are. A wave of confusion hits as you realize you not only don't know where you are, but who you are.");
         System.out.println();
         printSlow("Who are you?");
         name = myObj.nextLine();
-        //init gamestate
+        // init gamestate
         GameState state = new GameState(name);
         printSlow("That's right, " + name + ", thats who you are.");
-        
 
         while (!state.finished) {
             System.out.println("");
@@ -62,17 +71,24 @@ public class Game {
             switch (choice) {
                 case 1:
                     printSlow("You can see the following items:");
-                    for (Item c : state.room.contents) printSlow(c.name);
+                    for (Item c : state.room.contents)
+                        printSlow(c.name);
                     printSlow("You also notice that this room has doors:");
-                    for (String c : state.room.doors.keySet()) printSlow(c);
+                    for (String c : state.room.doors.keySet())
+                        printSlow(c);
                     break;
                 case 2:
                     printSlow("Which door?");
                     String door = myObj.nextLine();
                     try {
                         String rtemp = state.room.doors.get(door);
-                        state.room = state.rooms.get(rtemp);
-                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        if (state.rooms.get(rtemp).locked) {
+                            printSlow("The door is locked. Maybe try a key?");
+                        } else {
+                            state.room = state.rooms.get(rtemp);
+                            printSlow("You step through the " + door + " door. You realize this room is the "
+                                    + state.room.name + ".");
+                        }
                     } catch (Exception e) {
                         printSlow("Unknown door.");
                     }
@@ -100,15 +116,28 @@ public class Game {
                     try {
                         Item item = state.items.get(itemp);
                         if (state.inventory.contains(item)) {
-                            item.use();
-                            printSlow(item.use);
-                            if (item.action.equals("drop")) {
-                                state.inventory.remove(item);
-                                state.room.contents.add(item);
-                                state.rooms.put(state.room.name, state.room);
+                            switch (item.action) {
+                                case "pet":
+                                    Animal animal = (Animal) state.items.get(itemp);
+                                    animal.pet();
+                                    printSlow(animal.use);
+                                case "eat":
+                                    Food food = (Food) state.items.get(itemp);
+                                    food.eat();
+                                    printSlow(food.use);
+                                case "unlock":
+                                    Key key = (Key) state.items.get(itemp);
+                                    key.unlock();
+                                    printSlow(key.use);
+                                case "use":
+                                    Tool tool = (Tool) state.items.get(itemp);
+                                    printSlow("What item do you want to use this on?");
+                                    itemp = myObj.nextLine();
+                                    tool.use(itemp);
+                                default:
+
                             }
-                        }
-                        else {
+                        } else {
                             printSlow("Unknown item.");
                         }
                     } catch (Exception e) {

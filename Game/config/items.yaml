@@ -1,19 +1,112 @@
-excalibur:
-  type: [Weapon]
-  description: "Ye sword of olde"
+Old Book:
+  type: Book
+  description: "An old book, falling apart at the seams. Bookworms have had their way with this one."
   use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
-  max-damage: 10
-poison frog:
-  type: [Weapon, Animal]
-  description: "A bright purple frog, oozing a thick liquid"
+    text: "You read the book, and remember the most important parts."
+    action: "read"
+  tip: "The Warden seeks an animal, a plant, and some delicious food."
+
+Library Key:
+  type: Key
+  description: "A rather antique key. The lock this goes to must be easy to pick."
   use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
-  min-damage: 2
-  max-damage: 4
+    text: "With a loud ker-CHUNK, the door to the library is now open"
+    action: "unlock"
+  room: "Library"
+
+Plunger:
+  type: Tool
+  description: "The good-ole-fashioned plunger. Perfect for solving your porcelain problems."
+  use:
+    text: "You manage to unclog the toilet, and found the key to the greenhouse was causing the clog!"
+    action: "use"
+  pair: "Toilet"
+
+Broom:
+  type: Tool
+  description: "Perfect for those dusty floors"
+  use:
+    text: "You sweep the floors a bit. I guess it's lest dusty now..."
+    action: "use"
+  pair: null
+
+Bucket:
+  type: Tool
+  description: "A bucket. Nothing more, nothing less."
+  use:
+    text: "You put the bucket on your head. A small (but false) sense of safety comforts you!"
+    action: "use"
+  pair: null
+
+Book of Foods:
+  type: Book
+  description: "A book of recipes. How handy!"
+  use:
+    text: "While flipping through the book, you see the page marked Pizza starred. How strange..."
+    action: "read"
+  tip: "Pizza is a favorite."
+
+Wildlife Journal:
+  type: Book
+  description: "A peer reviewed journal of the various wildlife found in North America."
+  use:
+    text: "The various pictures and fun facts are highly interesting. When you flip to the page about frogs, a hand-drawn picture of one falls out signed The Warden"
+    action: "read"
+  tip: "The Warden likes frogs."
+
+Greenhouse Catalogue:
+  type: Book
+  description: "A catalogue of the many different types of plants found in the Greenhouse."
+  use:
+    text: "You're surprised to learn how many plants there are in the Greenhouse! You find the chapter on flowers was highlighted in the table of contents."
+    action: "read"
+  tip: "The chapter on flowers was highlighted."
+
+Toilet:
+  type: Tool
+  description: "A toilet you ripped from the wall of the bathroom. Somehow magically, it still works!"
+  use:
+    text: "You flush the toilet, but discover that it's clogged. If only you had a plunger..."
+    action: "use"
+  pair: null
+
+Green Frog:
+  type: Animal
+  description: "A speckled green frog, found hopping around the courtyard."
+  use:
+    text: "The frog ribbits and seems a little annoyed that you pet it, but you wore gloves to make sure you didn't hurt it!"
+    action: "pet"
+  color: "Green"
+
+Brown Frog:
+  type: Animal
+  description: "A plain brown frog. It wasn't too happy about being caught."
+  use:
+    text: "The frog seemed indifferent to being pet, but at least it made you quite happy!"
+    action: "pet"
+  color: "Brown"
+
+Rose:
+  type: Plant
+  description: "A beautiful red rose."
+  use:
+    text: "Careful not to prick yourself on a thorn, you take a deep whiff of the flower. It smells delightful!"
+    action: "observe"
+  plantType: "Flower"
+
+Frozen Pizza:
+  type: Food
+  use:
+    text: "You think about eating the frozen pizza, but you decide not to because you're not a psycho."
+    action: "eat"
+  flavor: null
+  foodType: null
+  hot: false
+
+
+
+
+
 broom:
   type: [Item]
   description: "It's for sweeping."

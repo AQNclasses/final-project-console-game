@@ -1,5 +1,5 @@
 "Study":
-  contents: [old book]
+  contents: []
   doors:
       green: "Closet"
       elegentDoor: "Warden's Room"
@@ -8,7 +8,7 @@
   doors:
       green: "Starting Room"
 "Warden's Room":
-  contents: [smallPenny]
+  contents: []
   doors:
     elegentDoor: "Study"
 "Library":
