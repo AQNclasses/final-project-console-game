@@ -1,0 +1,77 @@
+excalibur:
+  type: [Weapon]
+  description: "Ye sword of olde"
+  use:
+      text: "You attempt a mighty slash with the sword. However it is quite heavy so you end up dropping it."
+      action: "drop"
+  min-damage: 1
+  max-damage: 10
+poison frog:
+  type: [Weapon, Animal]
+  description: "A bright purple frog, oozing a thick liquid"
+  use:
+      text: "You place the frog gently on the floor. The frog croaks contentedly."
+      action: "drop"
+  min-damage: 2
+  max-damage: 4
+broom:
+  type: [Item]
+  description: "It's for sweeping."
+  use:
+      text: "The floor looks slightly less dusty."
+      action: "uncover"
+bucket:
+  type: [Item]
+  description: "It's empty."
+  use:
+      text: "You put the bucket on your head. You feel marginally safer.... After a few moments you decide to take it off as its just a bucket."
+      action: "drop"
+mop:
+  type: [Item]
+  description: "It's for mopping."
+  use:
+      text: "The floor looks slightly more damp."
+      action: "uncover"
+poster:
+  type: [Item]
+  description: "A classic."
+  use:
+      text: "What are you going to do with a poster? You set it down."
+      action: "drop"
+book:
+  type: [Item]
+  description: "An old book about Java. It seems to have some purple residue on it."
+  use:
+      text: "You place the book gently on the floor."
+      action: "drop"
+red key:
+  type: [Key]
+  description: "It probably unlocks a red door."
+  use:
+      text: "You look around for a door that fits this key."
+      action: "unlock"
+white key:
+  type: [Key]
+  description: "It probably unlocks a white door."
+  use:
+      text: "You look around for a door that fits this key."
+      action: "unlock"
+blue key:
+  type: [Key]
+  description: "It probably unlocks a blue door."
+  use:
+      text: "You look around for a door that fits this key."
+      action: "unlock"
+chicken leg:
+  type: [Item]
+  description: "A freshly cooked chicken leg. I wonder who this is for."
+  use:
+      text: "You find a clean place to place the chicken leg."
+      action: "drop"
+teddy bear:
+  type: [Item]
+  description: "This is probably someones best friend."
+  use:
+      text: "You gently set the bear on the ground."
+      action: "drop"
+

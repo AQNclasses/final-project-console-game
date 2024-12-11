@@ -1,0 +1,28 @@
+"Starting Room":
+  contents: [poison frog]
+  doors:
+      green: "Closet"
+      red: "Kitchen"
+  locked: "false"
+"Closet":
+  contents: [broom, mop, bucket, poster, red key]
+  doors:
+      green: "Starting Room"
+  locked: "false"
+"Kitchen":
+  contents: [chicken leg]
+  doors:
+      red: "Starting Room"
+      white: "Laundry Room"
+      blue: "Dining Hall"
+  locked: "true"
+"Laundry Room":
+  contents: [teddy bear, blue key]
+  doors:
+      white: "Kitchen"
+  locked: "true"
+"Dining Hall":
+  contents: []
+  doors:
+      blue: "Kitchen"
+  locked: "true"
