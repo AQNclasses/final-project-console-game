@@ -35,7 +35,6 @@ public class Game {
         Boolean invalidInput;
 
         // beginning flavor text
-        /*
         printSlow("Welcome, "+name+".");
         System.out.println("");
         printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
@@ -43,7 +42,6 @@ public class Game {
         printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
         System.out.println("");
         printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
-        */
         
         while (!state.finished) {
             System.out.println("");
