@@ -10,8 +10,8 @@ public class GameTest {
     @Test
     public void testYAML() {
         LoadYAML yl = new LoadYAML();
-        Room room1 = yl.rooms.get("Starting Room");
-        assertEquals(room1.name, "Starting Room");
+        Room room1 = yl.rooms.get("Entry Way");
+        assertEquals(room1.name, "Entry Way");
     }
     
     @Test

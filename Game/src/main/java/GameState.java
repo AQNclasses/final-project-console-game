@@ -36,7 +36,7 @@ public class GameState {
 //    		cleaned = true;
 //    		return clean;
 //    	}
-        if(!cleaned && room.name.equals("Starting Room") && mopped.get(room) && swept.get(room)) {
+        if(!cleaned && room.name.equals("Entry Way") && mopped.get(room) && swept.get(room)) {
         	room.contents.add(items.get("silver key"));
         	String cleanRoom= "Check to see if there are any new items.";
         	cleaned = true;
@@ -110,7 +110,7 @@ public class GameState {
         items = yl.items;
         enemies = yl.enemies;
         weapons = yl.weapons;
-        room = rooms.get("Starting Room");
+        room = rooms.get("Entry Way");
         visited.put(room, true);
         mopped.put(room, false);
         swept.put(room, false);
