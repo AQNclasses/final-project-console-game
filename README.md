@@ -36,6 +36,8 @@ You shouldn't have to touch any of the Gradle files.
 ## Requirements and Deliverables
 
 1. Add at least two new rooms in `rooms.yaml`, connected to the existing rooms.
+   <em>Test</em> **Test**
+
 2. Add an ending related to at least one of your new rooms. Endings are
 implemented in `GameState.java`.
 3. Implement a locked door that can only be opened if a Key is in your inventory.
