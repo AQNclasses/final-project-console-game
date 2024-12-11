@@ -7,7 +7,7 @@ excalibur:
   min-damage: 1
   max-damage: 10
 poison frog:
-  type: [Weapon, Animal]
+  type: [Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
       text: "You place the frog gently on the floor. The frog croaks contentedly."
@@ -15,32 +15,68 @@ poison frog:
   min-damage: 2
   max-damage: 4
 broom:
-  type: [Item]
+  type: [Weapon]
   description: "It's for sweeping."
   use:
       text: "The floor looks slightly less dusty."
       action: "null"
+  min-damage: 0
+  max-damage: 1
 bucket:
-  type: [Item]
-  description: "It's empty."
+  type: [Healing]
+  description: "A mostly empty bucket"
   use:
-      text: "You put the bucket on your head. You feel marginally safer."
+      text: "You take a drink from the liquid inside. You feel a little better"
       action: "null"
+  min-healing: 0
+  max-healing: 1
 mop:
-  type: [Item]
+  type: [Weapon]
   description: "It's for mopping."
   use:
       text: "The floor looks slightly more damp."
       action: "null"
 poster:
-  type: [Item]
-  description: "A classic."
+  type: [Weapon]
+  description: "Looks to be from a different time"
   use:
-      text: "What are you going to do with a poster?"
+      text: ""
       action: "null"
 book:
-  type: [Item]
+  type: [Weapon]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
       text: "You place the book gently on the floor."
       action: "drop"
+key:
+  type: [Key]
+  description: "A rusty old key. I wonder if it fits in any of these doors"
+  use:
+      text: "As you turn the key in your hand, your attention is directed towards the gray door"
+      action: "drop"
+rock:
+  type: [EasterEgg]
+  description: "A big rock with a hole in the top"
+  use: 
+      text: "You drop the rock onto the ground with a loud crash"  
+      action: "drop"
+fern:
+  type: [Plant]
+  description: "A small fern, that could grow with care"
+  use:
+      text:  "You water the fern with a nearby source"
+      action: "null"
+easter egg:
+  type: [EasterEgg]
+  description: "A literal easter egg. Very creative"
+  use:
+      text:  "You found one!"
+      action: "null"
+junimo:
+  type: [EasterEgg, Animal]
+  description: "What a cute little guy! looks similar to something you saw in a game before..."
+  use:
+      text:  "The junimo just around, pointing to the gray door in the closet. Maybe theres a way to get out of this place in there"
+      action: "null"
+  min-damage: 0
+  max-damage: 0

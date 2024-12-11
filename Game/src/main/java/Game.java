@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Game {
 
@@ -64,10 +64,22 @@ public class Game {
                 case 2:
                     printSlow("Which door?");
                     String door = myObj.nextLine();
+                    // if the door is the gray door, only let it happen if the key is in the inventory
                     try {
                         String rtemp = state.room.doors.get(door);
-                        state.room = state.rooms.get(rtemp);
-                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        if (door.equals("gray")){
+                            if (state.inventory.contains(state.items.get("key"))){
+                                state.room = state.rooms.get(rtemp);
+                                printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                            }
+                            else{
+                                printSlow("You don't have the key to unlock this door");
+                            }
+                        }
+                        else{
+                            state.room = state.rooms.get(rtemp);
+                            printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+                        }
                     } catch (Exception e) {
                         printSlow("Unknown door.");
                     }
@@ -93,6 +105,7 @@ public class Game {
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
+                        // new if statements to do new things
                         Item item = state.items.get(itemp);
                         if (state.inventory.contains(item)) {
                             item.use();
