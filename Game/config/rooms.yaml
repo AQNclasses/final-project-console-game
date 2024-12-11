@@ -1,8 +1,36 @@
 "Starting Room":
   contents: [poison frog]
   doors:
-      green: "Closet"
+    blue: "Kitchen"
+    pink: "Movie Room"
+    green: "Closet"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, poster]
   doors:
       green: "Starting Room"
+"Kitchen":
+  contents: [bucket]
+  doors:
+    green: "Garage"
+    blue: "Starting Room"
+    orange: "Movie Room"
+"Movie Room":
+  contents: []
+  doors: 
+    orange: "Kitchen"
+    pink: "Starting Room"
+"Garage":
+  contents: [mclaren, rocket keys, jeep wrangler, bugatti]
+  doors:
+    green: "Kitchen"
+    blue: "Outside"
+"Outside":
+  contents: [poster]
+  doors:
+    green: "Rocket"
+    blue: "Garage"
+"Rocket":
+  contents: []
+  doors:
+    green: "Outside"
+    yellow: "Mars"

@@ -2,45 +2,70 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
-      action: "null"
+    text: "You slash with the sword."
+    action: "slash"
   min-damage: 1
   max-damage: 10
 poison frog:
   type: [Weapon, Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
+    text: "You place the frog gently on the floor. The frog croaks contentedly."
+    action: "drop"
   min-damage: 2
   max-damage: 4
 broom:
   type: [Item]
   description: "It's for sweeping."
   use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
+    text: "The floor looks slightly less dusty."
+    action: "drop"
 bucket:
   type: [Item]
   description: "It's empty."
   use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+    text: "You put the bucket on your head. You feel marginally safer."
+    action: "drop"
 mop:
-  type: [Item]
+  type: [Item, Weapon]
   description: "It's for mopping."
   use:
-      text: "The floor looks slightly more damp."
-      action: "null"
+    text: "The floor looks slightly more damp."
+    action: "drop"
 poster:
   type: [Item]
   description: "A classic."
   use:
-      text: "What are you going to do with a poster?"
-      action: "null"
+    text: "What are you going to do with a poster?"
+    action: "drop"
 book:
   type: [Item]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+    text: "You place the book gently on the floor."
+    action: "drop"
+mclaren:
+  type: [Vehicle]
+  description: "Mclaren Speedtail top speed of 250mph"
+  use:
+    text: "Vroom vroom"
+    action: "drive"
+rocket keys:
+  type: [Item, Key]
+  description: "You have found the key to the rocket! Quick, get off Earth!!"
+  use:
+    text: "You dropped the important keys"
+    action: "drop"
+bugatti:
+  type: [Vehicle]
+  description: "drive at speeds of 300mph"
+  use:
+    text: "Vroom vroom"
+    action: "drive"
+jeep wrangler:
+  type: [Vehicle]
+  description: "you can climb mountains in this baby!!! but cant get off earth :("
+  use:
+    text: "Vroom vroom"
+    action: "drive"
+

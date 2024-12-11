@@ -18,5 +18,4 @@ public class Weapon extends Item {
         int var = min + rn.nextInt((max-min) + 1);
         return var;
     }
-
 }
