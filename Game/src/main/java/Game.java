@@ -114,10 +114,15 @@ public class Game {
 				itemp = myObj.nextLine();
 				try {
 					Item item = state.items.get(itemp);
-					state.room.contents.remove(item);
-					state.rooms.put(state.room.name, state.room);
-					state.inventory.add(item);
-					printSlow("You pick up the " + item.name + ". " + item.desc);
+					if(state.room.contents.contains(item)) {
+						state.room.contents.remove(item);
+						state.rooms.put(state.room.name, state.room);
+						state.inventory.add(item);
+						printSlow("You pick up the " + item.name + ". " + item.desc);
+					} else {
+						printSlow("It doesn't seem like that item is in the room. Try again!");
+					}
+					
 				} catch (Exception e) {
 					printSlow("Unknown item.");
 				}
