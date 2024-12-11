@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Game {
 
@@ -32,18 +32,17 @@ public class Game {
         // init game state
         GameState state = new GameState(name);
 
-        // beginning flavor text
-        /**
-        printSlow("Welcome, "+name+".");
-        System.out.println("");
-        printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
-        System.out.println("");
-        printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
-        System.out.println("");
-        printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
-        */
+        // // beginning flavor text
+        
+        // printSlow("Welcome, "+name+".");
+        // System.out.println("");
+        // printSlow("You've been studying in the library for hours and decide to take a break by walking around.");
+        // System.out.println("");
+        // printSlow("You go downstairs into the basement, find an archive room, and get distracted by an old book describing the first version of Java (\'The Java Tutorial\' by Mary Campione and Kathy Walrath, published in 1997).");
+        // System.out.println("");
+        // printSlow("After reading for a while, you look up and notice that the room looks... different. The lighting seems a little dimmer, the room smells of cigarettes, and you could have sworn the carpet was a different pattern when you first walked into this room.");
+        
         while (!state.finished) {
-            System.out.println("");
             System.out.println("What do you want to do next?");
             System.out.println("[1]: Look around the room.");
             System.out.println("[2]: Move to a new room.");
@@ -67,6 +66,17 @@ public class Game {
                     try {
                         String rtemp = state.room.doors.get(door);
                         state.room = state.rooms.get(rtemp);
+
+                        if(state.room.name.equals("Escape")){
+                            if(!state.yellowUnlock){
+                                printSlow("The door is locked. You'll need a key.");
+                                state.room = state.rooms.get("Stairway");
+                            }
+
+                            System.out.println("");
+                            break;
+                        }
+
                         printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
                     } catch (Exception e) {
                         printSlow("Unknown door.");
@@ -94,13 +104,54 @@ public class Game {
                     itemp = myObj.nextLine();
                     try {
                         Item item = state.items.get(itemp);
+
                         if (state.inventory.contains(item)) {
                             item.use();
                             printSlow(item.use);
-                            if (item.action.equals("drop")) {
-                                state.inventory.remove(item);
-                                state.room.contents.add(item);
-                                state.rooms.put(state.room.name, state.room);
+                            switch(item.action){
+                                case "drop":
+                                    state.inventory.remove(item);
+                                    state.room.contents.add(item);
+                                    state.rooms.put(state.room.name, state.room);
+                                    break;
+                                case "attack":
+                                    int var = Weapon.attack() - state.shield;
+
+                                    if(var < 0){
+                                        var = 0;
+                                    }
+
+                                    state.health -= var;
+                                    break;
+                                case "heal":
+                                    ItemType.valueOf(item.toString());
+                                    state.inventory.remove(item);
+                                    state.health += Healing.Heal();
+
+                                    if(state.health > 10){
+                                        state.health = 10;
+                                    }
+
+                                    break;
+                                case "unlock":
+                                    printSlow("Which door would you like to unlock?");
+                                    itemp = myObj.nextLine();
+                                    String temp = state.room.doors.get(itemp);
+
+                                    if(temp.equals("Escape")){
+                                        state.yellowUnlock = true;
+                                        printSlow("You unlock the door!");
+                                    }else{
+                                        printSlow("This key does not go to that door.");
+                                    }
+
+                                    break;
+                                case "equip":
+                                    state.shield += Armor.shield;
+                                    state.inventory.remove(item);
+                                    break;
+                                default:
+                                    break;
                             }
                         }
                         else {
@@ -117,6 +168,11 @@ public class Game {
             String update = state.update();
             printSlow(update);
         }
-        printSlow("You win!");
+        
+        if(state.health == 0){
+            printSlow("You lost.");
+        }else{
+            printSlow("You win!");
+        }
     }
 }
