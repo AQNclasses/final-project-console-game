@@ -3,12 +3,15 @@ import java.util.ArrayList;
 
 // Define types of items that share actions / properties
 enum ItemType {
-    Weapon,
-    Healing,
-    Key,
-    Animal,
-    Plant,
-    Item;
+    Weapon, 
+    Healing, 
+    Key, 
+    Animal, 
+    Plant, 
+    Trap, 
+    Tool,
+    Readable,
+    Item; 
 
     public static ItemType toType(String s) {
         switch (s) {
@@ -22,6 +25,8 @@ enum ItemType {
                 return ItemType.Animal;
             case "Plant":
                 return ItemType.Plant;
+            case "Trap":
+                return ItemType.Trap;
             default:
                 return ItemType.Item;
         }
@@ -38,7 +43,7 @@ public class Item {
     String action;
     Boolean used = false;
 
-    Item(String n, List<String> ts, String d, String u, String a) {
+    Item(String n, List<String> ts, String d, String u, String a) { 
         name = n;
         for (String ty : ts) types.add(ItemType.valueOf(ty));
         desc = d;
@@ -46,14 +51,14 @@ public class Item {
         action = a;
     }
 
-    public String inspect() {
+    public String inspect() { 
         String alltypes = "";
         for (ItemType t: types) alltypes += t.name() + " ";
         String message = "This is a " + this.name + ", a kind of " + alltypes + ". Description: " + this.desc;
         return message;
     }
 
-    public void use() {
+    public void use() { 
         used = true;
     }
 

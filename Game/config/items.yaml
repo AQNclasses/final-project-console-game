@@ -2,45 +2,104 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
-      action: "null"
+      text: ""
+      action: "attack"
   min-damage: 1
   max-damage: 10
-poison frog:
-  type: [Weapon, Animal]
-  description: "A bright purple frog, oozing a thick liquid"
+purple frog:
+  type: [Healing]
+  description: "A bright purple frog, oozing roughly 12oz of thick liquid."
   use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
+      text: ""
+      action: "drink"
   min-damage: 2
   max-damage: 4
+  animalHP: 3
+bloodthirsty wasp: 
+  type: [Animal]
+  description: "A wasp out for blood."
+  use:
+      text: ""
+      action: "sting"
+  min-damage: 1
+  max-damage: 6 
+  animalHP: 10
 broom:
-  type: [Item]
+  type: [Tool]
   description: "It's for sweeping."
   use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
+      text: "" 
+      action: "clean"
 bucket:
-  type: [Item]
-  description: "It's empty."
+  type: [Tool]
+  description: "A bucket with murky liquid within, with specks of dirt floating across the top."
   use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+      text: ""
+      action: "clean"
 mop:
-  type: [Item]
+  type: [Tool]
   description: "It's for mopping."
   use:
-      text: "The floor looks slightly more damp."
-      action: "null"
+      text: ""
+      action: "clean"
 poster:
-  type: [Item]
-  description: "A classic."
+  type: [Readable]
+  description: "A lot of people would do a lot of things to get their hands on this."
   use:
-      text: "What are you going to do with a poster?"
-      action: "null"
+      text: ""
+      action: "view"
 book:
-  type: [Item]
+  type: [Readable]
   description: "An old book about Java. It seems to have some purple residue on it."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+      text: ""
+      action: "read"
+red button:
+  type: [Trap] 
+  description: "A shiny red button that seems untouched. It looks important."
+  use:
+    text: ""
+    action: "open hole"  
+lever:
+  type: [Trap]
+  description: "A worn old lever sticking out of the cave wall. It looks like it should be pulled."
+  use:
+    text: ""
+    action: "open stone path" 
+magic circle:
+  type: [Trap]
+  description: "A magic circle inscribed on the floor, covered partly in dust. It omits a tangible energy that crawls over your skin."
+  use:
+    text: ""
+    action: "teleport" 
+locked door: 
+  type: [Trap]
+  description: "A locked door."
+  use:
+    text: ""
+    action: "locked" 
+bottomless pit: 
+  type: [Trap]
+  description: "A bottomless pit."
+  use:
+    text: ""
+    action: "win" 
+key: 
+  type: [Key]
+  description: "A key."
+  use:
+    text: "You use the key to unlock a door."
+    action: "unlock" 
+bioluminescent ivy: 
+  type: [Plant]
+  description: "A glowing plant that seems to pulse faintly."
+  use:
+    text: ""
+    action: "eat" 
+elixir: 
+  type: [Healing]
+  description: "A potion that heals you."
+  use:
+    text: ""
+    action: "drink" 
+

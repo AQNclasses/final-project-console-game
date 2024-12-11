@@ -1,8 +1,19 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [excalibur, purple frog, red button]                                                                                                    
   doors:
       green: "Closet"
+      red: "Mysterious Cave"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, bucket, poster, key]
   doors:
       green: "Starting Room"
+      yellow: "Chamber of Curses"
+"Mysterious Cave":
+  contents: [bioluminescent ivy, lever, locked door, bloodthirsty wasp]
+  doors: 
+      red: "Starting Room"
+"Chamber of Curses":
+  contents: [book, magic circle, bottomless pit, elixir]
+  doors:
+      green: "Starting Room"
+      blue: "Mysterious Cave"

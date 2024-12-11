@@ -1,4 +1,4 @@
-//package Game.src.main.java;
+// package Game.src.main.java;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -45,7 +45,42 @@ public class LoadYAML {
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction));
+            int min_damage = 0;
+            int max_damage = 10;
+            int roomIndex = 1;
+            int animalHP =  10;
+
+            
+            for (String type : types) {
+                switch(type) {
+                    case "Weapon":
+                        items.put(name, new Weapon(name, types, desc, usetext, useaction, min_damage, max_damage)); //global variables?
+                        break;
+                    case "Healing":
+                        items.put(name, new Healing(name, types, desc, usetext, useaction));
+                        break;
+                    case "Readable":
+                        items.put(name, new Readable(name, types, desc, usetext, useaction));
+                        break;                        
+                    case "Tool":
+                        items.put(name, new Tool(name, types, desc, usetext, useaction));
+                        break;                        
+                    case "Trap":
+                        items.put(name, new Trap(name, types, desc, usetext, useaction, roomIndex));
+                        break;
+                    case "Plant":
+                        items.put(name, new Plant(name, types, desc, usetext, useaction));
+                        break;
+                    case "Animal":
+                        items.put(name, new Animal(name, types, desc, usetext, useaction, min_damage, max_damage, animalHP));
+                        break;
+                    case "Key":
+                        items.put(name, new Key(name, types, desc, usetext, useaction)); 
+                        break;
+                    default:
+                        items.put(name, new Item(name, types, desc, usetext, useaction));  
+                }
+            }
         }
         return items;
     }
