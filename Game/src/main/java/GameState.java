@@ -8,6 +8,7 @@ public class GameState {
     boolean finished;
     Room room;
     List<Item> inventory = new ArrayList<Item>();
+    List<String> tips = new ArrayList<>();
     Map<String, Room> rooms; // global list of rooms
     Map<String, Item> items; // global list of known items
     boolean pet = false;
@@ -17,18 +18,6 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
-        if (room.contents.contains(items.get("poison frog")) &&
-                room.contents.contains(items.get("book"))) {
-            finished = true;
-            String finaltext = """
-                    The frog hops slowly over to the book and hops on top. Suddenly the book and the
-                    frog begin to glow. The room starts spinning and you shut your eyes out of fear.
-                    When you open them, you're back in the original basement room! When you open the
-                    door, you find yourself back in the modern-day library. As you leave and the door
-                    swings shut, you think you hear a faint \"ribbet\"....
-                    """;
-            return finaltext;
-        }
         if (room.name == "Warden's Room") {
             if ((inventory.contains(items.get("frog"))) && (inventory.contains(items.get("rose")))
                     && (inventory.contains(items.get("pizza")))) {

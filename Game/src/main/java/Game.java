@@ -69,7 +69,7 @@ public class Game {
             myObj.nextLine(); // consume newline from above
 
             switch (choice) {
-                case 1:
+                case 1: // look around room
                     printSlow("You can see the following items:");
                     for (Item c : state.room.contents)
                         printSlow(c.name);
@@ -77,7 +77,7 @@ public class Game {
                     for (String c : state.room.doors.keySet())
                         printSlow(c);
                     break;
-                case 2:
+                case 2: // move to a new room
                     printSlow("Which door?");
                     String door = myObj.nextLine();
                     try {
@@ -93,7 +93,7 @@ public class Game {
                         printSlow("Unknown door.");
                     }
                     break;
-                case 3:
+                case 3: // pick up an object
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
@@ -106,11 +106,11 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
-                case 4:
+                case 4: // examine inventory
                     printSlow("Your inventory:");
                     printSlow(state.inventory.toString());
                     break;
-                case 5:
+                case 5: // use an item
                     printSlow("Which item?");
                     itemp = myObj.nextLine();
                     try {
@@ -119,22 +119,35 @@ public class Game {
                             switch (item.action) {
                                 case "pet":
                                     Animal animal = (Animal) state.items.get(itemp);
-                                    animal.pet();
-                                    printSlow(animal.use);
+                                    printSlow(animal.pet(state));
+                                    break;
                                 case "eat":
                                     Food food = (Food) state.items.get(itemp);
-                                    food.eat();
-                                    printSlow(food.use);
+                                    printSlow(food.eat(state));
+                                    break;
                                 case "unlock":
                                     Key key = (Key) state.items.get(itemp);
-                                    key.unlock();
-                                    printSlow(key.use);
+                                    String outcome = key.unlock(state);
+                                    printSlow(outcome);
+                                    break;
                                 case "use":
                                     Tool tool = (Tool) state.items.get(itemp);
-                                    printSlow("What item do you want to use this on?");
-                                    itemp = myObj.nextLine();
-                                    tool.use(itemp);
-                                default:
+                                    if (tool.pairName == null) {
+                                        printSlow(tool.use);
+                                    } else {
+                                        printSlow("What item do you want to use this on?");
+                                        itemp = myObj.nextLine();
+                                        tool.use(state, itemp);
+                                    }
+                                    break;
+                                case "read":
+                                    Book book = (Book) state.items.get(itemp);
+                                    printSlow(book.read(state));
+                                    break;
+                                case "observe":
+                                    Plant plant = (Plant) state.items.get(itemp);
+                                    printSlow(plant.observe(state));
+                                    break;
 
                             }
                         } else {

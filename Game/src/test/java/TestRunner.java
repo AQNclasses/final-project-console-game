@@ -1,10 +1,9 @@
+import org.junit.runner.Description;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Request;
 import org.junit.runner.Result;
-import org.junit.runner.notification.RunListener;
 import org.junit.runner.notification.Failure;
-import org.junit.runner.Description;
-import java.util.List;
+import org.junit.runner.notification.RunListener;
 
 class TestListener extends RunListener {
     public void testStarted(Description description) {

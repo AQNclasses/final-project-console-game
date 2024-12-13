@@ -6,4 +6,9 @@ public class Book extends Item {
         super(name, type, desc, use, act);
         this.tip = tip;
     }
+
+    public String read(GameState state) {
+        state.tips.add(tip);
+        return use;
+    }
 }

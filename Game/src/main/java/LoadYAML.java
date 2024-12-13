@@ -57,12 +57,13 @@ public class LoadYAML {
                     items.put(name, new Food(name, type, desc, usetext, useaction, flavor, hot, foodType));
                 case "Key":
                     String room = (String) properties.get("room");
-                    items.put(name, new Key(name, type, desc, usetext, useaction, room));
+                    String useRoom = (String) properties.get("useRoom");
+                    items.put(name, new Key(name, type, desc, usetext, useaction, room, useRoom));
                 case "Plant":
                     String plantType = (String) properties.get("plant type");
                     items.put(name, new Plant(name, type, desc, usetext, useaction, plantType));
                 case "Tool":
-                    Item pair = items.get(properties.get("pair"));
+                    String pair = (String) properties.get("pair");
                     items.put(name, new Tool(name, type, desc, usetext, useaction, pair));
                 case "Book":
                     String tip = (String) properties.get("tip");
@@ -89,5 +90,9 @@ public class LoadYAML {
     public LoadYAML() {
         items = loadItems();
         rooms = loadRooms();
+    }
+
+    public static void main(String[] args) {
+        LoadYAML yl = new LoadYAML();
     }
 }

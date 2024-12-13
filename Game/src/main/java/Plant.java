@@ -5,4 +5,15 @@ public class Plant extends Item {
         super(name, type, desc, use, act);
         this.plantType = plantType;
     }
+
+    public String observe(GameState state) {
+        state.app = true;
+        return use;
+    }
+
+    @Override
+    public String inspect() {
+        return "This is a " + name + ". It is a plant, and a type of" + plantType + "!";
+    }
+
 }

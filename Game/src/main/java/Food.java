@@ -13,4 +13,20 @@ public class Food extends Item {
         this.foodType = foodType;
     }
 
+    public String eat(GameState state) {
+        String result = "";
+        if (hot) {
+            result += "You " + foodType + " the " + name + ". " + use;
+            state.ate = true;
+            return result;
+        } else {
+            return use;
+        }
+    }
+
+    @Override
+    public String inspect() {
+        return "This is " + name + ". It's flavors are " + flavor + "!";
+    }
+
 }

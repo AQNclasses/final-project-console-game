@@ -13,6 +13,7 @@ Library Key:
     text: "With a loud ker-CHUNK, the door to the library is now open"
     action: "unlock"
   room: "Library"
+  useRoom: "Study"
 
 Plunger:
   type: Tool
@@ -96,6 +97,7 @@ Rose:
 
 Frozen Pizza:
   type: Food
+  description: "A frozen pizza, of the veggie variety."
   use:
     text: "You think about eating the frozen pizza, but you decide not to because you're not a psycho."
     action: "eat"
@@ -103,37 +105,32 @@ Frozen Pizza:
   foodType: null
   hot: false
 
+Dictionary:
+  type: Book
+  description: "A regular old dictionary."
+  use:
+    text: "You go to read the dictionary like a novel, but find it quite boring. At least you know a few more words now."
+    action: "read"
+  tip: null
 
+Snail:
+  type: Animal
+  descriptin: "A very small, but very cute snail."
+  use:
+    text: "You run your hands along the shy snail's shell, and feel a bit better about the world"
+    action: "pet"
+  color: "Brown"
 
+Tabby Cat:
+  type: Animal
+  description: "A cute, cuddly, warm tabby cat who's more than happy to join you on your adventure."
+  use:
+    text: "As you pet the cat, it begins to pur. And with each pur, you feel anxiety after another melt away."
+    action: "pet"
+  color: "Grey"
 
-
-broom:
-  type: [Item]
-  description: "It's for sweeping."
+Four Leaf Clover:
+  type: Plant
+  description: "A green four leaf clover. How lucky!"
   use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
-bucket:
-  type: [Item]
-  description: "It's empty."
-  use:
-      text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
-mop:
-  type: [Item]
-  description: "It's for mopping."
-  use:
-      text: "The floor looks slightly more damp."
-      action: "null"
-poster:
-  type: [Item]
-  description: "A classic."
-  use:
-      text: "What are you going to do with a poster?"
-      action: "null"
-book:
-  type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
-  use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+    text:

@@ -9,4 +9,11 @@ public class Animal extends Item {
         this.color = color;
     }
 
+    public String pet(GameState state) {
+
+        state.pet = true;
+
+        return use;
+    }
+
 }
