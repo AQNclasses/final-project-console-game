@@ -25,6 +25,16 @@ public class GameState {
                                 swings shut, you think you hear a faint \"ribbet\"....
                                 """;
             return finaltext;
+
+            // New win conditon, do it by placeing all books in a certain room
+        }else if(room.contents.contains(items.get("MAD comic")) &&
+        room.contents.contains(items.get("book")) && room.contents.contains(items.get("guidebook")) && room.name.equals("Gold Room")){
+            finished = true;
+            String finaltext =  """
+                                After placing the three books on the ground, they slowly start spinning in a circle. Soon, the ground forms into a whirlpool,
+                                sucking you in. You awake in the library, your face buried in the old java book you were reviewing. What a dream.
+                                """;
+                                return finaltext;
         }
         return "";
     }

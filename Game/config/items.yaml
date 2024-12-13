@@ -2,45 +2,107 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
+      text: "You balance the sword on your palm for a moment, before catching it as it falls"
       action: "null"
-  min-damage: 1
-  max-damage: 10
+  min_damage: 5
+  max_damage: 15
+
 poison frog:
-  type: [Weapon, Animal]
+  type: [Animal]
   description: "A bright purple frog, oozing a thick liquid"
   use:
-      text: "You place the frog gently on the floor. The frog croaks contentedly."
-      action: "drop"
-  min-damage: 2
-  max-damage: 4
+      text: "The frog looks at you like a fool"
+      action: "null"
+  min_damage: 5
+  max_damage: 15
+
 broom:
   type: [Item]
   description: "It's for sweeping."
   use:
       text: "The floor looks slightly less dusty."
       action: "null"
+
 bucket:
   type: [Item]
   description: "It's empty."
   use:
       text: "You put the bucket on your head. You feel marginally safer."
       action: "null"
+
 mop:
   type: [Item]
   description: "It's for mopping."
   use:
       text: "The floor looks slightly more damp."
       action: "null"
+
 poster:
   type: [Item]
   description: "A classic."
   use:
       text: "What are you going to do with a poster?"
       action: "null"
+
 book:
-  type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
+  type: [Book]
+  description: "An old book. It seems to have some purple residue on it."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+      text: "You flip through the pages for a moment"
+      action: "null"
+  contents: "Hello there, this is a java book"
+  subject: Java
+
+red key:
+  type: [Item]
+  description: "it seems like it would be a good fit for a red lock"
+  use:
+      text: "it might be better to use this on a locked door"
+      action: "null"
+      
+sign:
+  type: [Item]
+  description: "It says winner room"
+  use:
+      text: "win the game already!"
+      action: "null"
+
+
+purple key:
+  type: [Item]
+  description: "it seems like it would be a good fit for a purple lock"
+  use:
+      text: "it might be better to use this on a locked door"
+      action: "null"
+
+golden key:
+  type: [Item]
+  description: "it seems like it would be a good fit for a golden lock"
+  use:
+      text: "it might be better to use this on a locked door"
+      action: "null"
+
+MAD comic:
+  type: [Book]
+  description: "A torn up old comic book"
+  use:
+      text: "You flip through the pages for a moment"
+      action: "null"
+  contents: "Why do divers roll out of boats backwards, because if they rolled forward they'd still be in the boat!"
+  subject: Funny comic strips and parodies
+
+guidebook:
+  type: [Book]
+  description: "A dusty tri-fold pamphlet"
+  use:
+      text: "You flip through the pages for a moment"
+      action: "null"
+  contents: "Place three books down in the golden room to win!"
+  subject: Instructions for how ot win the game
+
+
+
+
+
+  // Added a bunch of items, as well as changed some of the og ones to fit better into
+  // my game
