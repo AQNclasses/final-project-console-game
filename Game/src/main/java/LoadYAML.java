@@ -56,18 +56,29 @@ public class LoadYAML {
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
+            Integer min_damage;
+            Integer max_damage;
+
 
             switch(types.get(0)){
 
                 case "Weapon":
 
+                    min_damage = (Integer) properties.get("min-damage");
+                    max_damage = (Integer) properties.get("max-damage");
+
+                    items.put(name, new Weapon(name, types, desc, usetext, useaction, min_damage, max_damage));
+
                 case "Animal":
 
-                    
+                    min_damage = (Integer) properties.get("min-damage");
+                    max_damage = (Integer) properties.get("max-damage");
+
+                    items.put(name, new Animal(name, types, desc, usetext, useaction, min_damage, max_damage));
 
                 default:
 
-                    items.put(name, new Weapon(name, types, desc, use, act, min_damage, max_damage));
+                    items.put(name, new Item(name, types, desc, usetext, useaction));
 
             }
 

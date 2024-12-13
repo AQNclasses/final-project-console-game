@@ -20,6 +20,33 @@ public class GameState {
     Map<String, Room> rooms; // global list of rooms
     Map<String, Item> items; // global list of known items
 
+    ArrayList<String> barredItems = new ArrayList<String>();
+
+    Boolean redClear = false;
+    Boolean greenClear = false;
+    Boolean blueClear = false;
+
+    public boolean canGrab(String item){
+
+        //if the item is in the list of barred items you can't grab it
+        if(barredItems.contains(item) == true){
+
+            return false;
+
+        } else {
+
+            return true;
+
+        }
+
+    }
+
+    // public boolean isLocked(){
+
+
+
+    // }
+
     // update state and check for winning condition
     public String update() {
 
@@ -63,6 +90,11 @@ public class GameState {
         room = rooms.get("Starting Room");
         visited.put(room, true);
         inventory.add(items.get("book"));
+
+        barredItems.add("red key");
+        barredItems.add("green key");
+        barredItems.add("blue key");
+        barredItems.add("copper sword");
 
     }
 }

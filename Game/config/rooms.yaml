@@ -22,7 +22,7 @@
     blue: "Starting Room"
 
 "Forge":
-  contents: [red key]
+  contents: [red key, copper sword]
   doors:
     red: "Starting Room"
 

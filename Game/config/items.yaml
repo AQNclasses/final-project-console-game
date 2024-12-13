@@ -6,7 +6,16 @@ excalibur:
       action: "null"
   min-damage: 1
   max-damage: 10
-  
+
+copper sword:
+  type: [Weapon]
+  description: "An old copper sword"
+  use:
+      text: "You slash with the sword."
+      action: "null"
+  min-damage: 1
+  max-damage: 4
+
 poison frog:
   type: [Weapon, Animal]
   description: "A bright purple frog, oozing a thick liquid"
@@ -17,7 +26,7 @@ poison frog:
   max-damage: 4
 
 broom:
-  type: [Weapon]
+  type: [Item]
   description: "It's for sweeping."
   use:
       text: "The floor looks slightly less dusty."
@@ -27,7 +36,7 @@ empty bucket:
   type: [Item]
   description: "It's full of air."
   use:
-      text: ""
+      text: "You approch the pond and fill the bucket with\u001B[34m water\u001B[0m."
       action: "Fill"
 
 full bucket:

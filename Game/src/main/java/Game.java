@@ -136,12 +136,44 @@ public class Game {
 
                         Item item = state.items.get(itemp);
 
+                        //this is a fix to the original repo, you could just add grab items infinitly, by checking to see if it's in the rooms contents, (which were being updated correctly)
+                        //you can have it so you don't just pick it up infinitly
                         if(state.room.contents.contains(item)){
 
-                            state.room.contents.remove(item);
-                            state.rooms.put(state.room.name, state.room);
-                            state.inventory.add(item);
-                            printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+                            if(state.canGrab(item.name)){
+
+                                state.room.contents.remove(item);
+                                state.rooms.put(state.room.name, state.room);
+                                state.inventory.add(item);
+                                printSlow("You pick up the " + item.name + ". " + item.desc + ".");
+
+                            } else {
+                                
+                                switch(item.name){
+
+                                    case "red key":
+
+                                        printSlow("You attempt pick up the ");
+                                        break;
+
+                                    case "green key":
+
+                                        printSlow("You approach the green key but you find that it is insnared by vines and held against the wall.\nYou try to grab it but the vine's grip is too strong and you are unable.");
+                                        break;
+
+                                    case "blue key":
+
+                                        printSlow("The blue key lies at the bottom of the deep pond, you enter the water and try to swim to it.\n But the water is much too deep and you are forced to return to the surface, and back to the shore.");
+                                        break;
+
+                                    case "copper sword":
+
+                                        printSlow("The copper sword is laying in the middle of a glowing forge, to grab it with your hands in it's current state would burn your hand.");
+                                        break;
+                                }
+
+
+                            }
 
                         } else {
 
@@ -196,7 +228,8 @@ public class Game {
 
                                 } else {
 
-                                    printSlow("You approch the pond and fill the bucket with\u001B[34m water\u001B[0m.");
+                                    printSlow(item.use);
+                                    printSlow("[full bucket added]");
 
                                     state.inventory.remove(item);
                                     state.inventory.add(state.items.get("full bucket"));
@@ -210,10 +243,13 @@ public class Game {
                                 if(state.room.toString().compareTo("Forge") != 0){
 
                                     printSlow("You empty the bucket onto the floor of the room, nothing happens.");
+                                    printSlow(item.name + " added.");
 
                                 } else {
 
                                     printSlow("You empty the bucket into the glowing forge extinguishing the flames.");
+                                    printSlow("[empty bucket added]");
+                                    state.barredItems.remove("copper sword");
 
                                 }
 
