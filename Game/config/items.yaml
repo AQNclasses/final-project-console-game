@@ -37,14 +37,14 @@ empty bucket:
   description: "It's full of air."
   use:
       text: "You approch the pond and fill the bucket with\u001B[34m water\u001B[0m."
-      action: "Fill"
+      action: "fill"
 
 full bucket:
   type: [Item]
   description: "It's full of water."
   use:
       text: "You empty the bucket out onto your target."
-      action: "Splash"
+      action: "splash"
 
 mop:
   type: [Item]
@@ -71,19 +71,19 @@ blue key:
   type: [Item]
   description: "An worn key with A blue gem embedded within it's head."
   use:
-      text: "You place the key"
-      action: "drop"
+      text: "You place and turn the \u001B[34mblue key\u001B[0m within it's keyhole."
+      action: "unlock"
 
 green key:
   type: [Item]
   description: "An worn key with A green gem embedded within it's head."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+      text: "You place and turn the \u001B[32mgreen key\u001B[0m within it's keyhole."
+      action: "unlock"
 
 red key:
   type: [Item]
   description: "An worn key with A red gem embedded within it's head."
   use:
-      text: "You place the book gently on the floor."
-      action: "drop"
+      text: "You place and turn the \u001B[31mred key\u001B[0m within it's keyhole."
+      action: "unlock"

@@ -21,10 +21,8 @@ public class GameState {
     Map<String, Item> items; // global list of known items
 
     ArrayList<String> barredItems = new ArrayList<String>();
-
-    Boolean redClear = false;
-    Boolean greenClear = false;
-    Boolean blueClear = false;
+    ArrayList<String> lockedRooms = new ArrayList<String>();
+    ArrayList<Item> usedKeys = new ArrayList<Item>();
 
     public boolean canGrab(String item){
 
@@ -40,12 +38,6 @@ public class GameState {
         }
 
     }
-
-    // public boolean isLocked(){
-
-
-
-    // }
 
     // update state and check for winning condition
     public String update() {
@@ -95,6 +87,8 @@ public class GameState {
         barredItems.add("green key");
         barredItems.add("blue key");
         barredItems.add("copper sword");
+
+        lockedRooms.add("Bright Room");
 
     }
 }
