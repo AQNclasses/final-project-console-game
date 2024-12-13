@@ -68,21 +68,21 @@ book:
       action: "drop"
 
 blue key:
-  type: [Item]
+  type: [Key]
   description: "An worn key with A blue gem embedded within it's head."
   use:
       text: "You place and turn the \u001B[34mblue key\u001B[0m within it's keyhole."
       action: "unlock"
 
 green key:
-  type: [Item]
+  type: [Key]
   description: "An worn key with A green gem embedded within it's head."
   use:
       text: "You place and turn the \u001B[32mgreen key\u001B[0m within it's keyhole."
       action: "unlock"
 
 red key:
-  type: [Item]
+  type: [Key]
   description: "An worn key with A red gem embedded within it's head."
   use:
       text: "You place and turn the \u001B[31mred key\u001B[0m within it's keyhole."

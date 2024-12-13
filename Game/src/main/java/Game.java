@@ -86,10 +86,13 @@ public class Game {
                         //get the name of the room
                         String rtemp = state.room.doors.get(door);
 
+                        //if the list of lockedrooms contains the room you're trying to go into don't go in
                         if(state.lockedRooms.contains(rtemp)){
 
-                            printSlow("You Approch the " + door + " door. You attempt to open the door but it won't budge.");
+                            //print the general message for not being able to go through a door
+                            printSlow("You Approach the " + door + " door. You attempt to open the door but it won't budge.");
 
+                            //if the door is the door to the bright room
                             if(rtemp.compareTo("Bright Room") == 0){
 
                                 printSlow("Upon closer inspection of the ornate door you notice it is decorated with a large white gem and three smaller gems.\nBelow the large gem there are three smaller gems with three keyholes, There is a "
@@ -99,39 +102,15 @@ public class Game {
 
                             break;
 
+                        } else {
+
+                            state.room = state.rooms.get(rtemp);
+
+
+                            printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
+
                         }
 
-                        // if(rtemp.compareTo("Bright Room") == 0){
-
-                        //     if(state.inventory.contains(state.items.get("Red Key")) && state.inventory.contains(state.items.get("Green Key")) && state.inventory.contains(state.items.get("Blue Key"))){
-
-                        //         state.room = state.rooms.get(rtemp);
-
-                        //         printSlow("As you approach the white door, the three keys fly out of your satchel towards the door.\nThe three keys now hover in front of the door, and to your amazement they begin to glow.\n They merge into a single key ordaned with a white gem and" 
-                        //         + " moves into the keyhole.\nIt turns with a soft click and you push through the door and into a bright room.");
-
-                        //         state.inventory.remove(state.items.get("Red Key"));
-                        //         state.inventory.remove(state.items.get("Green Key"));
-                        //         state.inventory.remove(state.items.get("Blue Key"));
-
-                        //         break;
-
-                        //     } else {
-
-                        //         printSlow("You Approch the " + door + " door. You attempt to open the door but it doesn't budge.\nUpon closer inspection of the ornate door you notice a keyhole with a large white gem above it.\nAbove the large gem there are three smaller gems, There is a "
-                        //         + "\u001B[31m" + "Red Gem " + "\u001B[0m" + "a " + "\u001B[32m" + "Green Gem " + "\u001B[0m" + "and a " + "\u001B[34m" + "Blue Gem" + "\u001B[0m" + ".");
-
-                        //         break;
-
-                        //     }
-                             
-                        // }
-
-                        //state.room = sets the room you're currently in
-                        state.room = state.rooms.get(rtemp);
-
-
-                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
 
                     } catch (Exception e) {
 
@@ -193,7 +172,7 @@ public class Game {
                         } else {
 
                             printSlow("That item is not in this room, maybe it's in your inventory.");
-
+                            break;
                         }
                         
 
@@ -220,6 +199,7 @@ public class Game {
                     try {
 
                         Item item = state.items.get(itemp);
+
                         if (state.inventory.contains(item)) {
 
                             item.use();
@@ -277,17 +257,17 @@ public class Game {
 
                                 if(state.room.toString().compareTo("Starting Room") != 0){
 
-                                    printSlow("There are no doors to unlock in this room.");
+                                    printSlow("There are no doors that his key will unlock in this room.");
 
                                 } else {
 
                                     printSlow(item.use);
-                                    state.inventory.remove(item);
                                     state.usedKeys.add(item);
+                                    state.inventory.remove(item);
 
                                     if(state.usedKeys.size() == 3){
 
-                                        state.lockedRooms.remove("bright room");
+                                        state.lockedRooms.remove("Bright Room");
 
                                     }
                                     

@@ -68,6 +68,7 @@ public class LoadYAML {
                     max_damage = (Integer) properties.get("max-damage");
 
                     items.put(name, new Weapon(name, types, desc, usetext, useaction, min_damage, max_damage));
+                    break;
 
                 case "Animal":
 
@@ -75,10 +76,12 @@ public class LoadYAML {
                     max_damage = (Integer) properties.get("max-damage");
 
                     items.put(name, new Animal(name, types, desc, usetext, useaction, min_damage, max_damage));
+                    break;
 
                 default:
 
                     items.put(name, new Item(name, types, desc, usetext, useaction));
+                    break;
 
             }
 
