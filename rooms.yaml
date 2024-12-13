@@ -1,0 +1,19 @@
+"Starting Room":
+  contents: [poison frog, excalibur, blue potion]
+  doors:
+    green: "Closet"
+    blue: "Study"
+"Closet":
+  contents: [broom, mop, bucket, poster, lucky leaf, red potion]
+  doors:
+    green: "Starting Room"
+"Study":
+  contents: [red key]
+  doors:
+    blue: "Starting Room"
+    red: "Dining Room"
+"Dining Room":
+  contents: [trophy, poison apple, green potion]
+  doors:
+    red: "Study"   
+      
