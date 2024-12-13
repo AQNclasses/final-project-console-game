@@ -1,8 +1,39 @@
 "Starting Room":
-  contents: [poison frog]
+  contents: [poison frog, red key, purple key, golden key]
   doors:
-      green: "Closet"
+    green: "Closet"
+    red: "Throne Room"
+  lockedDoors:
+    red: "red key"
+
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
-      green: "Starting Room"
+    green: "Starting Room"
+    blue: "Wizards Layer"
+  lockedDoors: {}
+
+"Throne Room":
+  contents: [MAD comic]
+  doors:
+    red: "Starting Room"
+    purple: "Wizards Layer"
+    golden: "Gold Room"
+  lockedDoors:
+    purple: "purple key"
+    golden: "golden key"
+
+"Gold Room":
+  contents: [sign]
+  doors:
+    golden: "Throne Room"
+  lockedDoors: {}
+
+"Wizards Layer":
+  contents: [golden key, guidebook]
+  doors:
+    blue: "Closet"
+    purple: "Throne Room"
+  lockedDoors: {}
+
+
