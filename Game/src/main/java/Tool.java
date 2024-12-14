@@ -19,6 +19,15 @@ public class Tool extends Item {
                 } else {
                     return "You try to use the plunger on the " + item + ", but they dont seem to work together.";
                 }
+            case "Oven":
+                if (state.inventory.contains(state.items.get("Frozen Pizza"))) {
+                    state.inventory.remove(state.items.get("Frozen Pizza"));
+                    state.inventory.add(state.items.get("Veggie Pizza"));
+                    return use;
+                } else {
+                    return "You think about putting the " + item + " in the oven, but decide not to start a fire.";
+                }
+            
 
         }
 

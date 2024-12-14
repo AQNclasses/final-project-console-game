@@ -64,6 +64,7 @@ public class Game {
             System.out.println("[3]: Pick up an object from the room.");
             System.out.println("[4]: Examine my inventory.");
             System.out.println("[5]: Use an object from my inventory.");
+            System.out.println("[6]: Review your list of tips.");
 
             choice = myObj.nextInt();
             myObj.nextLine(); // consume newline from above
@@ -157,6 +158,19 @@ public class Game {
                         printSlow("Unknown item.");
                     }
                     break;
+                
+                case 6:
+                    if (state.tips.isEmpty()) {
+                        printSlow("You have no tips right now!");
+                    } else {
+                        for (String s : state.tips) {
+                            if (s != null) {
+                                printSlow(s);
+                            }
+                        }
+                    }
+                    break;
+                
                 default:
                     printSlow("Unidentified input, try again?");
             }

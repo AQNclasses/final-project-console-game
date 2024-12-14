@@ -12,7 +12,7 @@
   doors:
     elegentDoor: "Study"
 "Library":
-  conents: [Book of Foods, Wildlife Journal, Greenhouse Catalogue, Tabby Cat]
+  conents: [Book of Foods, Wildlife Journal, Greenhouse Catalogue, Tabby Cat, Dictionary]
   doors:
     bathroomDoor: "Bathroom"
     wooden: "Study"
@@ -34,15 +34,14 @@
   doors:
     glass: "Courtyard"
 "Kitchen"
-  contents: []
+  contents: [Oven, Rat]
   doors:
     swinging: "Courtyard"
     freezerDoor: "Freezer"
 "Bathroom"
-  contents: [Toilet]
+  contents: [Toilet, Goldfish]
   doors: bathroomDoor
-
 "Freezer"
-  contents: [Frozen Pizza]
+  contents: [Frozen Pizza, Penguin]
   doors:
     freezerDoor: "Kitchen"

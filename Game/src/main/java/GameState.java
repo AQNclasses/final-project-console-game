@@ -18,9 +18,9 @@ public class GameState {
 
     // update state and check for winning condition
     public String update() {
-        if (room.name == "Warden's Room") {
-            if ((inventory.contains(items.get("frog"))) && (inventory.contains(items.get("rose")))
-                    && (inventory.contains(items.get("pizza")))) {
+        if (room.name.equals("Warden's Room")) {
+            if ((inventory.contains(items.get("Green Frog"))) && (inventory.contains(items.get("Rose")))
+                    && (inventory.contains(items.get("Veggie Pizza")))) {
                 if (pet && ate && app) {
                     String finaltext = """
                             You hear The Warden chuckle a little, and then hear its voice once more in your mind.

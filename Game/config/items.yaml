@@ -133,4 +133,74 @@ Four Leaf Clover:
   type: Plant
   description: "A green four leaf clover. How lucky!"
   use:
-    text:
+    text: "You observe the four leaf clover, and appreciate the simple beauty in this lucky item."
+    action: "observe"
+  plantType: "Clover"
+
+Goldfish:
+  type: Animal
+  description: "A goldfish in a fishbowl."
+  use:
+    text: "You think about trying to pet the goldfish directly, but decide not to. Instead, you rub your hands along the bowl instead."
+    action: "pet"
+  color: "Orange"
+
+Star Wars:
+  type: Book
+  description: "One of the Star Wars books. Specifically, Volume IV: A New Hope"
+  use:
+    text: "You sit down for a few hours and read some. While not particularly helpful for your journey, it felt good to relax for a while!"
+    action: "read"
+  tip: null
+
+Oven Instruction Manual:
+  type: Book
+  description: "An instruction manual for an oven. You wonder if one can be found in this facility..."
+  use:
+    text: "A quick glance over of the manual doesn't reveal too much, but you learn that this type of oven has a pizza-reheat button!"
+    action: "read"
+  tip: "Frozen pizza can be reheated in the oven."
+
+Veggie Pizza:
+  type: Food
+  description: "Fresh hot veggie pizza! It looks and smells delicious..."
+  use:
+    text: "You blow on the pizza to cool it a bit, and take a bite. The delicious flavors fill your mouth!"
+    action: "eat"
+  flavor: "savory"
+  foodType: "eat"
+  hot: true
+
+Oven:
+  type: Tool
+  description: "An oven you ripped from the wall... and it still works?!"
+  use:
+    text: "You pop the frozen pizza in the oven, and let it cook! You have no idea how it's working with no electricity or gas, but you've seen weirder today."
+    action: "use"
+  pair: "Frozen Pizza"
+
+Rat:
+  type: Animal
+  description: "A rat you found scurrying in the kitchen. You wonder if putting it on your head will grant you top tier cooking skills."
+  use:
+    text: "While skeptical at first, you reach to pet the rat. It's suprisingly soft!"
+    action: "pet"
+  color: "Gray"
+
+Penguin:
+  type: Animal
+  description: "A cute penguin. No wonder you'd find it in the freezer!"
+  use:
+    text: "You've never pet a penguin before, so you were excited for the oppurtunity! Although to be honest, it wasn't all too different from what you'd expect."
+    action: "pet"
+  color: "Black and White"
+
+Butterfly:
+  type: Animal
+  description: A beautiful butterfly, fragile and gentle!
+  use:
+    text: "You don't really know how to pet a butterfly without hurting it, so you let simply sit on you. How beautiful!"
+    action: "pet"
+  color: "Blue"
+
+
