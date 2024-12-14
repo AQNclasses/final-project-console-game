@@ -73,7 +73,6 @@ public class GameState {
             String finaltext =  """
                                 As you walk into the room you are met with a giant knight.\n 
                                 You pull out the mighty excalibur, the knight rushes at you but you cut him down in one slice.\n
-                                You win!
                                 """;
             return finaltext;
         }
