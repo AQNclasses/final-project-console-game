@@ -214,11 +214,20 @@ public class Game {
 
                             if (item.action.equals("drop")) {
 
-                                printSlow(item.use);
+                                if (item.toString().compareTo("poison frog") == 0 && state.room.toString().compareTo("Pond") == 0){
 
-                                state.inventory.remove(item);
-                                state.room.contents.add(item);
-                                state.rooms.put(state.room.name, state.room);
+                                    printSlow("You set the frog down by the pond, it swims over to the blue key and grabs it.\nIt swims back to shore and drops the blue key at your feet.");
+                                    state.barredItems.remove("blue key");
+
+                                } else {
+
+                                    printSlow(item.use);
+
+                                    state.inventory.remove(item);
+                                    state.room.contents.add(item);
+                                    state.rooms.put(state.room.name, state.room);
+
+                                }
 
                             }
 
@@ -294,23 +303,23 @@ public class Game {
                                     printSlow(item.use);
                                    
 
-                                    state.items.get("vines").health -= item.attack();
+                                    printSlow("The vines fall apart, dropping the green key on the ground.");
+                                    state.barredItems.remove("green key");
 
-                                    if(state.items.get("vines").health <= 0){
-
-                                        printSlow("The vines fall apart, dropping the green key on the ground.");
-                                        state.barredItems.remove("green key");
-
-                                        state.room.contents.remove(state.items.get("vines"));
-                                        //state.room.contents.add(state.items.get("herb"));
-
-                                    } else {
-
-                                        printSlow("The vines are clearly damaged, another slash would surely loose their grip.");
-
-                                    }
+                                    state.room.contents.remove(state.items.get("vines"));
+                                    state.room.contents.add(state.items.get("herb"));
                                     
                                 }
+
+                            }
+
+                            if (item.action.equals("eat")) {
+
+                                printSlow(item.use);
+
+                                state.inventory.remove(state.items.get("herb"));
+                                    
+                                
 
                             }
 

@@ -25,13 +25,6 @@ poison frog:
   min-damage: 2
   max-damage: 4
 
-broom:
-  type: [Item]
-  description: "It's for sweeping."
-  use:
-      text: "The floor looks slightly less dusty."
-      action: "null"
-
 empty bucket:
   type: [Item]
   description: "It's full of air."
@@ -53,6 +46,13 @@ vines:
   use: 
       text: ""
       action: ""
+
+herb:
+  type: [Healing]
+  description: "A green herb with healing properties."
+  use:
+      text: "You eat the green plant and feel your strength returning."
+      action: "eat"
 
 book:
   type: [Item]
