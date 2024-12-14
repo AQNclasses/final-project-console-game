@@ -87,6 +87,7 @@ public class GameState {
         barredItems.add("green key");
         barredItems.add("blue key");
         barredItems.add("copper sword");
+        barredItems.add("vines");
 
         lockedRooms.add("Bright Room");
 

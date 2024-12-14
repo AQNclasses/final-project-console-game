@@ -58,6 +58,7 @@ public class LoadYAML {
             List<String> types = (ArrayList) properties.get("type");
             Integer min_damage;
             Integer max_damage;
+            Integer health;
 
 
             switch(types.get(0)){
@@ -76,6 +77,13 @@ public class LoadYAML {
                     max_damage = (Integer) properties.get("max-damage");
 
                     items.put(name, new Animal(name, types, desc, usetext, useaction, min_damage, max_damage));
+                    break;
+
+                case "Plant":
+
+                    health = (Integer) properties.get("health");
+
+                    items.put(name, new Plant(name, types, desc, usetext, useaction, health));
                     break;
 
                 default:

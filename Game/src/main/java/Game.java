@@ -79,6 +79,7 @@ public class Game {
                 case 2:
 
                     printSlow("Which door?");
+                    for (String c : state.room.doors.keySet()) printSlow(c);
                     String door = myObj.nextLine();
 
                     try {
@@ -124,6 +125,7 @@ public class Game {
                 case 3:
 
                     printSlow("Which item?");
+                    //for (Item c : state.room.contents) printSlow(c.name);
                     itemp = myObj.nextLine();
 
                     try {
@@ -147,7 +149,7 @@ public class Game {
 
                                     case "red key":
 
-                                        printSlow("You attempt pick up the ");
+                                        printSlow("The red key sits at the bottom of a forge in the center of the room, a sword lies next to it in the forge.");
                                         break;
 
                                     case "green key":
@@ -163,6 +165,11 @@ public class Game {
                                     case "copper sword":
 
                                         printSlow("The copper sword is laying in the middle of a glowing forge, to grab it with your hands in it's current state would burn your hand.");
+                                        break;
+
+                                    case "vines":
+                                        printSlow(item.desc);
+                                        printSlow("To touch them would be foolish.");
                                         break;
                                 }
 
@@ -245,6 +252,7 @@ public class Game {
                                     printSlow("You empty the bucket into the glowing forge extinguishing the flames.");
                                     printSlow("[empty bucket added]");
                                     state.barredItems.remove("copper sword");
+                                    state.barredItems.remove("red key");
 
                                 }
 
@@ -268,6 +276,37 @@ public class Game {
                                     if(state.usedKeys.size() == 3){
 
                                         state.lockedRooms.remove("Bright Room");
+
+                                    }
+                                    
+                                }
+
+                            }
+
+                            if (item.action.equals("slash")) {
+
+                                if(state.room.toString().compareTo("Garden") != 0){
+
+                                    printSlow("There is nothing to attack in this room.");
+
+                                } else {
+
+                                    printSlow(item.use);
+                                   
+
+                                    state.items.get("vines").health -= item.attack();
+
+                                    if(state.items.get("vines").health <= 0){
+
+                                        printSlow("The vines fall apart, dropping the green key on the ground.");
+                                        state.barredItems.remove("green key");
+
+                                        state.room.contents.remove(state.items.get("vines"));
+                                        //state.room.contents.add(state.items.get("herb"));
+
+                                    } else {
+
+                                        printSlow("The vines are clearly damaged, another slash would surely loose their grip.");
 
                                     }
                                     

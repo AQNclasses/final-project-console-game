@@ -3,7 +3,7 @@ excalibur:
   description: "Ye sword of olde"
   use:
       text: "You slash with the sword."
-      action: "null"
+      action: "slash"
   min-damage: 1
   max-damage: 10
 
@@ -12,7 +12,7 @@ copper sword:
   description: "An old copper sword"
   use:
       text: "You slash with the sword."
-      action: "null"
+      action: "slash"
   min-damage: 1
   max-damage: 4
 
@@ -36,7 +36,7 @@ empty bucket:
   type: [Item]
   description: "It's full of air."
   use:
-      text: "You approch the pond and fill the bucket with\u001B[34m water\u001B[0m."
+      text: "You approach the pond and fill the bucket with\u001B[34m water\u001B[0m."
       action: "fill"
 
 full bucket:
@@ -46,19 +46,13 @@ full bucket:
       text: "You empty the bucket out onto your target."
       action: "splash"
 
-mop:
-  type: [Item]
-  description: "It's for mopping."
-  use:
-      text: "The floor looks slightly more damp."
-      action: "null"
-
-poster:
-  type: [Item]
-  description: "A classic."
-  use:
-      text: "What are you going to do with a poster?"
-      action: "null"
+vines:
+  type: [Plant]
+  description: "A writhing mass of thorny vines, clutches the green key."
+  health: 10
+  use: 
+      text: ""
+      action: ""
 
 book:
   type: [Item]
