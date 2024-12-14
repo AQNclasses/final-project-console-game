@@ -1,8 +1,33 @@
 "Starting Room":
   contents: [poison frog]
   doors:
-      green: "Closet"
-"Closet":
-  contents: [broom, mop, bucket, poster]
+      green: "Garden"
+      red: "Forge"
+      blue: "Pond"
+      white: "Bright Room"
+
+"Garden":
+  contents: [green key, empty bucket, vines]
   doors:
       green: "Starting Room"
+
+"Pond":
+  contents: [blue key]
+  doors:
+    blue: "Starting Room"
+
+"Forge":
+  contents: [red key, copper sword]
+  doors:
+    red: "Starting Room"
+
+"Bright Room":
+  contents: [excalibur]
+  doors:
+    white: "Starting Room"
+    black: "Boss Room"
+
+"Boss Room":
+  contents: []
+  doors:
+    black: "Starting Room"
