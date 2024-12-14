@@ -6,11 +6,6 @@
       blue: "Pond"
       white: "Bright Room"
 
-"Closet":
-  contents: [broom, mop, poster]
-  doors:
-      green: "Starting Room"
-
 "Garden":
   contents: [green key, empty bucket, vines]
   doors:
