@@ -1,8 +1,43 @@
-"Starting Room":
-  contents: [poison frog]
+"library":
+  contents: [book, cactus, sunflower, tulip]
   doors:
-      green: "Closet"
-"Closet":
-  contents: [broom, mop, bucket, poster]
+      closet: "closet"
+"closet":
+  contents: [broom, mop]
   doors:
-      green: "Starting Room"
+      library: "library"
+      left tunnel: "left tunnel"
+      right tunnel: "right tunnel"
+"left tunnel":
+  contents: [sword]
+  doors:
+      closet: "closet"
+      vault: "vault"
+      skeleton: "skeleton"
+"skeleton":
+  contents: [redkey]
+  doors:
+    left tunnel: "left tunnel"
+"vault":
+  contents: [greenkey]
+  doors:
+    left tunnel: "left tunnel"
+"right tunnel":
+  contents: [rock, mouse]
+  doors:
+    closet: "closet"
+    gold door: "gold door"
+"gold door":
+  contents: []
+  doors: 
+    right tunnel: "right tunnel"
+"light":
+  contents: []
+  doors:
+
+
+
+
+  
+  
+

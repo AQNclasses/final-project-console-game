@@ -3,13 +3,13 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import org.yaml.snakeyaml.Yaml;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.yaml.snakeyaml.Yaml;
+
 
 public class LoadYAML {
 
@@ -17,6 +17,7 @@ public class LoadYAML {
     HashMap<String, Object> data;
     HashMap<String, Room> rooms = new HashMap<>();
     HashMap<String, Item> items = new HashMap<>();
+
 
     // load room data from yaml file
     // could do this more cleverly with packaged class definitions
@@ -45,23 +46,42 @@ public class LoadYAML {
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction));
+
+            if (types.contains("Weapon")) {
+                int damage = (int) properties.get("damage");
+                items.put(name, new Weapon(name, types, desc, usetext, useaction, damage));
+
+            } if (types.contains("Animal")) {
+                boolean retrieve = (boolean) properties.get("retrieved");
+                items.put(name, new Animal(name, types, desc, usetext, useaction, retrieve));
+
+            } if (types.contains("Key")) {
+                boolean unlocked = (boolean) properties.get("unlocked");
+                items.put(name, new Key(name, types, desc, usetext, useaction, unlocked));
+            }
+            if (types.contains("Item")){
+                items.put(name, new Item(name, types, desc, usetext, useaction));
+            }
+            if (types.contains("Plant")){
+                boolean slipped = (boolean) properties.get("slipped");
+                items.put(name, new Plant(name, types, desc, usetext, useaction, slipped));
+            }
         }
         return items;
     }
 
     public HashMap<String, Object> load(String fname) {
-            Yaml yaml = new Yaml();
-            File file = new File("./config/"+fname);
-            try {
-                FileInputStream inputStream = new FileInputStream(file);
-                data = yaml.load(inputStream);
-            } catch (FileNotFoundException e) {System.out.println("Couldn't find file");}
-        return data;
-    }
+        Yaml yaml = new Yaml();
+        File file = new File("./config/"+fname);
+        try {
+            FileInputStream inputStream = new FileInputStream(file);
+            data = yaml.load(inputStream);
+        } catch (FileNotFoundException e) {System.out.println("Couldn't find file");}
+    return data;
+}
 
-    public LoadYAML() {
-        items = loadItems();
-        rooms = loadRooms();
-    }
+public LoadYAML() {
+    items = loadItems();
+    rooms = loadRooms();
+}
 }

@@ -1,0 +1,28 @@
+two new rooms:
+  maxpoints: 10
+  points: 10
+  feedback: good implementation
+new ending:
+  maxpoints: 20
+  points: 19
+  feedback: Great multi-stage implementation. Code may be cleaner if actions are defined more programmatically when the action results in new Items. This would help move code out of the Game class and make game code logic more readable.
+locked door:
+  maxpoints: 15
+  points: 15
+  feedback: multi key is great
+item subclasses:
+  maxpoints: 30
+  points: 28
+  feedback: good implementations, could use abstract class to minimize casting for max points
+new item subclass:
+  maxpoints: 15
+  points: 13
+  feedback: good basic implementation, same note about abstract class modifier
+tests:
+  maxpoints: 10
+  points: 8
+  feedback: good implementation, would be better to see tests involving GameState or other non-Item classes
+EC:
+  maxpoints: 15
+  points: 5
+  feedback: great practical bug fixes to majorly improve UI
