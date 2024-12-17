@@ -1,7 +1,7 @@
 two new rooms:
   maxpoints: 10
-  points: 5
-  feedback: missing rooms.yaml file?
+  points: 8
+  feedback: good, submitted late and still cannot compile code with gradle or otherwise
 new ending:
   maxpoints: 20
   points: 18
@@ -17,7 +17,7 @@ item subclasses:
 new item subclass:
   maxpoints: 15
   points: 12
-  feedback: Potion is well implemented, but cannot test without enemies or item definitions
+  feedback: Potion is well implemented, but cannot test due to submission format
 tests:
   maxpoints: 10
   points: 7
