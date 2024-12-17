@@ -1,8 +1,72 @@
-"Starting Room":
-  contents: [poison frog]
+"Outside": # Starting Room
+  locked: false
+  contents: [hammer]
   doors:
-      green: "Closet"
-"Closet":
-  contents: [broom, mop, bucket, poster]
+      green: "Entrance"
+"Entrance": # Room 1
+  locked: false
+  contents: [bandage]
   doors:
-      green: "Starting Room"
+      green: "Outside"
+      red: "Math Room"
+      yellow: "Physics Room"
+"Math Room": # Room 2
+  locked: false
+  contents: [book]
+  doors:
+      red: "Entrance"
+      cyan: "Chemistry Room"
+"Chemistry Room": # Room 3
+  locked: false
+  contents: [tracker, glowing slug]
+  doors:
+      cyan: "Math Room"
+      blue: "Art Room"
+"Art Room": # Room 4
+  locked: false
+  contents: [poster]
+  doors:
+      blue: "Chemistry Room"
+      magenta: "Server Room"
+"Server Room": # Room 5
+  locked: false
+  contents: [crowbar]
+  doors:
+      magenta: "Art Room"
+"Physics Room": # Room 6
+  locked: true
+  contents: [time stop]
+  doors:
+      yellow: "Entrance"
+      white: "Biology Room"
+"Biology Room": # Room 7
+  locked: false
+  contents: [glowing slug]
+  doors:
+      white: "Physics Room"
+      purple: "Robotics Room"
+      orange: "Storage Room"
+"Robotics Room": # Room 8
+  locked: false
+  contents: [bullhorn]
+  doors:
+      purple: "Biology Room"
+      violet: "English Room"
+"Storage Room": # Room 9
+  locked: false
+  contents: [plant]
+  doors:
+      orange: "Biology Room"
+      violet: "English Room"
+"English Room": # Room 10
+  locked: false
+  contents: []
+  doors:
+      violet: "Robotics Room"
+      orange: "Storage Room"
+      black: "Rooftop"
+"Rooftop": # Final Room 11
+  locked: false
+  contents: []
+  doors:
+      black: "English Room"
