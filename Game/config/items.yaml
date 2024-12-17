@@ -2,9 +2,9 @@ excalibur:
   type: [Weapon]
   description: "Ye sword of olde"
   use:
-      text: "You slash with the sword."
-      action: "null"
-  min-damage: 1
+      text: "You slash with the sword. Nothing is there so you hit yourself."
+      action: "attack"
+  min-damage: 5
   max-damage: 10
 poison frog:
   type: [Weapon, Animal]
@@ -16,31 +16,85 @@ poison frog:
   max-damage: 4
 broom:
   type: [Item]
-  description: "It's for sweeping."
+  description: "It's for sweeping"
   use:
-      text: "The floor looks slightly less dusty."
+      text: "The floor looks slightly less dusty. You set down the broom."
       action: "null"
 bucket:
-  type: [Item]
-  description: "It's empty."
+  type: [Armor]
+  description: "It's empty"
   use:
       text: "You put the bucket on your head. You feel marginally safer."
-      action: "null"
+      action: "equip"
+  shield: 2
 mop:
   type: [Item]
-  description: "It's for mopping."
+  description: "It's for mopping"
   use:
       text: "The floor looks slightly more damp."
       action: "null"
 poster:
   type: [Item]
-  description: "A classic."
+  description: "A classic"
   use:
       text: "What are you going to do with a poster?"
       action: "null"
 book:
   type: [Item]
-  description: "An old book about Java. It seems to have some purple residue on it."
+  description: "An old book about Java. It seems to have some purple residue on it"
   use:
       text: "You place the book gently on the floor."
+      action: "drop"
+knife:
+  type: [Weapon]
+  description: "A kitchen knife. Be careful, it's sharp"
+  use:
+      text: "You stab with the knife. Nothing is there so you hit yourself."
+      action: "attack"
+  min-damage: 3
+  max-damage: 5
+spoon:
+  type: [Weapon]
+  description: "A very large spoon"
+  use:
+      text: "You jab with the spoon. Nothing is there so you hit yourself."
+      action: "attack"
+  min-damage: 2
+  max-damage: 8
+bread:
+  type: [Healing]
+  description: "It's whole grain."
+  use:
+      text: "You eat the bread. Your hunger is satisfied"
+      action: "heal"
+  min-heal: 2
+  max-heal: 3
+milk:
+  type: [Healing]
+  description: "It's 2 percent"
+  use:
+      text: "You drink the milk. You feel refreshed."
+      action: "heal"
+  min-heal: 1
+  min-heal: 2
+cereal:
+  type: [Healing]
+  description: "Wow, it's your favorite kind"
+  use:
+      text: "You eat the cereal. Tasty."
+      action: "heal"
+  min-heal: 0
+  max-heal: 1
+rusty key:
+  type: [Key]
+  description: "An old key. I wonder where it goes to?"
+  use:
+      text: "You look for a door to unlock."
+      action: "unlock"
+  unlock: "Escape"
+torch:
+  type: [Item]
+  description: "It lights the way. You can see the exit"
+  use:
+      text: "You set the torch back down."
       action: "drop"

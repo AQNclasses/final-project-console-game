@@ -1,0 +1,28 @@
+two new rooms:
+  maxpoints: 10
+  points: 9
+  feedback: "no way to get back from stairway if you don't get key from closet first"
+new ending:
+  maxpoints: 20
+  points: 20
+  feedback: "good!"
+locked door:
+  maxpoints: 15
+  points: 15
+  feedback: "good!"
+item subclasses:
+  maxpoints: 30
+  points: 15
+  feedback: "had to make changes to Weapon to get code to compile"
+new item subclass:
+  maxpoints: 15
+  points: 10
+  feedback: "new item subclass has no effect on game state"
+tests:
+  maxpoints: 10
+  points: 7
+  feedback: "one test not passing"
+EC:
+  maxpoints: 15
+  points: 0
+  feedback:

@@ -2,7 +2,21 @@
   contents: [poison frog]
   doors:
       green: "Closet"
+      blue: "Kitchen"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [broom, mop, bucket, rusty key, poster]
+  doors:
+      green: "Starting Room"
+"Kitchen":
+  contents: [cereal, spoon, bread, milk]
+  doors:
+      green: "Starting Room"
+      red: "Stairway"
+"Stairway":
+  contents: [torch]
+  doors:
+      yellow: "Escape"
+"Escape":
+  contents: [excalibur]
   doors:
       green: "Starting Room"
