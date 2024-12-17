@@ -1,0 +1,28 @@
+two new rooms:
+  maxpoints: 10
+  points: 5
+  feedback: could not find evidence of new rooms in codebase, just in pull request description. Room.java class also bypasses the YAML approach
+new ending:
+  maxpoints: 20
+  points: 10
+  feedback: could not test but found code in GameState. code compiles but throws error when run, Could not find or load main class Game
+locked door:
+  maxpoints: 15
+  points: 7
+  feedback: Not able to test but structure of room class and description in pull request indicates understanding.
+item subclasses:
+  maxpoints: 30
+  points: 20
+  feedback: not all subclasses complete but those that are done, are done well
+new item subclass:
+  maxpoints: 15
+  points: 15
+  feedback: dragons are awesome
+tests:
+  maxpoints: 10
+  points: 10
+  feedback: good use of initializing game state
+EC:
+  maxpoints: 15
+  points: 5
+  feedback: good damage and healing
