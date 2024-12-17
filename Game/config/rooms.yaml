@@ -1,8 +1,47 @@
-"Starting Room":
-  contents: [poison frog]
+"Study":
+  contents: [Old Book]
   doors:
       green: "Closet"
+      elegentDoor: "Warden's Room"
 "Closet":
-  contents: [broom, mop, bucket, poster]
+  contents: [Plunger, Broom, Bucket]
   doors:
       green: "Starting Room"
+"Warden's Room":
+  contents: [Library Key]
+  doors:
+    elegentDoor: "Study"
+"Library":
+  conents: [Book of Foods, Wildlife Journal, Greenhouse Catalogue, Tabby Cat, Dictionary]
+  doors:
+    bathroomDoor: "Bathroom"
+    wooden: "Study"
+    heavy: "Hallway"
+"Hallway":
+  contents: [Snail]
+  doors:
+    heavy: "Library"
+    secret: "Monty's Room"
+    mosaic: "Courtyard"
+"Courtyard":
+  contents: [Green Frog, Brown Frog, Four Leaf Clover]
+  doors:
+    mosaic: "Hallway"
+    glass: "Greenhouse"
+    swinging: "Kitchen"
+"Greenhouse"
+  contents: [Rose]
+  doors:
+    glass: "Courtyard"
+"Kitchen"
+  contents: [Oven, Rat]
+  doors:
+    swinging: "Courtyard"
+    freezerDoor: "Freezer"
+"Bathroom"
+  contents: [Toilet, Goldfish]
+  doors: bathroomDoor
+"Freezer"
+  contents: [Frozen Pizza, Penguin]
+  doors:
+    freezerDoor: "Kitchen"

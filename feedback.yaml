@@ -1,0 +1,28 @@
+two new rooms:
+  maxpoints: 10
+  points: 8
+  feedback: looks great, just cannot test
+new ending:
+  maxpoints: 20
+  points: 15
+  feedback: cute ending love it, same deduction because cannot test
+locked door:
+  maxpoints: 15
+  points: 12
+  feedback: also great from what I can see in the code, clever way to find the key!
+item subclasses:
+  maxpoints: 30
+  points: 25
+  feedback: Great implementations, nice relatively clean way of implementing locked doors
+new item subclass:
+  maxpoints: 15
+  points: 13
+  feedback: Good implementation
+tests:
+  maxpoints: 10
+  points: 7
+  feedback: look great, could have also expanded tests to demonstrate functionality of classes
+EC:
+  maxpoints: 15
+  points: 0
+  feedback:
