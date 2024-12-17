@@ -16,7 +16,7 @@ item subclasses:
   feedback: "had to make changes to Weapon to get code to compile"
 new item subclass:
   maxpoints: 15
-  points: 7
+  points: 10
   feedback: "new item subclass has no effect on game state"
 tests:
   maxpoints: 10
