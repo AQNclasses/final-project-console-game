@@ -1,0 +1,28 @@
+two new rooms:
+  maxpoints: 10
+  points: 8
+  feedback: great creativity and well executed. Game does crash on unknown doors.
+new ending:
+  maxpoints: 20
+  points: 15
+  feedback: well implemented but simple ending that I could not test fully due to key bug
+locked door:
+  maxpoints: 15
+  points: 10
+  feedback: Could not access key, was shown as gold in item list
+item subclasses:
+  maxpoints: 30
+  points: 26
+  feedback: good overall basic implementation. OK to edit out multiple item types
+new item subclass:
+  maxpoints: 15
+  points: 15
+  feedback: creative and well executed
+tests:
+  maxpoints: 10
+  points: 10
+  feedback: good use of tests to check type level behaviors
+EC:
+  maxpoints: 15
+  points: 6
+  feedback: good attack implementation and status levels

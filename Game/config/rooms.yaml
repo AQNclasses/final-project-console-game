@@ -1,8 +1,33 @@
 "Starting Room":
   contents: [poison frog]
   doors:
-      green: "Closet"
+      green: "Closet" 
+      red: "Dungeon 2"
+      purple: "Kitchen"
 "Closet":
   contents: [broom, mop, bucket, poster]
   doors:
-      green: "Starting Room"
+      green: "Starting Room" 
+"Kitchen":
+  contents: [bucket, beef, berries, bread]
+  doors:
+    purple: "Starting Room"
+"Dungeon":
+  contents: [key]
+  doors:
+    gold: "Treasure Room"
+    blue: "Dungeon 3"
+"Dungeon 2":
+  contents: [excalibur]
+  doors:
+    red: "Starting Room"
+    pink: "Dungeon 3"
+"Dungeon 3":
+  contents: [bread, slime]
+  doors:
+    blue: "Dungeon"
+    pink: "Dungeon 2"
+"Treasure Room":
+  contents: [book]
+  doors:
+    gold: "Dungeon"
