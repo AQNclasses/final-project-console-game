@@ -1,0 +1,28 @@
+two new rooms:
+  maxpoints: 10
+  points: 5
+  feedback: missing rooms.yaml file?
+new ending:
+  maxpoints: 20
+  points: 18
+  feedback: looks good but unable to test due to missing rooms.yaml and items.yaml
+locked door:
+  maxpoints: 15
+  points: 14
+  feedback: same as above, but you have a nice clean implementation for locking doors
+item subclasses:
+  maxpoints: 30
+  points: 28
+  feedback: good use of yaml library and subclass implementations. could use abstract class to reduce need to typecast.
+new item subclass:
+  maxpoints: 15
+  points: 12
+  feedback: Potion is well implemented, but cannot test without enemies or item definitions
+tests:
+  maxpoints: 10
+  points: 7
+  feedback: good tests of GameState and subtype behavior. should use given gradle project structure for this project.
+EC:
+  maxpoints: 15
+  points: 3
+  feedback: beginning of enemy implementation and item pick up bug fix
