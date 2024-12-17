@@ -1,13 +1,14 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Game {
 
     static String name;
     static int choice;
     static String itemp;
+    
 
     // helper function for printing
-    private static void printSlow(String toPrint) {
+    public static void printSlow(String toPrint) {
         char[] chars = toPrint.toCharArray();
         for (int i=0; i < chars.length; i++) {
             System.out.print(chars[i]);
@@ -67,8 +68,14 @@ public class Game {
                     try {
                         String rtemp = state.room.doors.get(door);
                         state.room = state.rooms.get(rtemp);
-                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");
-                    } catch (Exception e) {
+                        Boolean contains = state.haskey();
+                        if(!contains && state.room.name.equals("Outside")){
+                            printSlow("This door appears to be locked");
+                        }
+                        else{
+                        printSlow("You step through the " + door + " door. You realize this room is the " + state.room.name + ".");}
+                    }
+                     catch (Exception e) {
                         printSlow("Unknown door.");
                     }
                     break;
@@ -102,6 +109,16 @@ public class Game {
                                 state.room.contents.add(item);
                                 state.rooms.put(state.room.name, state.room);
                             }
+                            if(item.action.equals("drink")){
+                                if(item.name.equals("another_mysterious_potion")){
+                                printSlow("you gain +10 health");
+                                }
+                                state.Use(item);
+                                state.inventory.remove(item);
+                            }
+                            if(item.action.equals("attack")){
+                                state.Use(item);
+                            }
                         }
                         else {
                             printSlow("Unknown item.");
@@ -116,7 +133,8 @@ public class Game {
 
             String update = state.update();
             printSlow(update);
+          
         }
-        printSlow("You win!");
+       
     }
 }
