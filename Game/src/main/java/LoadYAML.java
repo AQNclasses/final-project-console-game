@@ -1,5 +1,6 @@
 //package Game.src.main.java;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,9 +12,11 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
+
 public class LoadYAML {
 
     String fname;
+    String bfName;
     HashMap<String, Object> data;
     HashMap<String, Room> rooms = new HashMap<>();
     HashMap<String, Item> items = new HashMap<>();
@@ -24,12 +27,14 @@ public class LoadYAML {
     //InputStream stream = new FileInputStream(fname);
     //Room room = (new Yaml(new Constructor(Room.class))).load(stream);
     public HashMap<String,Room> loadRooms() {
+        
         data = load("rooms.yaml");
+        
         for (String name : data.keySet()) {
             List<Item> contents = new ArrayList<>();
             Map<String, Object> inRoom = (HashMap) data.get(name);
             List<String> contemps = (ArrayList) inRoom.get("contents");
-            for (String it : contemps) contents.add(items.get(it));
+            for (String it : contemps) contents.add(items.get( it.replace("BestFriend",bfName)));
             Map<String, String> doors = (HashMap) inRoom.get("doors");
             rooms.put(name, new Room(name, contents, doors));
         }
@@ -45,7 +50,22 @@ public class LoadYAML {
             String usetext = (String) use.get("text");
             String useaction = (String) use.get("action");
             List<String> types = (ArrayList) properties.get("type");
-            items.put(name, new Item(name, types, desc, usetext, useaction));
+            Item it;
+            name = name.replace("BestFriend",bfName);
+            try{//select constructor at runtime
+                Class strClass = String.class;
+                Class itemClass = Class.forName(types.get(0));
+                Constructor con = itemClass.getConstructor(strClass, List.class, strClass, strClass, strClass, String[].class);
+                Map<String, String> args = (HashMap) properties.get("args");
+		args.replace("item", "BestFriend", bfName);
+                String[] argParam = args.values().toArray(new String[0]);
+
+                it = (Item) con.newInstance(name,types,desc,usetext,useaction,argParam);
+            }catch(Exception e){ //use default constructor
+                it = new defaultItem(name,types,desc,usetext,useaction);
+            }
+            
+            items.put(name,it);
         }
         return items;
     }
@@ -60,7 +80,8 @@ public class LoadYAML {
         return data;
     }
 
-    public LoadYAML() {
+    public LoadYAML(String bf) {
+        bfName = bf;
         items = loadItems();
         rooms = loadRooms();
     }

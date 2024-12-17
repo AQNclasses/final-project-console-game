@@ -1,0 +1,28 @@
+two new rooms:
+  maxpoints: 10
+  points: 9
+  feedback: excellent. Deducting one point because I got stuck in the Office.
+new ending:
+  maxpoints: 20
+  points: 20
+  feedback: nice two-phase ending
+locked door:
+  maxpoints: 15
+  points: 13
+  feedback: good clean implementation, could type locked state as boolean instead of string. got stuck a few times in rooms where i could not progress.
+item subclasses:
+  maxpoints: 30
+  points: 30
+  feedback: all item subclasses implemented or replaced and implemented. nice job using abstract class.
+new item subclass:
+  maxpoints: 15
+  points: 15
+  feedback: container is interesting, I can think of other subclasses or possible unification with rooms and the locked feature
+tests:
+  maxpoints: 10
+  points: 10
+  feedback: good, tests both use gamestate and independently test class attributes
+EC:
+  maxpoints: 15
+  points: 8
+  feedback: great combat and nice balanced difficulty vs healing!
