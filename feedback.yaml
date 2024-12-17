@@ -1,0 +1,28 @@
+two new rooms:
+  maxpoints: 10
+  points: 10
+  feedback: this is a song about the greatest living room in the world
+new ending:
+  maxpoints: 20
+  points: 20
+  feedback: two types of endings including health-related ending
+locked door:
+  maxpoints: 15
+  points: 15
+  feedback: good implementation of inventory check
+item subclasses:
+  maxpoints: 30
+  points: 15
+  feedback: you were meant to implement at least as many item subclasses as were provided (Plant, Key, etc). Also for max points abstract class modifier should be used.
+new item subclass:
+  maxpoints: 15
+  points: 15
+  feedback: Potion class is well developed
+tests:
+  maxpoints: 10
+  points: 10
+  feedback: good testing of GameState and health behavior
+EC:
+  maxpoints: 15
+  points: 5
+  feedback: good basic health feature
